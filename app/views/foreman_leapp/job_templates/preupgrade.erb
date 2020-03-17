@@ -1,22 +1,22 @@
 <%#
 kind: job_template
-name: Run preupgrade via leapp
-job_category: Commands
+name: Run preupgrade via Leapp
+job_category: Leapp
 description_format: 'Upgradeability check for rhel7 host'
 provider_type: SSH
 template_inputs:
 - name: debug
-  description: enabling --debug option of leapp
+  description: enabling --debug option of Leapp
   input_type: user
   required: false
   options: "true\nfalse"
 - name: leapp_auth_token_input
-  description: foreman user token to use with leapp for foreman_leapp API access
+  description: foreman user token to use with Leapp for foreman_leapp API access
   input_type: variable
   required: false
   variable_name: "leapp_auth_token"
 - name: leapp_auth_user_input
-  description: foreman user name to use with leapp for foreman_leapp API access
+  description: foreman user name to use with Leapp for foreman_leapp API access
   input_type: variable
   required: false
   variable_name: "leapp_auth_user"
