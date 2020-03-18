@@ -2,13 +2,14 @@
 
 module ForemanLeapp
   module HostsHelperExtensions
-    extend ActiveSupport::Concern
-
-    included do
-      # execute callbacks
+    def multiple_actions
+      super + [[_('Preupgrade check with Leapp'), new_job_invocation_path(feature: 'leapp_preupgrade'), false],
+               [_('Upgrade with Leapp'), new_job_invocation_path(feature: 'leapp_upgrade'), false]]
     end
 
-    # create or overwrite instance methods...
-    def instance_method_name; end
+    def rex_host_features(*args)
+      super + [link_to(_('Preupgrade check with Leapp'), new_job_invocation_path(:host_ids => [args.first.id], :feature => 'leapp_preupgrade')),
+               link_to(_('Upgrade with Leapp'), new_job_invocation_path(:host_ids => [args.first.id], :feature => 'leapp_upgrade'))]
+    end
   end
 end

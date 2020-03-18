@@ -30,10 +30,24 @@ module ForemanLeapp
     config.to_prepare do
       begin
         Host::Managed.include ForemanLeapp::HostExtensions
-        HostsHelper.include ForemanLeapp::HostsHelperExtensions
+        HostsHelper.prepend ForemanLeapp::HostsHelperExtensions
       rescue StandardError => e
         Rails.logger.warn "ForemanLeapp: skipping engine hook (#{e})"
       end
+
+      RemoteExecutionFeature.register(
+          :leapp_preupgrade,
+          N_('Preupgrade check with Leapp'),
+          :description => N_('Upgradeability check for RHEL 7 host'),
+          :host_action_button => false
+      )
+
+      RemoteExecutionFeature.register(
+          :leapp_upgrade,
+          N_('Upgrade with Leapp'),
+          :description => N_('Run Leapp upgrade job for RHEL 7 host'),
+          :host_action_button => false
+      )
     end
 
     rake_tasks do
