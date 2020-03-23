@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 module ForemanLeapp
+  JOB_CATEGORY = 'Leapp'
+
   class Engine < ::Rails::Engine
     engine_name 'foreman_leapp'
 
@@ -60,6 +62,13 @@ module ForemanLeapp
       locale_dir = File.join(File.expand_path('../..', __dir__), 'locale')
       locale_domain = 'foreman_leapp'
       Foreman::Gettext::Support.add_text_domain locale_domain, locale_dir
+    end
+
+    initializer 'ForemanLeapp.require_dynflow',
+                before: 'foreman_tasks.initialize_dynflow',
+                after: 'foreman_remote_execution.require_dynflow' do |_app|
+      ForemanTasks.dynflow.require!
+      ForemanTasks.dynflow.config.eager_load_paths << File.join(ForemanLeapp::Engine.root, 'app/lib/actions')
     end
   end
 end

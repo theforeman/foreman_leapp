@@ -5,20 +5,11 @@ job_category: Leapp
 description_format: 'Upgradeability check for RHEL 7 host'
 provider_type: SSH
 feature: leapp_preupgrade
-template_inputs:
-- name: leapp_auth_token_input
-  description: foreman user token to use with Leapp for foreman_leapp API access
-  input_type: variable
-  required: false
-  variable_name: "leapp_auth_token"
-- name: leapp_auth_user_input
-  description: foreman user name to use with Leapp for foreman_leapp API access
-  input_type: variable
-  required: false
-  variable_name: "leapp_auth_user"
 %>
 
 leapp preupgrade
-# XXX FIXME probably will be moved to client
-echo "{\"preupgrade_report\": $(cat /var/log/leapp/leapp-report.json), \"host\": \"<%=@host.name%>\", \"status\": $(echo $?)}" > /tmp/foreman_leapp_preupgrade.json
-curl -H 'Content-Type: application/json' -u <%=input('leapp_auth_user_input')%>:<%=input('leapp_auth_token_input')%> -X POST <%=foreman_server_url%>/api/v2/preupgrade_reports -d @/tmp/foreman_leapp_preupgrade.json
+
+echo "===leap_upgrade_report_start==="
+cat /var/log/leapp/leapp-report.json
+echo ""
+echo "===leap_upgrade_report_end==="
