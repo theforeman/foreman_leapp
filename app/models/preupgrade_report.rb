@@ -10,6 +10,7 @@ class PreupgradeReport < ::Report
     data['entries']&.each do |entry|
       entries << entry.except('timeStamp', 'id')
                       .merge(preupgrade_report: report,
+                             host_id: host.id,
                              hostname: host.hostname,
                              leapp_run_id: data['leapp_run_id'])
     end

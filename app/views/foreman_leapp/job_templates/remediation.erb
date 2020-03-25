@@ -1,0 +1,16 @@
+<%#
+kind: job_template
+name: Remediation plan
+job_category: Leapp
+description_format: 'Run Remediation plan with Leapp'
+provider_type: SSH
+feature: leapp_remediation_plan
+template_inputs:
+- name: remediation_ids
+  required: true
+  input_type: user
+  value_type: plain
+  description: List of remediation ids
+%>
+
+<%= build_remediation_plan(input('remediation_ids'), @host) %>

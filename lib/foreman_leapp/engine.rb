@@ -23,6 +23,7 @@ module ForemanLeapp
       Foreman::Plugin.register :foreman_leapp do
         requires_foreman '>= 1.16'
 
+        extend_template_helpers ForemanLeapp::TemplateHelper
         # add dashboard widget
         widget 'foreman_leapp_widget', name: N_('Foreman plugin template widget'), sizex: 4, sizey: 1
       end
@@ -48,6 +49,13 @@ module ForemanLeapp
           :leapp_upgrade,
           N_('Upgrade with Leapp'),
           :description => N_('Run Leapp upgrade job for RHEL 7 host'),
+          :host_action_button => false
+      )
+
+      RemoteExecutionFeature.register(
+          :leapp_remediation_plan,
+          N_('Remediation plan'),
+          :description => N_('Run Remediation plan with Leapp'),
           :host_action_button => false
       )
     end

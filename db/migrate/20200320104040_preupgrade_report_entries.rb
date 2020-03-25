@@ -2,6 +2,7 @@ class PreupgradeReportEntries < ActiveRecord::Migration[5.2]
   def up
     create_table :preupgrade_report_entries do |t|
       t.integer :preupgrade_report_id, null: false
+      t.string :host_id, null: false
       t.string :hostname, null: false
       t.string :title, null: false
       t.string :actor, null: false
@@ -16,10 +17,12 @@ class PreupgradeReportEntries < ActiveRecord::Migration[5.2]
     end
 
     add_index :preupgrade_report_entries, :preupgrade_report_id
+    add_index :preupgrade_report_entries, :host_id
   end
 
   def down
     remove_index :preupgrade_report_entries, :preupgrade_report_id
+    remove_index :preupgrade_report_entries, :host_id
     drop_table :preupgrade_report_entries
   end
 end

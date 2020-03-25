@@ -5,8 +5,9 @@ module Actions
         Actions::RemoteExecution::RunHostJob
       end
 
-      def plan(job_invocation, host, *args)
-        return unless job_invocation.job_category == ::ForemanLeapp::JOB_CATEGORY
+      def plan(job_invocation, host, template_invocation, *args)
+        rex_feature = RemoteExecutionFeature.find_by(job_template_id: template_invocation.template_id)&.label
+        return unless job_invocation.job_category == ::ForemanLeapp::JOB_CATEGORY && rex_feature == 'leapp_preupgrade'
 
         plan_self(host_id: host.id)
       end
