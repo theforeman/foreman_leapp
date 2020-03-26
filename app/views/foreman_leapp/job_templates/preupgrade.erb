@@ -8,8 +8,7 @@ feature: leapp_preupgrade
 %>
 
 leapp preupgrade
+[ $? -eq 0 ]  || exit 1
 
 echo "===leap_upgrade_report_start==="
 cat /var/log/leapp/leapp-report.json
-echo ""
-echo "===leap_upgrade_report_end==="

@@ -12,8 +12,8 @@ module Actions
       end
 
       def finalize(*args)
-        host = Host.find(self.input[:host_id])
-        leapp_report = format_output(self.task.main_action.continuous_output.humanize)
+        host = Host.find(input[:host_id])
+        leapp_report = format_output(task.main_action.continuous_output.humanize)
 
         PreupgradeReport.create_report(host, leapp_report)
       end
@@ -23,7 +23,7 @@ module Actions
       def format_output(job_output)
         output = job_output.each_line(chomp: true)
                      .drop_while { |l| ! l.start_with? '===leap_upgrade_report_start===' }.drop(1)
-                     .take_while { |l| ! l.start_with? '===leap_upgrade_report_end===' }
+                     .take_while { |l| ! l.start_with? 'Exit status:' }
                      .reject(&:empty?)
                      .join('')
         JSON.parse(output)
