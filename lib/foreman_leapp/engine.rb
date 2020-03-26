@@ -23,6 +23,16 @@ module ForemanLeapp
 
         # add dashboard widget
         widget 'foreman_leapp_widget', name: N_('Foreman plugin template widget'), sizex: 4, sizey: 1
+
+        # make sure is available to the foreman
+        register_global_js_file 'fills'
+
+        extend_page("job_invocations/show") do |context|
+          context.add_pagelet :main_tabs,
+            :name => _("LEAPP"),
+            :partial => "job_invocations/leapp_tab",
+            :onlyif => proc { |job_invocation| true }
+        end
       end
     end
 
@@ -30,24 +40,10 @@ module ForemanLeapp
     config.to_prepare do
       begin
         Host::Managed.include ForemanLeapp::HostExtensions
-        HostsHelper.prepend ForemanLeapp::HostsHelperExtensions
+        HostsHelper.include ForemanLeapp::HostsHelperExtensions
       rescue StandardError => e
         Rails.logger.warn "ForemanLeapp: skipping engine hook (#{e})"
       end
-
-      RemoteExecutionFeature.register(
-          :leapp_preupgrade,
-          N_('Preupgrade check with Leapp'),
-          :description => N_('Upgradeability check for RHEL 7 host'),
-          :host_action_button => false
-      )
-
-      RemoteExecutionFeature.register(
-          :leapp_upgrade,
-          N_('Upgrade with Leapp'),
-          :description => N_('Run Leapp upgrade job for RHEL 7 host'),
-          :host_action_button => false
-      )
     end
 
     rake_tasks do
