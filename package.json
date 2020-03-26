@@ -1,40 +1,65 @@
 {
   "name": "foreman_leapp",
   "version": "0.0.1",
-  "description": "Plugin for RHEL upgrades using Foreman.",
+  "description": "Upgrades en masse!",
   "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
   "scripts": {
-    "lint": "tfm-lint --plugin -d /webpack",
-    "link-leapp-js": "./script/link_leapp_js.sh",
-    "test": "tfm-test --plugin",
-    "test:watch": "tfm-test --plugin --watchAll",
-    "test:current": "tfm-test --plugin --watch",
-    "publish-coverage": "tfm-publish-coverage",
-    "stories": "tfm-stories --plugin",
-    "stories:build": "tfm-build-stories --plugin",
-    "stories:deploy": "surge --project .storybook-dist"
+    "test": "node node_modules/.bin/jest webpack",
+    "lint": "./node_modules/.bin/eslint -c .eslintrc webpack/"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/oamg/foreman_leapp.git"
+    "url": "git+https://github.com/theforeman/foreman_leapp.git"
   },
   "author": "LEAPP team + The Foreman team",
   "license": "GPL-3.0",
   "bugs": {
-    "url": "http://projects.theforeman.org/projects/foreman_leapp/issues"
+    "url": "https://projects.theforeman.org"
   },
-  "homepage": "https://github.com/oamg/foreman_leapp",
+  "homepage": "https://github.com/theforeman/foreman_leapp",
   "peerDependencies": {
-    "@theforeman/vendor": ">= 4.2.1"
+    "@theforeman/vendor": ">= 3.3.2"
   },
   "devDependencies": {
     "@babel/core": "^7.7.0",
-    "@theforeman/env": "^4.2.1",
-    "@theforeman/builder": "^4.2.1",
-    "@theforeman/vendor-dev": "^4.2.1",
-    "@theforeman/test": "^4.2.1",
+    "@theforeman/env": "^3.3.2",
+    "@theforeman/builder": "^4.0.2",
+    "@theforeman/vendor-dev": "^3.3.2",
     "babel-eslint": "^10.0.0",
+    "babel-jest": "^24.9.0",
+    "enzyme": "^3.7.0",
+    "enzyme-adapter-react-16": "^1.7.0",
+    "enzyme-to-json": "^3.3.5",
     "eslint": "^6.8.0",
-    "prettier": "^1.19.1"
+    "eslint-plugin-patternfly-react": "^0.3.0",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^24.9.0",
+    "prettier": "^1.19.1",
+    "react-redux-test-utils": "^0.1.1"
+  },
+  "jest": {
+    "verbose": true,
+    "moduleDirectories": [
+      "node_modules/@theforeman/vendor-core/node_modules",
+      "node_modules",
+      "webpack"
+    ],
+    "transform": {
+      "^.+\\.js$": "babel-jest"
+    },
+    "setupFiles": [
+      "raf/polyfill",
+      "./webpack/testSetup.js"
+    ],
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "<rootDir>/foreman/"
+    ],
+    "moduleNameMapper": {
+      "^.+\\.(css|scss)$": "identity-obj-proxy"
+    }
   }
 }
