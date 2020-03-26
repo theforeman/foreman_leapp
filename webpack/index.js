@@ -6,18 +6,8 @@
 import componentRegistry from 'foremanReact/components/componentRegistry';
 
 import JobInvocationLeappTab from './components/JobInvocationLeappTab';
-// cant resolve this for now
-// import Application from './containers/Application/index';
-//import './redux';
-// Not currently mocking anything
-// import './services/api/setupMocks';
 
 componentRegistry.register({
   name: 'JobInvocationLeappTab',
   type: JobInvocationLeappTab,
 });
-
-// componentRegistry.register({
-//   name: 'leapp',
-//   type: Application,
-// });
