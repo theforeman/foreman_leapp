@@ -13,3 +13,5 @@ locale/*/*.pox
 node_modules/*
 coverage/*
 package-lock.json
+node_modules
+package-lock.json
