@@ -13,4 +13,4 @@ template_inputs:
   description: List of remediation ids
 %>
 
-<%= build_remediation_plan(input('remediation_ids'), @host) %>
+<%= build_remediation_plan(input('remediation_ids').split(','), @host) %>

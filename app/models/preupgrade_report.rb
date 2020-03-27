@@ -5,16 +5,12 @@ class PreupgradeReport < ::Report
 
   def self.create_report(host, data)
     report = PreupgradeReport.create(host: host, status: 0, reported_at: DateTime.now.utc)
-    entries = []
 
     data['entries']&.each do |entry|
-      entries << entry.except('timeStamp', 'id')
-                      .merge(preupgrade_report: report,
-                             host_id: host.id,
-                             hostname: host.hostname,
-                             leapp_run_id: data['leapp_run_id'])
+      PreupgradeReportEntry.create! preupgrade_report: report, host_id: host.id, hostname: host.name,
+                                    title: entry['title'], actor: entry['actor'], audience: entry['audience'],
+                                    severity: entry['severity'], leapp_run_id: data['leapp_run_id'],
+                                    summary: entry['summary'], tags: entry['tags'].join(','), detail: entry['detail'].to_json
     end
-
-    PreupgradeReportEntry.create!(entries)
   end
 end
