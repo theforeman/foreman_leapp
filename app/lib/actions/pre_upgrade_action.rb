@@ -14,10 +14,9 @@ module Actions
 
       def finalize(*args)
         host = Host.find(input[:host_id])
-        job_invocation = JobInvocation.find(input[:job_invocation_id])
         leapp_report = format_output(task.main_action.continuous_output.humanize)
 
-        PreupgradeReport.create_report(host, leapp_report, job_invocation)
+        PreupgradeReport.create_report(host, leapp_report, input[:job_invocation_id])
       end
 
       private

@@ -4,9 +4,9 @@ class PreupgradeReport < ::Report
   belongs_to :job_invocation
   has_many :preupgrade_report_entries, dependent: :destroy
 
-  def self.create_report(host, data, job_invocation)
+  def self.create_report(host, data, job_invocation_id)
     report = PreupgradeReport.create(host: host, status: 0,
-                                     job_invocation: job_invocation,
+                                     job_invocation_id: job_invocation_id,
                                      reported_at: DateTime.now.utc)
 
     data['entries']&.each do |entry|
