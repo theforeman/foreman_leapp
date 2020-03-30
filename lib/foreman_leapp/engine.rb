@@ -32,7 +32,7 @@ module ForemanLeapp
                          partial: "job_invocations/leapp_preupgrade_report",
                          name: _('Leapp preupgrade report'),
                          id: 'leapp_preupgrade_report',
-                         onlyif: Proc.new { |subject| RemoteExecutionFeature.find_by(job_template_id: subject.template_invocations[0]&.template_id)&.label == 'leapp_preupgrade' }
+                         onlyif: Proc.new { |subject| subject.remote_execution_feature&.label == 'leapp_preupgrade' }
         end
       end
     end
