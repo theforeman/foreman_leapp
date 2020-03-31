@@ -81,11 +81,16 @@ module ForemanLeapp
       Foreman::Gettext::Support.add_text_domain locale_domain, locale_dir
     end
 
-    initializer 'ForemanLeapp.require_dynflow',
+    initializer 'foreman_leapp.require_dynflow',
                 before: 'foreman_tasks.initialize_dynflow',
                 after: 'foreman_remote_execution.require_dynflow' do |_app|
       ForemanTasks.dynflow.require!
       ForemanTasks.dynflow.config.eager_load_paths << File.join(ForemanLeapp::Engine.root, 'app/lib/actions')
+    end
+
+    initializer('foreman_leapp.extend_remote_execution',
+                after: 'foreman_leapp.require_foreman_remote_execution') do |_app|
+      RemoteExecutionHelper.prepend ForemanLeapp::RemoteExecutionHelperExtension
     end
   end
 end
