@@ -2,7 +2,7 @@
 
 class PreupgradeReportEntry < ApplicationRecord
   belongs_to :preupgrade_report
-  belongs_to :host
+  belongs_to_host
 
   validates :preupgrade_report, :host, :hostname, :title, :actor, :audience, :severity, :leapp_run_id, presence: true
 end
