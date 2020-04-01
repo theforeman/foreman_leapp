@@ -19,6 +19,9 @@ FactoryBot.define do
     leapp_run_id { SecureRandom.hex(8) }
     tags { %w[tag1 tag2] }
     summary { '' }
-    detail { '' }
+    detail do
+      { remediations: [{ type: 'hint', context: 'meh.' },
+                       { type: 'command', context: ['yum', '-y', 'remove', 'leapp_pkg'] }] }
+    end
   end
 end

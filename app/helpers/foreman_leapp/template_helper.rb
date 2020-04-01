@@ -6,17 +6,17 @@ module ForemanLeapp
       entries = PreupgradeReportEntry.where(id: remediation_ids, host: host)
                                      .where.not(detail: nil)
                                      .pluck(:detail)
-      result = +''
+      commands = []
 
       entries.each do |entry|
         entry['remediations']&.each do |remediation|
           next unless remediation['type'] == 'command'
 
-          result << "#{remediation['context'].join(' ')}\n"
+          commands << "#{remediation['context'].join(' ')}\n"
         end
       end
 
-      result
+      commands.join('')
     end
   end
 end
