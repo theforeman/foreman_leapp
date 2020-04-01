@@ -13,8 +13,7 @@ module Api
 
       api :GET, '/preupgrade_reports/:id', N_('Show Preupgrade report')
       param :id, :identifier, required: true
-      def show
-      end
+      def show; end
     end
   end
 end

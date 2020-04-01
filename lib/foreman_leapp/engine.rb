@@ -20,20 +20,23 @@ module ForemanLeapp
       end
     end
 
-    initializer 'foreman_leapp.register_plugin', :before => :finisher_hook do |_app|
+    initializer 'foreman_leapp.register_plugin', before: :finisher_hook do |_app|
       Foreman::Plugin.register :foreman_leapp do
         requires_foreman '>= 1.16'
 
         extend_template_helpers ForemanLeapp::TemplateHelper
+
+        # TODO: Do we need template widget?
+        # Maybe we can remove it
         # add dashboard widget
         widget 'foreman_leapp_widget', name: N_('Foreman plugin template widget'), sizex: 4, sizey: 1
 
-        extend_page "job_invocations/show" do |cx|
+        extend_page 'job_invocations/show' do |cx|
           cx.add_pagelet :main_tabs,
-                         partial: "job_invocations/leapp_preupgrade_report",
+                         partial: 'job_invocations/leapp_preupgrade_report',
                          name: _('Leapp preupgrade report'),
                          id: 'leapp_preupgrade_report',
-                         onlyif: Proc.new { |subject| subject.remote_execution_feature&.label == 'leapp_preupgrade' }
+                         onlyif: proc { |subject| subject.remote_execution_feature&.label == 'leapp_preupgrade' }
         end
       end
     end
@@ -41,7 +44,6 @@ module ForemanLeapp
     # Include concerns in this config.to_prepare block
     config.to_prepare do
       begin
-        Host::Managed.include ForemanLeapp::HostExtensions
         HostsHelper.prepend ForemanLeapp::HostsHelperExtensions
         Host::JobInvocation.include ForemanLeapp::JobInvocationExtensions
       rescue StandardError => e
@@ -49,24 +51,24 @@ module ForemanLeapp
       end
 
       RemoteExecutionFeature.register(
-          :leapp_preupgrade,
-          N_('Preupgrade check with Leapp'),
-          :description => N_('Upgradeability check for RHEL 7 host'),
-          :host_action_button => false
+        :leapp_preupgrade,
+        N_('Preupgrade check with Leapp'),
+        description: N_('Upgradeability check for RHEL 7 host'),
+        host_action_button: false
       )
 
       RemoteExecutionFeature.register(
-          :leapp_upgrade,
-          N_('Upgrade with Leapp'),
-          :description => N_('Run Leapp upgrade job for RHEL 7 host'),
-          :host_action_button => false
+        :leapp_upgrade,
+        N_('Upgrade with Leapp'),
+        description: N_('Run Leapp upgrade job for RHEL 7 host'),
+        host_action_button: false
       )
 
       RemoteExecutionFeature.register(
-          :leapp_remediation_plan,
-          N_('Remediation plan'),
-          :description => N_('Run Remediation plan with Leapp'),
-          :host_action_button => false
+        :leapp_remediation_plan,
+        N_('Remediation plan'),
+        description: N_('Run Remediation plan with Leapp'),
+        host_action_button: false
       )
     end
 

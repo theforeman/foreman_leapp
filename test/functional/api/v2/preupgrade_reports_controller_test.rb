@@ -18,7 +18,7 @@ module Api
       end
 
       test 'should get detail of report and its entries' do
-        get :show, params: { :id => @report.id }
+        get :show, params: { id: @report.id }
         assert_response :success
 
         response = ActiveSupport::JSON.decode(@response.body)

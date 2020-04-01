@@ -12,11 +12,23 @@ class PreupgradeReport < ::Report
                                      reported_at: DateTime.now.utc)
 
     data['entries']&.each do |entry|
-      PreupgradeReportEntry.create! preupgrade_report: report, host_id: host.id, hostname: host.name,
-                                    title: entry['title'], actor: entry['actor'], audience: entry['audience'],
-                                    severity: entry['severity'], leapp_run_id: data['leapp_run_id'],
-                                    summary: entry['summary'], tags: entry['tags'],
-                                    detail: entry['detail']
+      PreupgradeReportEntry.create! entry_params(report, entry, host, data)
     end
+  end
+
+  private
+
+  def entry_params(report, entry, host, data)
+    { preupgrade_report: report,
+      host_id: host.id,
+      hostname: host.name,
+      title: entry['title'],
+      actor: entry['actor'],
+      audience: entry['audience'],
+      severity: entry['severity'],
+      leapp_run_id: data['leapp_run_id'],
+      summary: entry['summary'],
+      tags: entry['tags'],
+      detail: entry['detail'] }
   end
 end

@@ -15,10 +15,10 @@ FactoryBot.define do
     sequence(:actor) { |n| "leapp_actor#{n}" }
     hostname { host.name }
     audience { 'sys_admin' }
-    severity { 'medium '}
+    severity { 'medium' }
     leapp_run_id { SecureRandom.hex(8) }
     tags { 'tag1, tag2' }
     summary { '' }
-    detail { ''}
+    detail { '' }
   end
 end

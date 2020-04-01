@@ -1,23 +1,32 @@
-Rails:
-  Enabled: true
+require:
+  - rubocop-minitest
+  - rubocop-performance
+  - rubocop-rails
+
+AllCops:
+  TargetRubyVersion: 2.5
+  TargetRailsVersion: 5.2
+  Exclude:
+    - 'node_modules/**/*'
+
+Bundler/OrderedGems:
+  Enabled: false
 
 # Don't enforce documentation
 Style/Documentation:
   Enabled: false
 
-# Force before_filter until upgrade to Rails 4
-Rails/ActionFilter:
-  EnforcedStyle: filter
-
 Metrics/MethodLength:
   Max: 20
 
-Metrics/LineLength:
-  Max: 111 # TODO: discuss and set this
+Layout/LineLength:
+  Max: 120
 
-Style/Next:
-  Enabled: false
+Style/HashEachMethods:
+  Enabled: true
 
-# Support both ruby19 and hash_rockets
-Style/HashSyntax:
-  Enabled: false
+Style/HashTransformKeys:
+  Enabled: true
+
+Style/HashTransformValues:
+  Enabled: true
