@@ -6,7 +6,7 @@ module ForemanLeapp
       entries = PreupgradeReportEntry.where(id: remediation_ids, host: host)
                                      .where.not(detail: nil)
                                      .pluck(:detail)
-      result = ''
+      result = +''
 
       entries.each do |entry|
         entry['remediations']&.each do |remediation|

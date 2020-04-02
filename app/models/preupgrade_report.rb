@@ -16,9 +16,7 @@ class PreupgradeReport < ::Report
     end
   end
 
-  private
-
-  def entry_params(report, entry, host, data)
+  def self.entry_params(report, entry, host, data)
     { preupgrade_report: report,
       host_id: host.id,
       hostname: host.name,
