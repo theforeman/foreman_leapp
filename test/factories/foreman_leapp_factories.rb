@@ -17,7 +17,7 @@ FactoryBot.define do
     audience { 'sys_admin' }
     severity { 'medium' }
     leapp_run_id { SecureRandom.hex(8) }
-    tags { 'tag1, tag2' }
+    tags { %w[tag1 tag2] }
     summary { '' }
     detail { '' }
   end
