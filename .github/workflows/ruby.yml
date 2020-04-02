@@ -70,3 +70,41 @@ jobs:
       run: |
         cd ~/foreman
         bundle exec rake test:foreman_leapp
+
+  rubocop:
+
+    runs-on: ubuntu-latest
+    env:
+      FOREMAN_PLUGIN_NAME: foreman_leapp
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Ruby 2.6
+      uses: actions/setup-ruby@v1
+      with:
+        ruby-version: 2.6.x
+    - name: Install bundler
+      run: gem install bundler
+    - uses: actions/cache@v1
+      with:
+        path: ~/vendor/bundle
+        key: ${{ runner.os }}-ruby-gems
+        restore-keys: |
+          ${{ runner.os }}-ruby-gems
+    - name: Clone foreman
+      run: |
+        git clone https://github.com/theforeman/foreman.git ~/foreman --depth 1
+        cd ~/foreman
+        echo -n "Foreman HEAD SHA1 hash: "
+        git show-ref HEAD | awk ' { print $1 } '
+        echo "gemspec :path => '${GITHUB_WORKSPACE}'" > bundler.d/${FOREMAN_PLUGIN_NAME}.local.rb
+    - name: Install dependencies
+      run: |
+        cd ~/foreman
+        bundle config path ~/vendor/bundle
+        bundle config set without 'journald development sqlite mysql2 console journald ovirt libvirt ec2 gce openstack rackspace vmware'
+        bundle install --jobs=3 --retry=3
+    - name: Run rubocop
+      run: |
+        cd ~/foreman
+        bundle exec rake foreman_leapp:rubocop
