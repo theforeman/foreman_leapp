@@ -4,7 +4,7 @@ class PreupgradeReport < ::Report
   belongs_to :job_invocation
   has_many :preupgrade_report_entries, dependent: :destroy
 
-  scoped_search :on => :job_invocation_id, :only_explicit => true
+  scoped_search on: :job_invocation_id, only_explicit: true
 
   def self.create_report(host, data, job_invocation_id)
     report = PreupgradeReport.create(host: host, status: 0,

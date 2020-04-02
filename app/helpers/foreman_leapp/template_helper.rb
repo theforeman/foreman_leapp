@@ -9,7 +9,7 @@ module ForemanLeapp
       result = ''
 
       entries.each do |entry|
-          entry['remediations']&.each do |remediation|
+        entry['remediations']&.each do |remediation|
           next unless remediation['type'] == 'command'
 
           result << "#{remediation['context'].join(' ')}\n"

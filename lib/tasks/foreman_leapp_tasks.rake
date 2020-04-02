@@ -32,7 +32,6 @@ namespace :foreman_leapp do
         task.patterns = ["#{ForemanLeapp::Engine.root}/app/**/*.rb",
                          "#{ForemanLeapp::Engine.root}/lib/**/*.rb",
                          "#{ForemanLeapp::Engine.root}/test/**/*.rb"]
-        task.options = ['--safe-auto-correct']
       end
     rescue StandardError
       puts 'Rubocop not loaded.'
