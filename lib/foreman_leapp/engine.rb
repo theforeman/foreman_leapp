@@ -26,11 +26,6 @@ module ForemanLeapp
 
         extend_template_helpers ForemanLeapp::TemplateHelper
 
-        # TODO: Do we need template widget?
-        # Maybe we can remove it
-        # add dashboard widget
-        widget 'foreman_leapp_widget', name: N_('Foreman plugin template widget'), sizex: 4, sizey: 1
-
         extend_page 'job_invocations/show' do |cx|
           cx.add_pagelet :main_tabs,
                          partial: 'job_invocations/leapp_preupgrade_report',
