@@ -2,13 +2,13 @@
 
 module Actions
   module ForemanLeapp
-    class PreUpgradeAction < Actions::EntryAction
+    class PreupgradeJob < Actions::EntryAction
       def self.subscribe
         Actions::RemoteExecution::RunHostJob
       end
 
       def plan(job_invocation, host, _template_invocation, *_args)
-        return unless correct_job?(job_invocation)
+        return unless leapp_preupgrade_job?(job_invocation)
 
         plan_self(host_id: host.id, job_invocation_id: job_invocation.id)
       end
@@ -31,11 +31,9 @@ module Actions
         JSON.parse(output)
       end
 
-      def correct_job?(job_invocation)
-        category = job_invocation.job_category == ::ForemanLeapp::JOB_CATEGORY
-        rex_feature = job_invocation.remote_execution_feature&.label == 'leapp_preupgrade'
-
-        category && rex_feature
+      def leapp_preupgrade_job?(job_invocation)
+        job_invocation.job_category == ::ForemanLeapp::JOB_CATEGORY &&
+          job_invocation.remote_execution_feature&.label == 'leapp_preupgrade'
       end
     end
   end
