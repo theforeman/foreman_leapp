@@ -6,40 +6,28 @@ module ForemanLeapp
   class PreupgradeJobTest < ActiveSupport::TestCase
     include Dynflow::Testing
 
-    let(:rex_feature) { RemoteExecutionFeature.find_by(label: 'leapp_preupgrade') }
-    let(:job_invocation) do
-      FactoryBot.create(:job_invocation, :with_task, :with_template,
-                        job_category: ::ForemanLeapp::JOB_CATEGORY,
-                        remote_execution_feature: rex_feature)
+    let(:host) { FactoryBot.create(:host) }
+    let(:job_template) do
+      FactoryBot.create(:job_template, template: 'echo "1"', job_category: 'leapp',
+                                       provider_type: 'SSH', name: 'Leapp preupgrade')
     end
-    let(:template_invocation) { job_invocation.template_invocations.first }
-    let(:host) { template_invocation.host }
+    let(:job_invocation) { FactoryBot.create(:job_invocation, job_category: ::ForemanLeapp::JOB_CATEGORY) }
+    let(:template_invocation) do
+      FactoryBot.create(:template_invocation, template: job_template, host: host,
+                                              job_invocation: job_invocation)
+    end
 
     let(:action) { create_action(Actions::ForemanLeapp::PreupgradeJob) }
     let(:planned_action) { plan_action(action, job_invocation, host, template_invocation) }
+
+    setup do
+      RemoteExecutionFeature.find_by(label: 'leapp_preupgrade').update(job_template: job_template)
+    end
 
     describe 'plan' do
       test 'run plan phase' do
         assert_equal planned_action.input['host_id'], host.id
         assert_equal planned_action.input['job_invocation_id'], job_invocation.id
-      end
-    end
-
-    describe '#correct_category?' do
-      it 'correct category & feature' do
-        assert action.send(:leapp_preupgrade_job?, FactoryBot.build(:job_invocation,
-                                                                    job_category: ::ForemanLeapp::JOB_CATEGORY,
-                                                                    remote_execution_feature: rex_feature))
-      end
-
-      it 'wrong category' do
-        assert_not action.send(:leapp_preupgrade_job?, FactoryBot.build(:job_invocation,
-                                                                        remote_execution_feature: rex_feature))
-      end
-
-      it 'wrong feature' do
-        assert_not action.send(:leapp_preupgrade_job?, FactoryBot.build(:job_invocation,
-                                                                        job_category: ::ForemanLeapp::JOB_CATEGORY))
       end
     end
 

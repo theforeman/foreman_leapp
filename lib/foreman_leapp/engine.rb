@@ -11,6 +11,7 @@ module ForemanLeapp
     config.autoload_paths += Dir["#{config.root}/app/helpers/concerns"]
     config.autoload_paths += Dir["#{config.root}/app/models/concerns"]
     config.autoload_paths += Dir["#{config.root}/app/overrides"]
+    config.autoload_paths += Dir["#{config.root}/app/lib/helpers"]
     config.autoload_paths += Dir["#{config.root}/test/"]
 
     # Add any db migrations
@@ -31,7 +32,7 @@ module ForemanLeapp
                          partial: 'job_invocations/leapp_preupgrade_report',
                          name: _('Leapp preupgrade report'),
                          id: 'leapp_preupgrade_report',
-                         onlyif: proc { |subject| subject.remote_execution_feature&.label == 'leapp_preupgrade' }
+                         onlyif: proc { |subject| ::Helpers::JobHelper.correct_feature?(subject, 'leapp_preupgrade') }
         end
       end
     end

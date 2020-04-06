@@ -30,3 +30,6 @@ Style/HashTransformKeys:
 
 Style/HashTransformValues:
   Enabled: true
+
+Rails/HelperInstanceVariable:
+  Enabled: false
