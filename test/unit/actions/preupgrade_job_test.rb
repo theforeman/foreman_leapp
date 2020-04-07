@@ -13,8 +13,7 @@ module ForemanLeapp
     end
     let(:job_invocation) { FactoryBot.create(:job_invocation, job_category: ::ForemanLeapp::JOB_CATEGORY) }
     let(:template_invocation) do
-      FactoryBot.create(:template_invocation, template: job_template, host: host,
-                                              job_invocation: job_invocation)
+      FactoryBot.create(:template_invocation, template: job_template, job_invocation: job_invocation)
     end
 
     let(:action) { create_action(Actions::ForemanLeapp::PreupgradeJob) }
