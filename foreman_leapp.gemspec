@@ -17,7 +17,7 @@ Gem::Specification.new do |s|
   s.files = Dir['{app,config,db,lib,locale}/**/*'] + ['LICENSE', 'Rakefile', 'README.md']
   s.test_files = Dir['test/**/*']
 
-  s.add_dependency 'foreman_remote_execution', '~> 3.0.3'
+  s.add_dependency 'foreman_remote_execution', '~> 3.1.0'
   s.add_development_dependency 'rdoc', '~> 6.2'
   s.add_development_dependency 'rubocop', '~> 0.80'
 end
