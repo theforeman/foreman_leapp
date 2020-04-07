@@ -1,4 +1,4 @@
 # frozen_string_literal: true
 
 # Matches foreman_leapp.gemspec
-_('TODO: Description of ForemanLeapp.')
+_('A foreman plugin to support inplace RHEL 7 -> RHEL 8 upgrades with Leapp utility.')
