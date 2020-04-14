@@ -7,7 +7,8 @@ module Api
     class PreupgradeReportsControllerTest < ActionController::TestCase
       setup do
         @host = FactoryBot.create(:host)
-        @report = FactoryBot.create(:preupgrade_report, host: @host)
+        @job_invocation = FactoryBot.create(:job_invocation)
+        @report = FactoryBot.create(:preupgrade_report, host: @host, job_invocation: @job_invocation)
         @entry = FactoryBot.create(:preupgrade_report_entry, host: @host, preupgrade_report: @report)
       end
 
@@ -18,7 +19,7 @@ module Api
       end
 
       test 'should get detail of report and its entries' do
-        get :show, params: { id: @report.id }
+        get :show, params: { id: @job_invocation.id }
         assert_response :success
 
         response = ActiveSupport::JSON.decode(@response.body)
