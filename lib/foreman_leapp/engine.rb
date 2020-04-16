@@ -25,6 +25,7 @@ module ForemanLeapp
       Foreman::Plugin.register :foreman_leapp do
         requires_foreman '>= 1.16'
 
+        apipie_documented_controllers ["#{ForemanLeapp::Engine.root}/app/controllers/api/v2/*.rb"]
         extend_template_helpers ForemanLeapp::TemplateHelper
 
         extend_page 'job_invocations/show' do |cx|
@@ -90,6 +91,10 @@ module ForemanLeapp
     initializer('foreman_leapp.extend_remote_execution',
                 after: 'foreman_leapp.require_foreman_remote_execution') do |_app|
       RemoteExecutionHelper.prepend ForemanLeapp::RemoteExecutionHelperExtension
+    end
+
+    initializer 'foreman_leapp.apipie' do
+      Apipie.configuration.checksum_path += ['/api/']
     end
   end
 end
