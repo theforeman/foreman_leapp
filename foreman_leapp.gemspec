@@ -14,7 +14,9 @@ Gem::Specification.new do |s|
   s.summary     = 'A Foreman plugin for Leapp utility.'
   s.description = 'A Foreman plugin to support inplace RHEL 7 -> RHEL 8 upgrades with Leapp utility.'
 
-  s.files = Dir['{app,config,db,lib,locale}/**/*'] + ['LICENSE', 'Rakefile', 'README.md']
+  s.files = Dir['{app,config,db,lib,locale,webpack}/**/*'] +
+            ['LICENSE', 'Rakefile', 'README.md'] +
+            ['package.json']
   s.test_files = Dir['test/**/*']
 
   s.add_dependency 'foreman_remote_execution', '~> 3.1'
