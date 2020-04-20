@@ -26,15 +26,6 @@ module ForemanLeapp
         requires_foreman '>= 1.16'
 
         apipie_documented_controllers ["#{ForemanLeapp::Engine.root}/app/controllers/api/v2/*.rb"]
-        security_block :foreman_leapp do
-          permission :view_preupgrade_reports, { preupgrade_reports: %i[index],
-                                                 'api/v2/preupgrade_reports': %i[index show] },
-                     resource_type: 'PreupgradeReport'
-        end
-
-        role 'Leapp User', [:view_preupgrade_reports], 'Role with permissions to access Leapp Preupgrade reports API.'
-        add_all_permissions_to_default_roles
-
         extend_template_helpers ForemanLeapp::TemplateHelper
 
         extend_page 'job_invocations/show' do |cx|

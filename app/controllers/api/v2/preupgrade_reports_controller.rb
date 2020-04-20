@@ -14,6 +14,14 @@ module Api
       def show
         @preupgrade_report = PreupgradeReport.find_by(job_invocation_id: params[:id])
       end
+
+      private
+
+      # By overriding path_to_authenticate we can require REX's permission view_job_invocations
+      def path_to_authenticate
+        Foreman::AccessControl.normalize_path_hash params.slice(:action, :id, :user_id)
+                                                         .merge({ controller: 'api/v2/job_invocations' })
+      end
     end
   end
 end
