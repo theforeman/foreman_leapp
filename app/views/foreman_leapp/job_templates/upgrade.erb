@@ -1,9 +1,9 @@
 <%#
 kind: job_template
 name: Run upgrade via Leapp
-job_category: Leapp
+job_category: Ansible Playbook
 description_format: 'Upgrade RHEL 7 host'
-provider_type: SSH
+provider_type: Ansible
 feature: leapp_upgrade
 template_inputs:
 - name: reboot
@@ -12,5 +12,13 @@ template_inputs:
   required: false
   options: "false\ntrue"
 %>
-
-leapp upgrade <%= "--reboot" if input('reboot') == "true" %>
+---
+- hosts: all
+  tasks:
+    - name: Run Leapp Upgrade
+      command: leapp upgrade
+<% if input('reboot') == "true" %>
+    - name: Reboot the machine
+      reboot:
+        reboot_timeout: 1800
+<% end %>
