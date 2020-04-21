@@ -97,6 +97,67 @@ exports[`PreupgradeReports should render when loaded 1`] = `
             ]
           }
         />
+        <UpgradeAllButton
+          csrfToken="xyz"
+          disabled={false}
+          postUrl="/job_invocations/new"
+          preupgradeReports={
+            Array [
+              Object {
+                "entries": Array [
+                  Object {
+                    "hostname": "host.example.com",
+                    "id": 42,
+                    "severity": "Too severe to talk about",
+                    "title": "Fix me!",
+                  },
+                  Object {
+                    "hostname": "host.example.com",
+                    "id": 43,
+                    "severity": "medium",
+                    "title": "I am broken too",
+                  },
+                ],
+                "hostId": 5,
+              },
+              Object {
+                "entries": Array [
+                  Object {
+                    "hostname": "foo.example.com",
+                    "id": 44,
+                    "severity": "high",
+                    "title": "Octocat is not happy",
+                  },
+                  Object {
+                    "hostname": "foo.example.com",
+                    "id": 45,
+                    "severity": "low",
+                    "title": "Not enough credits",
+                  },
+                  Object {
+                    "hostname": "foo.example.com",
+                    "id": 46,
+                    "severity": "medium",
+                    "title": "SELinux is turned off",
+                  },
+                  Object {
+                    "hostname": "foo.example.com",
+                    "id": 47,
+                    "severity": "medium",
+                    "title": "Root password is too short",
+                  },
+                  Object {
+                    "hostname": "foo.example.com",
+                    "id": 49,
+                    "severity": "high",
+                    "title": "No chocolate chip cookies in cookie jar",
+                  },
+                ],
+                "hostId": 6,
+              },
+            ]
+          }
+        />
       </div>
     </div>
   </Row>
@@ -182,6 +243,12 @@ exports[`PreupgradeReports should render when loading 1`] = `
         <FixAllButton
           csrfToken="xyz"
           disabled={true}
+          postUrl="/job_invocations/new"
+          preupgradeReports={Array []}
+        />
+        <UpgradeAllButton
+          csrfToken="xyz"
+          disabled={false}
           postUrl="/job_invocations/new"
           preupgradeReports={Array []}
         />

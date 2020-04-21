@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 
 import PreupgradeReportsList from '../PreupgradeReportsList';
 import FixAllButton from './components/FixAllButton';
+import UpgradeAllButton from './components/UpgradeAllButton';
 import EntriesFilter from './components/EntriesFilter';
 
 import {
@@ -61,6 +62,12 @@ const PreupgradeReports = ({
             <FixAllButton
               postUrl={newJobInvocationUrl}
               disabled={!anyEntriesFixable(preupgradeReports)}
+              csrfToken={csrfToken}
+              preupgradeReports={preupgradeReports}
+            />
+            <UpgradeAllButton
+              postUrl={newJobInvocationUrl}
+              disabled={false}
               csrfToken={csrfToken}
               preupgradeReports={preupgradeReports}
             />
