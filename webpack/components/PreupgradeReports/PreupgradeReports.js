@@ -67,7 +67,6 @@ const PreupgradeReports = ({
             />
             <UpgradeAllButton
               postUrl={newJobInvocationUrl}
-              disabled={false}
               csrfToken={csrfToken}
               preupgradeReports={preupgradeReports}
             />

@@ -99,7 +99,6 @@ exports[`PreupgradeReports should render when loaded 1`] = `
         />
         <UpgradeAllButton
           csrfToken="xyz"
-          disabled={false}
           postUrl="/job_invocations/new"
           preupgradeReports={
             Array [
@@ -248,7 +247,6 @@ exports[`PreupgradeReports should render when loading 1`] = `
         />
         <UpgradeAllButton
           csrfToken="xyz"
-          disabled={false}
           postUrl="/job_invocations/new"
           preupgradeReports={Array []}
         />

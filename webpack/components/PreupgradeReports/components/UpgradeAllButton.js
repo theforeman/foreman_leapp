@@ -5,19 +5,12 @@ import { translate as __ } from 'foremanReact/common/I18n';
 
 import { idsForInvocation } from '../PreupgradeReportsHelpers';
 
-const UpgradeAllButton = ({
-  preupgradeReports,
-  postUrl,
-  disabled,
-  csrfToken,
-}) => {
+const UpgradeAllButton = ({ preupgradeReports, postUrl, csrfToken }) => {
   const { hostIds } = idsForInvocation(preupgradeReports);
 
   return (
     <form action={postUrl} method="post">
-      <Button type="submit" disabled={disabled}>
-        {__('Run Upgrade')}
-      </Button>
+      <Button type="submit">{__('Run Upgrade')}</Button>
       <input type="hidden" name="authenticity_token" value={csrfToken} />
       <input type="hidden" name="feature" value="leapp_upgrade" />
       {hostIds.map(hostId => (
@@ -30,7 +23,6 @@ const UpgradeAllButton = ({
 UpgradeAllButton.propTypes = {
   preupgradeReports: PropTypes.array.isRequired,
   postUrl: PropTypes.string.isRequired,
-  disabled: PropTypes.bool.isRequired,
   csrfToken: PropTypes.string.isRequired,
 };
 
