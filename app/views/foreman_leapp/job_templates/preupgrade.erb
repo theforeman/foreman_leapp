@@ -7,6 +7,12 @@ provider_type: SSH
 feature: leapp_preupgrade
 %>
 
+if ! yum list installed -q leapp
+then
+  echo "Leapp is not installed."
+  exit 1
+fi
+
 leapp preupgrade
 [ $? -eq 0 ]  || exit 1
 
