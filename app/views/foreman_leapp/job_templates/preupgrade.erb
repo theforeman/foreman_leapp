@@ -13,6 +13,7 @@ then
   exit 1
 fi
 
+rm -f /var/log/leapp/leapp-report.json
 leapp preupgrade
 [ $? -eq 0 ]  || exit 1
 
