@@ -27,6 +27,7 @@ class PreupgradeReport < ::Report
       leapp_run_id: data['leapp_run_id'],
       summary: entry['summary'],
       tags: entry['tags'],
+      flags: entry['flags'],
       detail: entry['detail'] }
   end
 end
