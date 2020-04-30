@@ -7,15 +7,14 @@ provider_type: SSH
 feature: leapp_preupgrade
 %>
 
-if ! yum list installed -q leapp
+if ! command -v leapp > /dev/null
 then
   echo "Leapp is not installed."
   exit 1
 fi
 
-rm -f /var/log/leapp/leapp-report.json
 leapp preupgrade
-[ $? -eq 0 ]  || exit 1
 
 echo "===leap_upgrade_report_start==="
 cat /var/log/leapp/leapp-report.json
+rm -f /var/log/leapp/leapp-report.json

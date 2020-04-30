@@ -20,7 +20,7 @@ template_inputs:
   default: "true"
 %>
 
-if ! yum list installed -q leapp
+if ! command -v leapp > /dev/null
 then
   echo "Leapp is not installed."
   exit 1
