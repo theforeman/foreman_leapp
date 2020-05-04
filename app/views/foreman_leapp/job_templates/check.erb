@@ -1,0 +1,14 @@
+<%#
+name: Check Leapp
+description_format: 'Check if Leapp package is installed.'
+kind: job_template
+job_category: Leapp
+provider_type: SSH
+snippet: true
+%>
+
+if ! command -v leapp > /dev/null
+then
+  echo "Leapp is not installed."
+  exit 1
+fi

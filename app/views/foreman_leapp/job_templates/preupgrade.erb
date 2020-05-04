@@ -7,11 +7,7 @@ provider_type: SSH
 feature: leapp_preupgrade
 %>
 
-if ! command -v leapp > /dev/null
-then
-  echo "Leapp is not installed."
-  exit 1
-fi
+<%= render_template 'Check Leapp' %>
 
 leapp preupgrade
 

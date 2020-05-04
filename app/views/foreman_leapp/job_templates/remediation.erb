@@ -20,11 +20,7 @@ template_inputs:
   default: "true"
 %>
 
-if ! command -v leapp > /dev/null
-then
-  echo "Leapp is not installed."
-  exit 1
-fi
+<%= render_template 'Check Leapp' %>
 
 <%= build_remediation_plan(input('remediation_ids').split(','), @host) %>
 <% if input('run_preupgrade') == 'true' %>
