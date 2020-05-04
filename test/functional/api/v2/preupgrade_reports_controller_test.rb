@@ -12,53 +12,100 @@ module Api
         @entry = FactoryBot.create(:preupgrade_report_entry, host: @host, preupgrade_report: @report)
       end
 
-      test 'should get index' do
-        get :index, session: set_session_user
+      test 'should get :index' do
+        get :index
         assert_response :success
-        assert_not_empty ActiveSupport::JSON.decode(@response.body)['results']
+        assert_not_empty JSON.parse(@response.body)['results']
       end
 
-      test 'should get detail of report and its entries' do
-        get :show, params: { id: @job_invocation.id }
+      test 'should get :show' do
+        get :show, params: { id: @report.id }
         assert_response :success
 
-        response = ActiveSupport::JSON.decode(@response.body)
+        response = JSON.parse(@response.body)
         assert_equal response['id'], @report.id
         assert_not_empty response['preupgrade_report_entries']
       end
 
+      test 'should get :job_invocation' do
+        get :job_invocation, params: { id: @job_invocation.id }
+        assert_response :success
+        assert_not_empty JSON.parse(@response.body)
+      end
+
       context 'with permissions' do
-        test 'should get index with :view_job_invocations' do
-          setup_user 'view', 'job_invocations'
-          get :index, session: set_session_user(:one)
-          assert_response :success
+        setup do
+          @user = FactoryBot.create(:user, admin: false)
+          setup_user('view', 'job_invocations', nil, @user)
+          setup_user('view', 'hosts', nil, @user)
         end
 
-        test 'should get show with :view_job_invocations and :view_hosts' do
-          setup_user 'view', 'job_invocations'
-          setup_user 'view', 'hosts'
-          get :show, params: { id: @job_invocation.id }, session: set_session_user(:one)
+        test 'should get :index' do
+          get :index, session: set_session_user(@user)
           assert_response :success
+          assert_not_empty JSON.parse(@response.body)['results']
+        end
+
+        test 'should get :show' do
+          get :show, params: { id: @report.id }, session: set_session_user(@user)
+          assert_response :success
+          assert_equal @report.id, JSON.parse(@response.body)['id']
+        end
+
+        test 'should get :job_invocation' do
+          get :job_invocation, params: { id: @job_invocation.id }, session: set_session_user(@user)
+          assert_response :success
+          assert_not_empty JSON.parse(@response.body)
         end
       end
 
-      context 'without permissions' do
-        test 'should not get index without :view_job_invocations' do
-          setup_user 'view', 'hosts'
-          get :index, session: set_session_user(:one)
-          assert_response :forbidden
+      context 'without :view_job_invocations' do
+        setup do
+          @user = FactoryBot.create(:user, admin: false)
+          setup_user('view', 'hosts', nil, @user)
         end
 
-        test 'should not get show without :view_job_invocations' do
-          setup_user 'view', 'hosts'
-          get :show, params: { id: @job_invocation.id }, session: set_session_user(:one)
+        test 'should not get :index' do
+          get :index, session: set_session_user(@user)
           assert_response :forbidden
+          assert_includes JSON.parse(@response.body)['error']['missing_permissions'], 'view_job_invocations'
         end
 
-        test 'should not get show without :view_hosts' do
-          setup_user 'view', 'job_invocations'
-          get :show, params: { id: @job_invocation.id }, session: set_session_user(:one)
+        test 'should not get :show' do
+          get :show, params: { id: @report.id }, session: set_session_user(@user)
           assert_response :forbidden
+          assert_includes JSON.parse(@response.body)['error']['missing_permissions'], 'view_job_invocations'
+        end
+
+        test 'should not get :job_invocation' do
+          get :job_invocation, params: { id: @job_invocation.id }, session: set_session_user(@user)
+          assert_response :forbidden
+          assert_includes JSON.parse(@response.body)['error']['missing_permissions'], 'view_job_invocations'
+        end
+      end
+
+      context 'without :view_hosts' do
+        setup do
+          @user = FactoryBot.create(:user, admin: false)
+          setup_user('view', 'job_invocations', nil, @user)
+        end
+
+        test 'should not get :index' do
+          get :index, session: set_session_user(@user)
+          assert_response :forbidden
+          assert_includes JSON.parse(@response.body)['error']['missing_permissions'], 'view_hosts'
+        end
+
+        test 'should not get :job_invocation' do
+          get :show, params: { id: @report.id }, session: set_session_user(@user)
+          assert_response :forbidden
+          assert_includes JSON.parse(@response.body)['error']['missing_permissions'], 'view_hosts'
+        end
+
+        test 'should not get :job_invocation' do
+          get :job_invocation, params: { id: @job_invocation.id }, session: set_session_user(@user)
+          assert_response :forbidden
+          assert_includes JSON.parse(@response.body)['error']['missing_permissions'], 'view_hosts'
         end
       end
     end
