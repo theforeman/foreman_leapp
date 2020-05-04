@@ -14,7 +14,7 @@ import {
   getSeverity,
   getSummary,
   getTags,
-  severityToCssClass,
+  getSeverityImg,
 } from './helpers';
 
 import { entryFixable } from '../../PreupgradeReports/PreupgradeReportsHelpers';
@@ -38,12 +38,7 @@ const PreupgradeReportEntry = ({ entry, isEntrySelected, toggleSelected }) => (
         <Icon type="pf" name="cluster" /> {entry.hostname}
       </ListView.InfoItem>,
       <ListView.InfoItem key={itemIteratorId(entry, entry.severity)}>
-        <Icon
-          type="pf"
-          name="resources-full"
-          className={severityToCssClass(entry.severity)}
-        />
-        {entry.severity}
+        {getSeverityImg(entry)}
       </ListView.InfoItem>,
       hasRemediations(entry),
       <InhibitorInfoItem key={itemIteratorId(entry, 'flags')} entry={entry} />,

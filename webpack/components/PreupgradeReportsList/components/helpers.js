@@ -1,16 +1,12 @@
 import React from 'react';
 import { Grid, ListView, Badge, Icon } from 'patternfly-react';
 import EmptyInfoItem from './EmptyInfoItem';
+import SeverityHigh from './images/i_severity-high.svg';
+import SeverityMedium from './images/i_severity-med.svg';
+import SeverityLow from './images/i_severity-low.svg';
 
 export const itemIteratorId = (entry, ...rest) =>
   `${entry.id}-${entry.preupgradeReportId}-${rest.join('-')}`;
-
-export const severityToCssClass = severity => {
-  if (['low', 'medium', 'high'].includes(severity)) {
-    return `severity-${severity}`;
-  }
-  return `severity-unknown`;
-};
 
 export const tagInfo = tags =>
   tags.map(attr => (
@@ -18,6 +14,49 @@ export const tagInfo = tags =>
       {attr}
     </Badge>
   ));
+
+export const getSeverityImg = entry => {
+  const key = itemIteratorId(entry, `sv${entry.id}`);
+
+  switch (entry.severity) {
+    case 'low':
+      return (
+        <img
+          key={key}
+          src={SeverityLow}
+          alt="Low Severity"
+          className="severity-img"
+        />
+      );
+    case 'medium':
+      return (
+        <img
+          key={key}
+          src={SeverityMedium}
+          alt="Medium Severity"
+          className="severity-img"
+        />
+      );
+    case 'high':
+      return (
+        <img
+          key={key}
+          src={SeverityHigh}
+          alt="High Severity"
+          className="severity-img"
+        />
+      );
+    default:
+      return (
+        <img
+          key={key}
+          src={SeverityLow}
+          alt="Low Severity"
+          className="severity-img"
+        />
+      );
+  }
+};
 
 export const hasRemediations = entry => {
   const key = itemIteratorId(entry, `rm${entry.id}`);
@@ -54,12 +93,7 @@ export const getSeverity = entry => {
           <strong>Risk Factor</strong>
         </Grid.Col>
         <Grid.Col md={8}>
-          <Icon
-            type="pf"
-            name="resources-full"
-            className={severityToCssClass(entry.severity)}
-          />{' '}
-          {entry.severity}
+          {getSeverityImg(entry)} {entry.severity}
         </Grid.Col>
       </Grid.Row>
     );

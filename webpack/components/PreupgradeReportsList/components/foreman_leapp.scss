@@ -5,21 +5,11 @@
 }
 
 .pre-wrap{
-  white-space: pre-wrap;
-}
+    white-space: pre-wrap;
+  }
 
-.severity-low {
-  color: $color-pf-blue-300;
-}
-
-.severity-medium {
-  color: $color-pf-gold-400;
-}
-
-.severity-high {
-  color: $color-pf-red-100;
-}
-
-.severity-unknown {
-  color: $color-pf-black-500;
+.severity-img{
+  width: 18px;
+  height: 18px;
+  margin-right: 10px;
 }

@@ -13,14 +13,6 @@ exports[`PreupgradeReportList/helpers should detect if has remediations 1`] = `
 </ListViewInfoItem>
 `;
 
-exports[`PreupgradeReportList/helpers should return css class for high severity 1`] = `"severity-high"`;
-
-exports[`PreupgradeReportList/helpers should return css class for low severity 1`] = `"severity-low"`;
-
-exports[`PreupgradeReportList/helpers should return css class for medium severity 1`] = `"severity-medium"`;
-
-exports[`PreupgradeReportList/helpers should return css class for unknown severity 1`] = `"severity-unknown"`;
-
 exports[`PreupgradeReportList/helpers should return externals 1`] = `
 Array [
   <Row
@@ -99,10 +91,10 @@ exports[`PreupgradeReportList/helpers should return severity 1`] = `
     componentClass="div"
     md={8}
   >
-    <Icon
-      className="severity-high"
-      name="resources-full"
-      type="pf"
+    <img
+      alt="High Severity"
+      className="severity-img"
+      src={[Function]}
     />
      
     high

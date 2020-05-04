@@ -19,12 +19,11 @@ exports[`PreupgradeReportEntry should render 1`] = `
         className=""
         stacked={false}
       >
-        <Icon
-          className="severity-low"
-          name="resources-full"
-          type="pf"
+        <img
+          alt="Low Severity"
+          className="severity-img"
+          src={[Function]}
         />
-        low
       </ListViewInfoItem>,
       <EmptyInfoItem
         attr="remediation"
@@ -116,10 +115,11 @@ exports[`PreupgradeReportEntry should render 1`] = `
         componentClass="div"
         md={8}
       >
-        <Icon
-          className="severity-low"
-          name="resources-full"
-          type="pf"
+        <img
+          alt="Low Severity"
+          className="severity-img"
+          key="5-7-sv5"
+          src={[Function]}
         />
          
         low
