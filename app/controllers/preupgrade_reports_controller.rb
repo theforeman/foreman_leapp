@@ -7,7 +7,7 @@ class PreupgradeReportsController < ::Api::V2::BaseController
     @preupgrade_reports = PreupgradeReport.search_for(*search_options)
                                           .includes(:preupgrade_report_entries)
                                           .joins(:host)
-                                          .merge(Host.all.authorized(:view_hosts, Host))
+                                          .merge(Host.authorized(:view_hosts, Host))
                                           .paginate(paginate_options)
   end
 
