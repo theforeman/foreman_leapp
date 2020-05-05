@@ -10,7 +10,6 @@ module Api
         @job_invocation = FactoryBot.create(:job_invocation)
         @report = FactoryBot.create(:preupgrade_report, host: @host, job_invocation: @job_invocation)
         @entry = FactoryBot.create(:preupgrade_report_entry, host: @host, preupgrade_report: @report)
-        TargetingHost.create(targeting: @job_invocation.targeting, host: @host)
       end
 
       test 'should get :index' do
@@ -31,7 +30,7 @@ module Api
       test 'should get :job_invocation' do
         get :job_invocation, params: { id: @job_invocation.id }
         assert_response :success
-        assert_not_empty JSON.parse(@response.body)
+        assert_not_empty JSON.parse(@response.body)['results']
       end
 
       context 'with permissions' do
@@ -56,7 +55,7 @@ module Api
         test 'should get :job_invocation' do
           get :job_invocation, params: { id: @job_invocation.id }, session: set_session_user(@user)
           assert_response :success
-          assert_not_empty JSON.parse(@response.body)
+          assert_not_empty JSON.parse(@response.body)['results']
         end
       end
 

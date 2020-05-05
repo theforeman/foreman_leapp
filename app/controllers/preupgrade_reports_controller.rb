@@ -4,11 +4,7 @@ class PreupgradeReportsController < ::Api::V2::BaseController
   include ApiAuthorizer
 
   def index
-    @preupgrade_reports = PreupgradeReport.search_for(*search_options)
-                                          .includes(:preupgrade_report_entries)
-                                          .joins(:host)
-                                          .merge(Host.authorized(:view_hosts, Host))
-                                          .paginate(paginate_options)
+    @preupgrade_reports = resource_scope_for_index
   end
 
   private

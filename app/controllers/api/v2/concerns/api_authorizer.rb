@@ -16,4 +16,10 @@ module ApiAuthorizer
                                   locals: { details: _('Missing one of the required permissions: view_hosts'),
                                             missing_permissions: 'view_hosts' }
   end
+
+  def resource_scope(_options = {})
+    scope = PreupgradeReport.joins(:host).merge(Host.authorized(:view_hosts, Host))
+    scope = scope.where(job_invocation_id: params[:id]) if action_name == 'job_invocation'
+    @resource_scope ||= scope
+  end
 end
