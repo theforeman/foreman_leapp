@@ -10,6 +10,7 @@ module Api
         @job_invocation = FactoryBot.create(:job_invocation)
         @report = FactoryBot.create(:preupgrade_report, host: @host, job_invocation: @job_invocation)
         @entry = FactoryBot.create(:preupgrade_report_entry, host: @host, preupgrade_report: @report)
+        TargetingHost.create(targeting: @job_invocation.targeting, host: @host)
       end
 
       test 'should get :index' do

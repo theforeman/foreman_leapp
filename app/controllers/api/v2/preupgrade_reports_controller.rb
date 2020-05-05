@@ -8,19 +8,24 @@ module Api
       api :GET, '/preupgrade_reports/', N_('List Preupgrade reports')
       param_group :search_and_pagination, ::Api::V2::BaseController
       def index
-        @preupgrade_reports = PreupgradeReport.search_for(*search_options).paginate(paginate_options)
+        @preupgrade_reports = PreupgradeReport.search_for(*search_options)
+                                              .joins(:host)
+                                              .merge(Host.all.authorized(:view_hosts, Host))
+                                              .paginate(paginate_options)
       end
 
       api :GET, '/preupgrade_reports/:id', N_('Show Preupgrade report')
       param :id, :identifier, required: true
       def show
         @preupgrade_report = PreupgradeReport.find(params[:id])
+        not_found unless @preupgrade_report.host.authorized?(:view_hosts)
       end
 
       api :GET, '/job_invocations/:id/preupgrade_reports', N_('List Preupgrade reports for Job invocation')
       param :id, :identifier, required: true
       def job_invocation
-        @preupgrade_reports = PreupgradeReport.where(job_invocation_id: params[:id])
+        hosts = JobInvocation.find(params[:id]).targeting.hosts.authorized(:view_hosts, Host)
+        @preupgrade_reports = PreupgradeReport.where(job_invocation_id: params[:id], host_id: hosts.ids)
       end
 
       private
