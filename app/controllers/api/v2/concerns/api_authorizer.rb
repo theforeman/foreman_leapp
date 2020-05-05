@@ -18,8 +18,10 @@ module ApiAuthorizer
   end
 
   def resource_scope(_options = {})
-    scope = PreupgradeReport.joins(:host).merge(Host.authorized(:view_hosts, Host))
-    scope = scope.where(job_invocation_id: params[:id]) if action_name == 'job_invocation'
-    @resource_scope ||= scope
+    @resource_scope ||= begin
+      scope = PreupgradeReport.joins(:host).merge(Host.authorized(:view_hosts, Host))
+      scope = scope.where(job_invocation_id: params[:id]) if action_name == 'job_invocation'
+      scope
+    end
   end
 end
