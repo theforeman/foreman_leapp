@@ -4,7 +4,7 @@ class PreupgradeReportsController < ::Api::V2::BaseController
   include ApiAuthorizer
 
   def index
-    @preupgrade_reports = resource_scope_for_index
+    @preupgrade_reports = resource_scope.search_for(*search_options)
   end
 
   private
