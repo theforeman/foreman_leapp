@@ -23,7 +23,7 @@ module ForemanLeapp
 
     initializer 'foreman_leapp.register_plugin', before: :finisher_hook do |_app|
       Foreman::Plugin.register :foreman_leapp do
-        requires_foreman '>= 1.16'
+        requires_foreman '>= 2.1'
 
         apipie_documented_controllers ["#{ForemanLeapp::Engine.root}/app/controllers/api/v2/*.rb"]
         extend_template_helpers ForemanLeapp::TemplateHelper
