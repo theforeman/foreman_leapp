@@ -10,7 +10,7 @@ import SortableHeaderItem from './SortableHeaderItem';
 const PreupgradeReportsListHeader = ({ sort, changeSort, toggleSelectAll }) => {
   const additionalInfoColumns = [
     { label: __('Host'), value: 'hostname' },
-    { label: __('Severity'), value: 'severity' },
+    { label: __('Risk Factor'), value: 'severity' },
     { label: __('Has Remediation?'), value: 'fix' },
     { label: __('Inhibitor?'), value: 'inhibitor' },
   ];

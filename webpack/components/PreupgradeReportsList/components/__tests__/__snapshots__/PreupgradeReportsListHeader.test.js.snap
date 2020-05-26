@@ -36,7 +36,7 @@ exports[`PreupgradeReportsListHeader should render 1`] = `
                 "order": "asc",
               }
             }
-            title="Severity"
+            title="Risk Factor"
             value="severity"
           />
         </strong>

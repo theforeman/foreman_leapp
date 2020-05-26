@@ -17,7 +17,7 @@ const EntriesFilter = ({
 
   const filterTypes = [
     { value: 'title', label: __('Title') },
-    { value: 'severity', label: __('Severity') },
+    { value: 'severity', label: __('Risk Factor') },
     { value: 'hostname', label: __('Host') },
     { value: 'fix', label: __('Fix Type') },
     { value: 'inhibitor', label: __('Inhibitor') },

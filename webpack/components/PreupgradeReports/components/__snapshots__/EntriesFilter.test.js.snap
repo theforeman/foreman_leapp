@@ -41,7 +41,7 @@ exports[`EntriresFilter should render for host filter 1`] = `
             key="severity"
             onClick={[Function]}
           >
-            Severity
+            Risk Factor
           </MenuItem>
           <MenuItem
             active={true}
@@ -112,7 +112,7 @@ exports[`EntriresFilter should render for severity filter 1`] = `
         <DropdownButton
           componentClass={[Function]}
           id="entry-filter"
-          title="Severity"
+          title="Risk Factor"
         >
           <MenuItem
             active={false}
@@ -134,7 +134,7 @@ exports[`EntriresFilter should render for severity filter 1`] = `
             key="severity"
             onClick={[Function]}
           >
-            Severity
+            Risk Factor
           </MenuItem>
           <MenuItem
             active={false}
@@ -277,7 +277,7 @@ exports[`EntriresFilter should render for title filter 1`] = `
             key="severity"
             onClick={[Function]}
           >
-            Severity
+            Risk Factor
           </MenuItem>
           <MenuItem
             active={false}
