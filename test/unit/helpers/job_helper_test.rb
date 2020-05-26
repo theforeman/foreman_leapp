@@ -10,7 +10,7 @@ module Helpers
       FactoryBot.create(:job_template, template: 'echo "1"', job_category: 'leapp',
                                        provider_type: 'SSH', name: 'Leapp preupgrade')
     end
-    let(:job_invocation) { FactoryBot.create(:job_invocation, job_category: ::ForemanLeapp::JOB_CATEGORY) }
+    let(:job_invocation) { FactoryBot.create(:job_invocation) }
 
     describe 'correct_feature?' do
       setup do
@@ -18,16 +18,10 @@ module Helpers
         FactoryBot.create(:template_invocation, template: job_template, job_invocation: job_invocation)
       end
 
-      it 'correct category & feature' do
+      it 'correct feature' do
         assert helper.correct_feature?(job_invocation, 'leapp_preupgrade')
       end
 
-      it 'wrong category' do
-        job_invocation = FactoryBot.create(:job_invocation, job_category: 'NOPE')
-        FactoryBot.create(:template_invocation, template: job_template, job_invocation: job_invocation)
-
-        assert_not helper.correct_feature?(job_invocation, 'leapp_preupgrade')
-      end
 
       it 'wrong feature' do
         assert_not helper.correct_feature?(job_invocation, 'leapp_preupgrade2')

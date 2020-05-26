@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 module ForemanLeapp
-  JOB_CATEGORY = 'Leapp'
-
   class Engine < ::Rails::Engine
     engine_name 'foreman_leapp'
 

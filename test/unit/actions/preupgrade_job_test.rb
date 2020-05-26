@@ -11,7 +11,7 @@ module ForemanLeapp
       FactoryBot.create(:job_template, template: 'echo "1"', job_category: 'leapp',
                                        provider_type: 'SSH', name: 'Leapp preupgrade')
     end
-    let(:job_invocation) { FactoryBot.create(:job_invocation, job_category: ::ForemanLeapp::JOB_CATEGORY) }
+    let(:job_invocation) { FactoryBot.create(:job_invocation) }
     let(:template_invocation) do
       FactoryBot.create(:template_invocation, template: job_template, job_invocation: job_invocation)
     end
