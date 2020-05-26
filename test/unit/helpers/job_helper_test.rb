@@ -5,7 +5,7 @@ require 'test_plugin_helper'
 module Helpers
   class JobHelperTest < ActionView::TestCase
     let(:helper) { ::Helpers::JobHelper }
-    # let(:host) { FactoryBot.create(:host) }
+
     let(:job_template) do
       FactoryBot.create(:job_template, template: 'echo "1"', job_category: 'leapp',
                                        provider_type: 'SSH', name: 'Leapp preupgrade')
@@ -21,7 +21,6 @@ module Helpers
       it 'correct feature' do
         assert helper.correct_feature?(job_invocation, 'leapp_preupgrade')
       end
-
 
       it 'wrong feature' do
         assert_not helper.correct_feature?(job_invocation, 'leapp_preupgrade2')
