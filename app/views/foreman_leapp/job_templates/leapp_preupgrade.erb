@@ -1,7 +1,7 @@
 <%#
 kind: job_template
 name: Run preupgrade via Leapp
-job_category: Leapp
+job_category: Leapp - Preupgrade
 description_format: 'Upgradeability check for RHEL 7 host'
 provider_type: SSH
 feature: leapp_preupgrade
@@ -9,8 +9,8 @@ feature: leapp_preupgrade
 
 <%= render_template 'Check Leapp' %>
 
+rm -f /var/log/leapp/leapp-report.json
 leapp preupgrade
 
 echo "===leap_upgrade_report_start==="
 cat /var/log/leapp/leapp-report.json
-rm -f /var/log/leapp/leapp-report.json

@@ -1,8 +1,8 @@
 <%#
 kind: job_template
-name: Remediation plan
-job_category: Leapp
-description_format: 'Run Remediation plan with Leapp'
+name: Run remediation plan via Leapp
+job_category: Other
+description_format: 'Run remediation plan via Leapp'
 provider_type: SSH
 feature: leapp_remediation_plan
 template_inputs:
@@ -12,7 +12,7 @@ template_inputs:
   input_type: user
   value_type: plain
   description: List of remediation ids
-- name: run_preupgrade
+- name: Run Preupgrade job after
   description: Run preupgrade check again when remediation entries are fixed.
   input_type: user
   required: true
@@ -23,6 +23,6 @@ template_inputs:
 <%= render_template 'Check Leapp' %>
 
 <%= build_remediation_plan(input('remediation_ids').split(','), @host) %>
-<% if input('run_preupgrade') == 'true' %>
+<% if input('Run Preupgrade job after') == 'true' %>
   <%= render_template 'Run preupgrade via Leapp' %>
 <% end %>
