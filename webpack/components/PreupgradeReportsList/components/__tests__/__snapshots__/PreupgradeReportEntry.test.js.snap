@@ -20,7 +20,7 @@ exports[`PreupgradeReportEntry should render 1`] = `
         stacked={false}
       >
         <img
-          alt="Low Severity"
+          alt="Low Risk Factor"
           className="severity-img"
           src={[Function]}
         />
@@ -116,7 +116,7 @@ exports[`PreupgradeReportEntry should render 1`] = `
         md={8}
       >
         <img
-          alt="Low Severity"
+          alt="Low Risk Factor"
           className="severity-img"
           key="5-7-sv5"
           src={[Function]}

@@ -92,7 +92,7 @@ exports[`PreupgradeReportList/helpers should return severity 1`] = `
     md={8}
   >
     <img
-      alt="High Severity"
+      alt="High Risk Factor"
       className="severity-img"
       src={[Function]}
     />
