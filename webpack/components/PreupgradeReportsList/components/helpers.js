@@ -24,7 +24,7 @@ export const getSeverityImg = entry => {
         <img
           key={key}
           src={SeverityLow}
-          alt="Low Severity"
+          alt="Low Risk Factor"
           className="severity-img"
         />
       );
@@ -33,7 +33,7 @@ export const getSeverityImg = entry => {
         <img
           key={key}
           src={SeverityMedium}
-          alt="Medium Severity"
+          alt="Medium Risk Factor"
           className="severity-img"
         />
       );
@@ -42,7 +42,7 @@ export const getSeverityImg = entry => {
         <img
           key={key}
           src={SeverityHigh}
-          alt="High Severity"
+          alt="High Risk Factor"
           className="severity-img"
         />
       );
@@ -51,7 +51,7 @@ export const getSeverityImg = entry => {
         <img
           key={key}
           src={SeverityLow}
-          alt="Low Severity"
+          alt="Low Risk Factor"
           className="severity-img"
         />
       );
