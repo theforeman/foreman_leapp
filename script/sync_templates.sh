@@ -22,12 +22,7 @@ popd
 # Move into destination dir if run from plugin root
 [ -d app/views/foreman_leapp/job_templates/ ] && cd app/views/foreman_leapp/job_templates/
 
-rsync -r \
-  --exclude README.md \
-  --exclude '.*' \
-  --exclude test \
-  --exclude Rakefile \
-  $REPO/ct/job_templates/*.erb ./
+rsync -r $REPO/ct/job_templates/*.erb ./
 
 cd -
 

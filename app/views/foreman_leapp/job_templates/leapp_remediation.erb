@@ -13,7 +13,7 @@ template_inputs:
   input_type: user
   value_type: plain
   description: List of remediation ids
-- name: Run Preupgrade job after
+- name: run_preupgrade
   description: Run preupgrade check again when remediation entries are fixed.
   input_type: user
   required: true
@@ -24,6 +24,6 @@ template_inputs:
 <%= render_template 'Check Leapp' %>
 
 <%= build_remediation_plan(input('remediation_ids').split(','), @host) %>
-<% if input('Run Preupgrade job after') == 'true' %>
+<% if input('run_preupgrade') == 'true' %>
   <%= render_template 'Run preupgrade via Leapp' %>
 <% end %>
