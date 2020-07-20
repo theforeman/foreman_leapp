@@ -2,12 +2,10 @@
 #
 # This file is distributed under the same license as foreman_leapp.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: version 0.0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-20 08:46+0100\n"
 "PO-Revision-Date: 2014-08-20 08:54+0100\n"
 "Last-Translator: Foreman Team <foreman-dev@googlegroups.com>\n"
 "Language-Team: Foreman Team <foreman-dev@googlegroups.com>\n"
@@ -17,3 +15,107 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+msgid "A foreman plugin to support inplace RHEL 7 -> RHEL 8 upgrades with Leapp utility."
+msgstr ""
+
+msgid "All"
+msgstr ""
+
+msgid "Command"
+msgstr ""
+
+msgid "Fix Selected"
+msgstr ""
+
+msgid "Fix Type"
+msgstr ""
+
+msgid "Has Remediation?"
+msgstr ""
+
+msgid "High"
+msgstr ""
+
+msgid "Hint"
+msgstr ""
+
+msgid "Host"
+msgstr ""
+
+msgid "Info"
+msgstr ""
+
+msgid "Inhibitor"
+msgstr ""
+
+msgid "Inhibitor?"
+msgstr ""
+
+msgid "Leapp preupgrade report"
+msgstr ""
+
+msgid "List Preupgrade reports"
+msgstr ""
+
+msgid "List Preupgrade reports for Job invocation"
+msgstr ""
+
+msgid "Low"
+msgstr ""
+
+msgid "Medium"
+msgstr ""
+
+msgid "Missing one of the required permissions: view_hosts"
+msgstr ""
+
+msgid "No"
+msgstr ""
+
+msgid "No Preupgrade Report Available"
+msgstr ""
+
+msgid "Preupgrade check with Leapp"
+msgstr ""
+
+msgid "Remediation plan"
+msgstr ""
+
+msgid "Rerun preupgrade check"
+msgstr ""
+
+msgid "Risk Factor"
+msgstr ""
+
+msgid "Run Leapp Preupgrade check again"
+msgstr ""
+
+msgid "Run Leapp upgrade job for RHEL 7 host"
+msgstr ""
+
+msgid "Run Remediation plan with Leapp"
+msgstr ""
+
+msgid "Run Upgrade"
+msgstr ""
+
+msgid "Show Preupgrade report"
+msgstr ""
+
+msgid "The preupgrade report will be available after the job finishes"
+msgstr ""
+
+msgid "This issue inhibits the upgrade."
+msgstr ""
+
+msgid "Title"
+msgstr ""
+
+msgid "Upgrade with Leapp"
+msgstr ""
+
+msgid "Upgradeability check for RHEL 7 host"
+msgstr ""
+
+msgid "Yes"
+msgstr ""

@@ -1,19 +1,175 @@
-# foreman_leapp
-#
-# This file is distributed under the same license as foreman_leapp.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the foreman_leapp package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: version 0.0.1\n"
+"Project-Id-Version: foreman_leapp 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-20 08:46+0100\n"
-"PO-Revision-Date: 2014-08-20 08:46+0100\n"
-"Last-Translator: Foreman Team <foreman-dev@googlegroups.com>\n"
-"Language-Team: Foreman Team <foreman-dev@googlegroups.com>\n"
+"POT-Creation-Date: 2020-07-20 08:46+0200\n"
+"PO-Revision-Date: 2020-07-20 08:46+0200\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
+#: ../app/controllers/api/v2/concerns/api_authorizer.rb:16
+msgid "Missing one of the required permissions: view_hosts"
+msgstr ""
+
+#: ../app/controllers/api/v2/preupgrade_reports_controller.rb:10
+msgid "List Preupgrade reports"
+msgstr ""
+
+#: ../app/controllers/api/v2/preupgrade_reports_controller.rb:16
+msgid "Show Preupgrade report"
+msgstr ""
+
+#: ../app/controllers/api/v2/preupgrade_reports_controller.rb:22
+msgid "List Preupgrade reports for Job invocation"
+msgstr ""
+
+#: ../app/helpers/concerns/foreman_leapp/hosts_helper_extensions.rb:6
+#: ../app/helpers/concerns/foreman_leapp/hosts_helper_extensions.rb:11
+#: ../lib/foreman_leapp/engine.rb:53
+msgid "Preupgrade check with Leapp"
+msgstr ""
+
+#: ../app/helpers/concerns/foreman_leapp/hosts_helper_extensions.rb:7
+#: ../app/helpers/concerns/foreman_leapp/hosts_helper_extensions.rb:13
+#: ../lib/foreman_leapp/engine.rb:60
+msgid "Upgrade with Leapp"
+msgstr ""
+
+#: ../app/helpers/concerns/foreman_leapp/remote_execution_helper_extension.rb:8
+msgid "Rerun preupgrade check"
+msgstr ""
+
+#:
+#: ../app/helpers/concerns/foreman_leapp/remote_execution_helper_extension.rb:11
+msgid "Run Leapp Preupgrade check again"
+msgstr ""
+
+#: ../lib/foreman_leapp/engine.rb:32
+msgid "Leapp preupgrade report"
+msgstr ""
+
+#: ../lib/foreman_leapp/engine.rb:54
+msgid "Upgradeability check for RHEL 7 host"
+msgstr ""
+
+#: ../lib/foreman_leapp/engine.rb:61
+msgid "Run Leapp upgrade job for RHEL 7 host"
+msgstr ""
+
+#: ../lib/foreman_leapp/engine.rb:67
+msgid "Remediation plan"
+msgstr ""
+
+#: ../lib/foreman_leapp/engine.rb:68
+msgid "Run Remediation plan with Leapp"
+msgstr ""
+
+#: ../webpack/components/PreupgradeReports/components/EntriesFilter.js:19
+#: ../webpack/components/PreupgradeReportsList/components/PreupgradeReportsListHeader.js:38
+msgid "Title"
+msgstr ""
+
+#: ../webpack/components/PreupgradeReports/components/EntriesFilter.js:20
+#: ../webpack/components/PreupgradeReportsList/components/PreupgradeReportsListHeader.js:13
+msgid "Risk Factor"
+msgstr ""
+
+#: ../webpack/components/PreupgradeReports/components/EntriesFilter.js:21
+#: ../webpack/components/PreupgradeReportsList/components/PreupgradeReportsListHeader.js:12
+msgid "Host"
+msgstr ""
+
+#: ../webpack/components/PreupgradeReports/components/EntriesFilter.js:22
+msgid "Fix Type"
+msgstr ""
+
+#: ../webpack/components/PreupgradeReports/components/EntriesFilter.js:23
+#: ../webpack/components/PreupgradeReportsList/components/InhibitorInfoItem.js:21
+msgid "Inhibitor"
+msgstr ""
+
+#: ../webpack/components/PreupgradeReports/components/EntriesFilter.js:27
+#: ../webpack/components/PreupgradeReports/components/EntriesFilter.js:35
+#: ../webpack/components/PreupgradeReports/components/EntriesFilter.js:41
+msgid "All"
+msgstr ""
+
+#: ../webpack/components/PreupgradeReports/components/EntriesFilter.js:28
+msgid "Low"
+msgstr ""
+
+#: ../webpack/components/PreupgradeReports/components/EntriesFilter.js:29
+msgid "Medium"
+msgstr ""
+
+#: ../webpack/components/PreupgradeReports/components/EntriesFilter.js:30
+msgid "High"
+msgstr ""
+
+#: ../webpack/components/PreupgradeReports/components/EntriesFilter.js:31
+msgid "Info"
+msgstr ""
+
+#: ../webpack/components/PreupgradeReports/components/EntriesFilter.js:36
+msgid "Hint"
+msgstr ""
+
+#: ../webpack/components/PreupgradeReports/components/EntriesFilter.js:37
+msgid "Command"
+msgstr ""
+
+#: ../webpack/components/PreupgradeReports/components/EntriesFilter.js:42
+msgid "Yes"
+msgstr ""
+
+#: ../webpack/components/PreupgradeReports/components/EntriesFilter.js:43
+msgid "No"
+msgstr ""
+
+#: ../webpack/components/PreupgradeReports/components/FixSelectedButton.js:12
+msgid "Fix Selected"
+msgstr ""
+
+#: ../webpack/components/PreupgradeReports/components/NoReports.js:17
+msgid "The preupgrade report will be available after the job finishes"
+msgstr ""
+
+#: ../webpack/components/PreupgradeReports/components/NoReports.js:25
+msgid "No Preupgrade Report Available"
+msgstr ""
+
+#: ../webpack/components/PreupgradeReports/components/UpgradeAllButton.js:13
+msgid "Run Upgrade"
+msgstr ""
+
+#:
+#: ../webpack/components/PreupgradeReportsList/components/InhibitorInfoItem.js:17
+msgid "This issue inhibits the upgrade."
+msgstr ""
+
+#:
+#: ../webpack/components/PreupgradeReportsList/components/PreupgradeReportsListHeader.js:14
+msgid "Has Remediation?"
+msgstr ""
+
+#:
+#: ../webpack/components/PreupgradeReportsList/components/PreupgradeReportsListHeader.js:15
+msgid "Inhibitor?"
+msgstr ""
+
+#: gemspec.rb:4
+msgid ""
+"A foreman plugin to support inplace RHEL 7 -> RHEL 8 upgrades with Leapp utili"
+"ty."
+msgstr ""
