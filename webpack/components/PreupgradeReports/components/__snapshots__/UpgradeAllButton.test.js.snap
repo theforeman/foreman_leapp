@@ -25,5 +25,17 @@ exports[`UpgradeAllButton should render 1`] = `
     type="hidden"
     value="leapp_upgrade"
   />
+  <input
+    key="5"
+    name="host_ids[]"
+    type="hidden"
+    value={5}
+  />
+  <input
+    key="6"
+    name="host_ids[]"
+    type="hidden"
+    value={6}
+  />
 </form>
 `;

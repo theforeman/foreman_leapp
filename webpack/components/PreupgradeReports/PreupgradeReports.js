@@ -110,8 +110,8 @@ const PreupgradeReports = ({
   );
 };
 
-const withLoadingState = Component => props => {
-  const { error, loading, preupgradeReports, reportsExpected } = props;
+const withLoadingState = Component => componentProps => {
+  const { error, loading, preupgradeReports, reportsExpected } = componentProps;
 
   if (!isEmpty(error)) {
     return (
@@ -126,7 +126,7 @@ const withLoadingState = Component => props => {
   return (
     <LoadingState loading={loading}>
       {preupgradeReports.length > 0 ? (
-        <Component {...props} />
+        <Component {...componentProps} />
       ) : (
         <NoReports reportsExpected={reportsExpected} />
       )}
