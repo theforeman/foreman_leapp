@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { ListView } from 'patternfly-react';
 import PropTypes from 'prop-types';
 
-import Pagination from 'foremanReact/components/Pagination/PaginationWrapper';
+import Pagination from 'foremanReact/components/Pagination';
 import { useForemanSettings } from 'foremanReact/Root/Context/ForemanContext';
 
 import PreupgradeReportEntry from './components/PreupgradeReportEntry';
@@ -22,7 +22,7 @@ const PreupgradeReportsList = ({
   const { perPage, perPageOptions } = useForemanSettings();
   const [pagination, setPagination] = useState({
     page: 1,
-    perPage,
+    per_page: perPage,
     perPageOptions,
   });
 
@@ -44,9 +44,7 @@ const PreupgradeReportsList = ({
       <Pagination
         viewType="list"
         itemCount={allEntries.length}
-        pagination={pagination}
         onChange={newPage => setPagination({ ...pagination, ...newPage })}
-        dropdownButtonId="preupgrade-report-entries-pagination-dropdown"
       />
     </ListView>
   );
