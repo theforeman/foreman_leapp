@@ -41,13 +41,16 @@ module ForemanLeapp
           permission :view_job_invocations, { :preupgrade_reports => %i[index show job_invocation],
                                               'api/v2/preupgrade_reports' => %i[index show job_invocation] }
         end
+
+        describe_host do
+          multiple_actions_provider :leapp_hosts_multiple_actions
+        end
       end
     end
 
     # Include concerns in this config.to_prepare block
     config.to_prepare do
       begin
-        ::HostsHelper.prepend ForemanLeapp::HostsHelperExtensions
         ::JobInvocation.include ForemanLeapp::JobInvocationExtensions
       rescue StandardError => e
         Rails.logger.warn "ForemanLeapp: skipping engine hook (#{e})"
