@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
   s.email       = ['foreman-dev@googlegroups.com']
   s.homepage    = 'https://github.com/theforeman/foreman_leapp'
   s.summary     = 'A Foreman plugin for Leapp utility.'
-  s.description = 'A Foreman plugin to support inplace RHEL 7 -> RHEL 8 upgrades with Leapp utility.'
+  s.description = 'A Foreman plugin to support inplace RHEL upgrades with Leapp utility.'
 
   s.files = Dir['{app,config,db,lib,locale,webpack}/**/*'] +
             ['LICENSE', 'Rakefile', 'README.md'] +

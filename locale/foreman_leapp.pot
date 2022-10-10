@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: foreman_leapp 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-20 08:46+0200\n"
-"PO-Revision-Date: 2020-07-20 08:46+0200\n"
+"POT-Creation-Date: 2022-10-10 10:24+0200\n"
+"PO-Revision-Date: 2022-10-10 10:24+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -34,44 +34,35 @@ msgstr ""
 msgid "List Preupgrade reports for Job invocation"
 msgstr ""
 
-#: ../app/helpers/concerns/foreman_leapp/hosts_helper_extensions.rb:6
-#: ../app/helpers/concerns/foreman_leapp/hosts_helper_extensions.rb:11
-#: ../lib/foreman_leapp/engine.rb:53
+#: ../app/helpers/concerns/foreman_leapp/remote_execution_helper_extension.rb:6
+#: ../app/helpers/foreman_leapp/hosts_helper.rb:6
+#: ../lib/foreman_leapp/engine.rb:93
 msgid "Preupgrade check with Leapp"
 msgstr ""
 
-#: ../app/helpers/concerns/foreman_leapp/hosts_helper_extensions.rb:7
-#: ../app/helpers/concerns/foreman_leapp/hosts_helper_extensions.rb:13
-#: ../lib/foreman_leapp/engine.rb:60
-msgid "Upgrade with Leapp"
-msgstr ""
-
 #: ../app/helpers/concerns/foreman_leapp/remote_execution_helper_extension.rb:8
-msgid "Rerun preupgrade check"
-msgstr ""
-
-#:
-#: ../app/helpers/concerns/foreman_leapp/remote_execution_helper_extension.rb:11
-msgid "Run Leapp Preupgrade check again"
+#: ../app/helpers/foreman_leapp/hosts_helper.rb:8
+#: ../lib/foreman_leapp/engine.rb:100
+msgid "Upgrade with Leapp"
 msgstr ""
 
 #: ../lib/foreman_leapp/engine.rb:32
 msgid "Leapp preupgrade report"
 msgstr ""
 
-#: ../lib/foreman_leapp/engine.rb:54
-msgid "Upgradeability check for RHEL 7 host"
+#: ../lib/foreman_leapp/engine.rb:94
+msgid "Upgradeability check for RHEL host"
 msgstr ""
 
-#: ../lib/foreman_leapp/engine.rb:61
-msgid "Run Leapp upgrade job for RHEL 7 host"
+#: ../lib/foreman_leapp/engine.rb:101
+msgid "Run Leapp upgrade job for RHEL host"
 msgstr ""
 
-#: ../lib/foreman_leapp/engine.rb:67
+#: ../lib/foreman_leapp/engine.rb:107
 msgid "Remediation plan"
 msgstr ""
 
-#: ../lib/foreman_leapp/engine.rb:68
+#: ../lib/foreman_leapp/engine.rb:108
 msgid "Run Remediation plan with Leapp"
 msgstr ""
 
@@ -141,6 +132,12 @@ msgstr ""
 msgid "Fix Selected"
 msgstr ""
 
+#: ../webpack/components/PreupgradeReports/components/NoReports.js:12
+msgid ""
+"The preupgrade report could not be generated, check the job details for the re"
+"ason"
+msgstr ""
+
 #: ../webpack/components/PreupgradeReports/components/NoReports.js:17
 msgid "The preupgrade report will be available after the job finishes"
 msgstr ""
@@ -149,7 +146,7 @@ msgstr ""
 msgid "No Preupgrade Report Available"
 msgstr ""
 
-#: ../webpack/components/PreupgradeReports/components/UpgradeAllButton.js:13
+#: ../webpack/components/PreupgradeReports/components/UpgradeAllButton.js:8
 msgid "Run Upgrade"
 msgstr ""
 
@@ -168,8 +165,26 @@ msgstr ""
 msgid "Inhibitor?"
 msgstr ""
 
+#: action_names.rb:2
+msgid "Remote action:"
+msgstr ""
+
+#: action_names.rb:3
+msgid "Import Puppet classes"
+msgstr ""
+
+#: action_names.rb:4
+msgid "Import facts"
+msgstr ""
+
+#: action_names.rb:5
+msgid "Action with sub plans"
+msgstr ""
+
+#: action_names.rb:6
+msgid "Preupgrade job"
+msgstr ""
+
 #: gemspec.rb:4
-msgid ""
-"A foreman plugin to support inplace RHEL 7 -> RHEL 8 upgrades with Leapp utili"
-"ty."
+msgid "A Foreman plugin to support inplace RHEL upgrades with Leapp utility."
 msgstr ""

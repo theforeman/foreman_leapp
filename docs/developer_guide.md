@@ -1,5 +1,5 @@
 # Developer guide
-The `foreman_leapp` plugin enables the consumer to use a job template to upgrade Red Hat Enterprise Linux 7 hosts to Red Hat Enterprise Linux 8.
+The `foreman_leapp` plugin enables the consumer to use a job template to upgrade Red Hat Enterprise Linux hosts.
 
 **Example usage**
 
@@ -42,6 +42,12 @@ subscription-manager list --available --match-installed
 subscription-manager attach --pool POOL_ID
 ```
 
+**Enable repositories**
+```shell
+subscription-manager repos --enable rhel-7-server-rpms
+subscription-manager repos --enable rhel-7-server-extras-rpms
+```
+
 **Update to the latest `7.x` version**
 ```shell
 yum clean all
@@ -54,9 +60,6 @@ cat /etc/os-release
 
 **Install Leapp tool**
 ```shell
-subscription-manager repos --enable rhel-7-server-rpms
-subscription-manager repos --enable rhel-7-server-extras-rpms
-
 yum install -y leapp
 ```
 

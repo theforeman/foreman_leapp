@@ -1,6 +1,6 @@
 # ForemanLeapp
 
-This plugin allows to run inplace upgrades for RHEL 7 hosts in Foreman using Leapp tool.
+This plugin allows to run inplace upgrades for RHEL hosts in Foreman using Leapp tool.
 For more information about Leapp tool check [github](https://github.com/oamg/leapp) or [developer docs](https://leapp.readthedocs.io/en/latest/).
 
 ## Installation
