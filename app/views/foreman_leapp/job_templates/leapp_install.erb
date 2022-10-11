@@ -1,0 +1,44 @@
+<%#
+kind: job_template
+name: Install Leapp
+job_category: Leapp - Install
+description_format: 'Install Leapp CLI tool'
+provider_type: Ansible
+model: JobTemplate
+oses:
+- RedHat
+%>
+<%
+  os_major = @host.operatingsystem.major.to_i
+  rhel_compatible = @host.operatingsystem.family == 'Redhat' && @host.operatingsystem.name == 'RedHat'
+  supported_version = [7, 8].include? os_major
+
+  repos = case os_major
+    when 7
+      ['rhel-7-server-rpms', 'rhel-7-server-extras-rpms']
+    when 8
+      ['rhel-8-for-x86_64-baseos-rpms', 'rhel-8-for-x86_64-appstream-rpms']
+    end
+
+  package = case os_major
+    when 7
+      'leapp'
+    when 8
+      'leapp-upgrade'
+    end
+-%>
+---
+- hosts: all
+  tasks:
+<% if rhel_compatible && supported_version -%>
+    - name: Enable Leapp repositories
+      command: subscription-manager repos <%= repos.map{|r| "--enable #{r}"}.join(" ") %>
+    - name: Install <%= package %>
+      package:
+        name: <%= package %>
+        state: present
+<% else -%>
+    - name: Fail if the target server is not RHEL
+      fail:
+        msg: "This playbook can be executed only on RHEL server version 7 and 8."
+<% end -%>
