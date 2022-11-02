@@ -78,11 +78,6 @@ module ForemanLeapp
       ForemanTasks.dynflow.config.eager_load_paths << File.join(ForemanLeapp::Engine.root, 'app/lib/actions')
     end
 
-    initializer('foreman_leapp.extend_remote_execution',
-                after: 'foreman_leapp.require_foreman_remote_execution') do |_app|
-      RemoteExecutionHelper.prepend ForemanLeapp::RemoteExecutionHelperExtension
-    end
-
     initializer 'foreman_leapp.apipie' do
       Apipie.configuration.checksum_path += ['/api/']
     end
@@ -92,14 +87,14 @@ module ForemanLeapp
         :leapp_preupgrade,
         N_('Preupgrade check with Leapp'),
         description: N_('Upgradeability check for RHEL host'),
-        host_action_button: false
+        host_action_button: true
       )
 
       RemoteExecutionFeature.register(
         :leapp_upgrade,
         N_('Upgrade with Leapp'),
         description: N_('Run Leapp upgrade job for RHEL host'),
-        host_action_button: false
+        host_action_button: true
       )
 
       RemoteExecutionFeature.register(
