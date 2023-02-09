@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 
@@ -29,20 +29,13 @@ const WrappedPreupgradeReports = ({ url, newJobInvocationUrl }) => {
 
   const reportsExpected = useSelector(state => selectReportsExpected(state));
 
-  const previousInvocationRef = useRef();
-  useEffect(() => {
-    previousInvocationRef.current = invocationPending;
-  });
-
-  const previousInvocationPending = previousInvocationRef.current;
-
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (previousInvocationPending && !invocationPending) {
+    if (!invocationPending) {
       dispatch(getPreupgradeReportsAction(url));
     }
-  }, [dispatch, url, invocationPending, previousInvocationPending]);
+  }, [dispatch, url, invocationPending]);
 
   return (
     <PreupgradeReports
