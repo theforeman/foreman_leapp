@@ -25,15 +25,15 @@
   },
   "homepage": "https://github.com/oamg/foreman_leapp",
   "peerDependencies": {
-    "@theforeman/vendor": ">= 8.3.3"
+    "@theforeman/vendor": ">= 8.16.0"
   },
   "devDependencies": {
     "@babel/core": "^7.7.0",
-    "@theforeman/builder": "^8.3.3",
-    "@theforeman/eslint-plugin-foreman": "8.3.3",
-    "@theforeman/stories": "^8.3.3",
-    "@theforeman/test": "^8.3.3",
-    "@theforeman/vendor-dev": "^8.3.3",
+    "@theforeman/builder": "^10.0",
+    "@theforeman/eslint-plugin-foreman": "^10.0",
+    "@theforeman/stories": "^10.0",
+    "@theforeman/test": "^10.0",
+    "@theforeman/vendor-dev": "^10.0",
     "babel-eslint": "^10.0.0",
     "eslint": "^6.8.0",
     "jest-svg-transformer": "^1.0.0",

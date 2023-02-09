@@ -2,7 +2,6 @@ name: JS
 on:
   pull_request:
     paths:
-      - 'config/webpack.config.js'
       - 'webpack/**'
       - 'package.json'
       - '.github/workflows/js_ci.yml'
@@ -12,7 +11,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        node-version: [12]
+        node-version: [14]
     steps:
       - uses: actions/checkout@v2
       - name: Setup Node
