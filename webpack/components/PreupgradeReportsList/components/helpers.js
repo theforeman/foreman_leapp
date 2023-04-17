@@ -1,5 +1,7 @@
 import React from 'react';
 import { Grid, ListView, Badge, Icon } from 'patternfly-react';
+import { translate as __ } from 'foremanReact/common/I18n';
+
 import EmptyInfoItem from './EmptyInfoItem';
 import SeverityHigh from './images/i_severity-high.svg';
 import SeverityMedium from './images/i_severity-med.svg';
@@ -24,7 +26,7 @@ export const getSeverityImg = entry => {
         <img
           key={key}
           src={SeverityLow}
-          alt="Low Risk Factor"
+          alt={__('Low Risk Factor')}
           className="severity-img"
         />
       );
@@ -33,7 +35,7 @@ export const getSeverityImg = entry => {
         <img
           key={key}
           src={SeverityMedium}
-          alt="Medium Risk Factor"
+          alt={__('Medium Risk Factor')}
           className="severity-img"
         />
       );
@@ -42,7 +44,7 @@ export const getSeverityImg = entry => {
         <img
           key={key}
           src={SeverityHigh}
-          alt="High Risk Factor"
+          alt={__('High Risk Factor')}
           className="severity-img"
         />
       );
@@ -51,7 +53,7 @@ export const getSeverityImg = entry => {
         <img
           key={key}
           src={SeverityLow}
-          alt="Low Risk Factor"
+          alt={__('Low Risk Factor')}
           className="severity-img"
         />
       );
@@ -63,7 +65,7 @@ export const hasRemediations = entry => {
   if (entry.detail && entry.detail.remediations) {
     return (
       <ListView.InfoItem key={key}>
-        <Icon type="pf" name="warning-triangle-o" /> Has Remediation
+        <Icon type="pf" name="warning-triangle-o" /> {__('Has Remediation')}
       </ListView.InfoItem>
     );
   }
@@ -76,7 +78,7 @@ export const getTitle = entry => {
     return (
       <Grid.Row>
         <Grid.Col md={1}>
-          <strong>Title</strong>
+          <strong>{__('Title')}</strong>
         </Grid.Col>
         <Grid.Col md={8}>{entry.title}</Grid.Col>
       </Grid.Row>
@@ -90,7 +92,7 @@ export const getSeverity = entry => {
     return (
       <Grid.Row className="top-padded">
         <Grid.Col md={1}>
-          <strong>Risk Factor</strong>
+          <strong>{__('Risk Factor')}</strong>
         </Grid.Col>
         <Grid.Col md={8}>
           {getSeverityImg(entry)} {entry.severity}
@@ -106,7 +108,7 @@ export const getSummary = entry => {
     return (
       <Grid.Row className="top-padded">
         <Grid.Col md={1}>
-          <strong>Summary</strong>
+          <strong>{__('Summary')}</strong>
         </Grid.Col>
         <Grid.Col md={8} className="pre-wrap">
           {entry.summary}
@@ -122,7 +124,7 @@ export const getTags = entry => {
     return (
       <Grid.Row className="top-padded">
         <Grid.Col md={1}>
-          <strong>Tags</strong>
+          <strong>{__('Tags')}</strong>
         </Grid.Col>
         <Grid.Col md={8}>{tagInfo(entry.tags)}</Grid.Col>
       </Grid.Row>
@@ -138,7 +140,7 @@ export const getExternals = entry => {
       return (
         <Grid.Row className="top-padded" key={key}>
           <Grid.Col md={1}>
-            <strong>Links</strong>
+            <strong>{__('Links')}</strong>
           </Grid.Col>
           <Grid.Col md={8}>
             <a href={attr.url}>{attr.title}</a>
@@ -158,7 +160,7 @@ export const getRemediations = entry => {
         return (
           <Grid.Row className="top-padded" key={key}>
             <Grid.Col md={1}>
-              <strong>Hint</strong>
+              <strong>{__('Hint')}</strong>
             </Grid.Col>
             <Grid.Col md={8}>{attr.context}</Grid.Col>
           </Grid.Row>
@@ -168,7 +170,7 @@ export const getRemediations = entry => {
         return (
           <Grid.Row className="top-padded" key={key}>
             <Grid.Col md={1}>
-              <strong>Command</strong>
+              <strong>{__('Command')}</strong>
             </Grid.Col>
             <Grid.Col md={8}>
               <code>{attr.context.join(' ')}</code>

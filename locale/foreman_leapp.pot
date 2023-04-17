@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: foreman_leapp 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-24 18:59+0100\n"
-"PO-Revision-Date: 2022-11-24 18:59+0100\n"
+"POT-Creation-Date: 2023-04-18 17:49+0530\n"
+"PO-Revision-Date: 2023-04-18 17:49+0530\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -34,15 +34,13 @@ msgstr ""
 msgid "List Preupgrade reports for Job invocation"
 msgstr ""
 
-#: ../app/helpers/concerns/foreman_leapp/remote_execution_helper_extension.rb:6
 #: ../app/helpers/foreman_leapp/hosts_helper.rb:6
-#: ../lib/foreman_leapp/engine.rb:93
+#: ../lib/foreman_leapp/engine.rb:88
 msgid "Preupgrade check with Leapp"
 msgstr ""
 
-#: ../app/helpers/concerns/foreman_leapp/remote_execution_helper_extension.rb:8
 #: ../app/helpers/foreman_leapp/hosts_helper.rb:8
-#: ../lib/foreman_leapp/engine.rb:100
+#: ../lib/foreman_leapp/engine.rb:95
 msgid "Upgrade with Leapp"
 msgstr ""
 
@@ -50,29 +48,39 @@ msgstr ""
 msgid "Leapp preupgrade report"
 msgstr ""
 
-#: ../lib/foreman_leapp/engine.rb:94
+#: ../lib/foreman_leapp/engine.rb:89
 msgid "Upgradeability check for RHEL host"
 msgstr ""
 
-#: ../lib/foreman_leapp/engine.rb:101
+#: ../lib/foreman_leapp/engine.rb:96
 msgid "Run Leapp upgrade job for RHEL host"
 msgstr ""
 
-#: ../lib/foreman_leapp/engine.rb:107
+#: ../lib/foreman_leapp/engine.rb:102
 msgid "Remediation plan"
 msgstr ""
 
-#: ../lib/foreman_leapp/engine.rb:108
+#: ../lib/foreman_leapp/engine.rb:103
 msgid "Run Remediation plan with Leapp"
+msgstr ""
+
+#: ../webpack/components/PreupgradeReports/PreupgradeReports.js:122
+msgid "Could not retrieve data: %(status) - %(msg)"
+msgstr ""
+
+#: ../webpack/components/PreupgradeReports/PreupgradeReportsActions.js:27
+msgid "Failed to fetch preupgrade reports from server."
 msgstr ""
 
 #: ../webpack/components/PreupgradeReports/components/EntriesFilter.js:19
 #: ../webpack/components/PreupgradeReportsList/components/PreupgradeReportsListHeader.js:38
+#: ../webpack/components/PreupgradeReportsList/components/helpers.js:81
 msgid "Title"
 msgstr ""
 
 #: ../webpack/components/PreupgradeReports/components/EntriesFilter.js:20
 #: ../webpack/components/PreupgradeReportsList/components/PreupgradeReportsListHeader.js:13
+#: ../webpack/components/PreupgradeReportsList/components/helpers.js:95
 msgid "Risk Factor"
 msgstr ""
 
@@ -113,10 +121,12 @@ msgid "Info"
 msgstr ""
 
 #: ../webpack/components/PreupgradeReports/components/EntriesFilter.js:36
+#: ../webpack/components/PreupgradeReportsList/components/helpers.js:163
 msgid "Hint"
 msgstr ""
 
 #: ../webpack/components/PreupgradeReports/components/EntriesFilter.js:37
+#: ../webpack/components/PreupgradeReportsList/components/helpers.js:173
 msgid "Command"
 msgstr ""
 
@@ -165,24 +175,53 @@ msgstr ""
 msgid "Inhibitor?"
 msgstr ""
 
+#: ../webpack/components/PreupgradeReportsList/components/helpers.js:29
+#: ../webpack/components/PreupgradeReportsList/components/helpers.js:56
+msgid "Low Risk Factor"
+msgstr ""
+
+#: ../webpack/components/PreupgradeReportsList/components/helpers.js:38
+msgid "Medium Risk Factor"
+msgstr ""
+
+#: ../webpack/components/PreupgradeReportsList/components/helpers.js:47
+msgid "High Risk Factor"
+msgstr ""
+
+#: ../webpack/components/PreupgradeReportsList/components/helpers.js:68
+msgid "Has Remediation"
+msgstr ""
+
+#: ../webpack/components/PreupgradeReportsList/components/helpers.js:111
+msgid "Summary"
+msgstr ""
+
+#: ../webpack/components/PreupgradeReportsList/components/helpers.js:127
+msgid "Tags"
+msgstr ""
+
+#: ../webpack/components/PreupgradeReportsList/components/helpers.js:143
+msgid "Links"
+msgstr ""
+
 #: action_names.rb:2
 msgid "Action with sub plans"
 msgstr ""
 
 #: action_names.rb:3
-msgid "Import facts"
-msgstr ""
-
-#: action_names.rb:4
 msgid "Import Puppet classes"
 msgstr ""
 
+#: action_names.rb:4
+msgid "Import facts"
+msgstr ""
+
 #: action_names.rb:5
-msgid "Remote action:"
+msgid "Preupgrade job"
 msgstr ""
 
 #: action_names.rb:6
-msgid "Preupgrade job"
+msgid "Remote action:"
 msgstr ""
 
 #: gemspec.rb:4

@@ -35,10 +35,19 @@ msgstr "Alle"
 msgid "Command"
 msgstr "Befehl"
 
+msgid "Could not retrieve data: %(status) - %(msg)"
+msgstr ""
+
+msgid "Failed to fetch preupgrade reports from server."
+msgstr ""
+
 msgid "Fix Selected"
 msgstr "Behebe Auswahl"
 
 msgid "Fix Type"
+msgstr ""
+
+msgid "Has Remediation"
 msgstr ""
 
 msgid "Has Remediation?"
@@ -46,6 +55,9 @@ msgstr "Hat Sanierungsplan?"
 
 msgid "High"
 msgstr "Hoch"
+
+msgid "High Risk Factor"
+msgstr ""
 
 msgid "Hint"
 msgstr "Hinweis"
@@ -71,6 +83,9 @@ msgstr ""
 msgid "Leapp preupgrade report"
 msgstr ""
 
+msgid "Links"
+msgstr ""
+
 msgid "List Preupgrade reports"
 msgstr ""
 
@@ -80,8 +95,14 @@ msgstr ""
 msgid "Low"
 msgstr "Niedrig"
 
+msgid "Low Risk Factor"
+msgstr ""
+
 msgid "Medium"
 msgstr "Medium"
+
+msgid "Medium Risk Factor"
+msgstr ""
 
 msgid "Missing one of the required permissions: view_hosts"
 msgstr "Eine der erforderlichen Berechtigungen fehlt: %s"
@@ -117,6 +138,12 @@ msgid "Run Upgrade"
 msgstr "Aktualisierung ausführen"
 
 msgid "Show Preupgrade report"
+msgstr ""
+
+msgid "Summary"
+msgstr ""
+
+msgid "Tags"
 msgstr ""
 
 msgid "The preupgrade report could not be generated, check the job details for the reason"

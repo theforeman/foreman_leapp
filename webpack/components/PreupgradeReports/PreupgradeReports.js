@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import MessageBox from 'foremanReact/components/common/MessageBox';
 import { LoadingState, Row } from 'patternfly-react';
 import PropTypes from 'prop-types';
+import { sprintf, translate as __ } from 'foremanReact/common/I18n';
 
 import PreupgradeReportsList from '../PreupgradeReportsList';
 import UpgradeAllButton from './components/UpgradeAllButton';
@@ -118,7 +119,10 @@ const withLoadingState = Component => componentProps => {
       <MessageBox
         key="preupgrade-reports-error"
         icontype="error-circle-o"
-        msg={`Could not retrieve data: ${error.statusText} - ${error.errorMsg}`}
+        msg={sprintf(__('Could not retrieve data: %(status) - %(msg)'), {
+          status: error.statusText,
+          msg: error.errorMsg,
+        })}
       />
     );
   }

@@ -9,7 +9,8 @@ exports[`PreupgradeReportList/helpers should detect if has remediations 1`] = `
     name="warning-triangle-o"
     type="pf"
   />
-   Has Remediation
+   
+  Has Remediation
 </ListViewInfoItem>
 `;
 

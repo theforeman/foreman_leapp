@@ -31,17 +31,29 @@ msgstr "ყველა"
 msgid "Command"
 msgstr "ბრძანება"
 
+msgid "Could not retrieve data: %(status) - %(msg)"
+msgstr ""
+
+msgid "Failed to fetch preupgrade reports from server."
+msgstr ""
+
 msgid "Fix Selected"
 msgstr "არჩეული გასწორება"
 
 msgid "Fix Type"
 msgstr "გასწორების ტიპი"
 
+msgid "Has Remediation"
+msgstr ""
+
 msgid "Has Remediation?"
 msgstr "აქვს გაუქმება?"
 
 msgid "High"
 msgstr "მაღალი"
+
+msgid "High Risk Factor"
+msgstr ""
 
 msgid "Hint"
 msgstr "მინიშნება"
@@ -67,6 +79,9 @@ msgstr "ინჰიბიტორი?"
 msgid "Leapp preupgrade report"
 msgstr "Leapp-ის განახლებისწინა ანგარიში"
 
+msgid "Links"
+msgstr ""
+
 msgid "List Preupgrade reports"
 msgstr "განახლებისწინა ანგარიშების სია"
 
@@ -76,8 +91,14 @@ msgstr "განახლებისწინა ანგარიშებ�
 msgid "Low"
 msgstr "დაბალი"
 
+msgid "Low Risk Factor"
+msgstr ""
+
 msgid "Medium"
 msgstr "საშუალო"
+
+msgid "Medium Risk Factor"
+msgstr ""
 
 msgid "Missing one of the required permissions: view_hosts"
 msgstr "აკლია ერთ-ერთი საჭირო ნებართვა: view_hosts"
@@ -114,6 +135,12 @@ msgstr "განახლების გაშვება"
 
 msgid "Show Preupgrade report"
 msgstr "განახლებისწინა ანგარიშის ჩვენება"
+
+msgid "Summary"
+msgstr ""
+
+msgid "Tags"
+msgstr ""
 
 msgid "The preupgrade report could not be generated, check the job details for the reason"
 msgstr ""

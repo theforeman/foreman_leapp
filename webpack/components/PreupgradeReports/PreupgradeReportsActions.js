@@ -1,5 +1,6 @@
 import api from 'foremanReact/API';
 import { deepPropsToCamelCase } from 'foremanReact/common/helpers';
+import { translate as __ } from 'foremanReact/common/I18n';
 
 import {
   PREUPGRADE_REPORTS_REQUEST,
@@ -23,7 +24,7 @@ export const getPreupgradeReportsAction = url => async dispatch => {
 
 const errorHandler = (msg, err) => {
   const error = {
-    errorMsg: 'Failed to fetch preupgrade reports from server.',
+    errorMsg: __('Failed to fetch preupgrade reports from server.'),
     statusText: err.response.statusText,
   };
   return { type: msg, payload: { error } };
