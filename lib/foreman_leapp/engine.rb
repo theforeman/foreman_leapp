@@ -21,7 +21,8 @@ module ForemanLeapp
 
     initializer 'foreman_leapp.register_plugin', before: :finisher_hook do |_app|
       Foreman::Plugin.register :foreman_leapp do
-        requires_foreman '>= 3.2'
+        requires_foreman '>= 3.7'
+        register_gettext
 
         apipie_documented_controllers ["#{ForemanLeapp::Engine.root}/app/controllers/api/v2/*.rb"]
         extend_template_helpers ForemanLeapp::TemplateHelper
@@ -63,12 +64,6 @@ module ForemanLeapp
       Rake::Task['db:seed'].enhance do
         ForemanLeapp::Engine.load_seed
       end
-    end
-
-    initializer 'foreman_leapp.register_gettext', after: :load_config_initializers do |_app|
-      locale_dir = File.join(File.expand_path('../..', __dir__), 'locale')
-      locale_domain = 'foreman_leapp'
-      Foreman::Gettext::Support.add_text_domain locale_domain, locale_dir
     end
 
     initializer 'foreman_leapp.require_dynflow',
