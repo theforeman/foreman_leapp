@@ -1,4 +1,4 @@
- locales['foreman_leapp'] = locales['foreman_leapp'] || {}; locales['foreman_leapp']['de'] = {
+ locales['foreman_leapp'] = locales['foreman_leapp'] || {}; locales['foreman_leapp']['pt_BR'] = {
   "domain": "foreman_leapp",
   "locale_data": {
     "foreman_leapp": {
@@ -7,18 +7,18 @@
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2022-10-12 12:00+0000",
         "Last-Translator": "Bryan Kearney <bryan.kearney@gmail.com>, 2023",
-        "Language-Team": "German (https://app.transifex.com/foreman/teams/114/de/)",
+        "Language-Team": "Portuguese (Brazil) (https://app.transifex.com/foreman/teams/114/pt_BR/)",
         "MIME-Version": "1.0",
         "Content-Type": "text/plain; charset=UTF-8",
         "Content-Transfer-Encoding": "8bit",
-        "Language": "de",
-        "Plural-Forms": "nplurals=2; plural=(n != 1);",
-        "lang": "de",
+        "Language": "pt_BR",
+        "Plural-Forms": "nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;",
+        "lang": "pt_BR",
         "domain": "foreman_leapp",
-        "plural_forms": "nplurals=2; plural=(n != 1);"
+        "plural_forms": "nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;"
       },
       "Missing one of the required permissions: view_hosts": [
-        "Eine der erforderlichen Berechtigungen fehlt: %s"
+        ""
       ],
       "List Preupgrade reports": [
         ""
@@ -33,7 +33,7 @@
         ""
       ],
       "Upgrade with Leapp": [
-        "Aktualisiere mit Leapp"
+        ""
       ],
       "Leapp preupgrade report": [
         ""
@@ -45,10 +45,10 @@
         ""
       ],
       "Remediation plan": [
-        "Sanierungsplan"
+        ""
       ],
       "Run Remediation plan with Leapp": [
-        "Sanierungsplan mit Leapp ausführen"
+        ""
       ],
       "Could not retrieve data: %(status) - %(msg)": [
         ""
@@ -57,13 +57,13 @@
         ""
       ],
       "Title": [
-        "Titel"
+        "Título"
       ],
       "Risk Factor": [
-        "Risikofaktor"
+        ""
       ],
       "Host": [
-        "Host"
+        "Máquina"
       ],
       "Fix Type": [
         ""
@@ -72,34 +72,34 @@
         ""
       ],
       "All": [
-        "Alle"
+        "Todos(as)"
       ],
       "Low": [
-        "Niedrig"
+        ""
       ],
       "Medium": [
-        "Medium"
+        "Médio"
       ],
       "High": [
-        "Hoch"
+        ""
       ],
       "Info": [
-        "Info"
+        "Informação"
       ],
       "Hint": [
-        "Hinweis"
+        ""
       ],
       "Command": [
-        "Befehl"
+        "Comando"
       ],
       "Yes": [
-        "Ja"
+        "Sim"
       ],
       "No": [
-        "Nein"
+        "Não"
       ],
       "Fix Selected": [
-        "Behebe Auswahl"
+        ""
       ],
       "The preupgrade report could not be generated, check the job details for the reason": [
         ""
@@ -111,13 +111,13 @@
         ""
       ],
       "Run Upgrade": [
-        "Aktualisierung ausführen"
+        ""
       ],
       "This issue inhibits the upgrade.": [
         ""
       ],
       "Has Remediation?": [
-        "Hat Sanierungsplan?"
+        ""
       ],
       "Inhibitor?": [
         ""
@@ -135,7 +135,7 @@
         ""
       ],
       "Summary": [
-        "Zusammenfassung"
+        "Sumário"
       ],
       "Tags": [
         ""
@@ -144,7 +144,7 @@
         ""
       ],
       "Action with sub plans": [
-        "Aktion mit Unterplänen"
+        "Ação com subplanos "
       ],
       "Check for long running tasks": [
         ""
@@ -153,16 +153,16 @@
         ""
       ],
       "Import Puppet classes": [
-        "Puppet-Klassen importieren"
+        "Importar classes de Puppet"
       ],
       "Import facts": [
-        "Fakten importieren"
+        "Importar fatos"
       ],
       "Preupgrade job": [
-        "Pre-Upgrade-Job"
+        "Trabalho de pré-aperfeiçoamento"
       ],
       "Remote action:": [
-        "Entfernte Aktion:"
+        "Ação remota:"
       ],
       "A Foreman plugin to support inplace RHEL upgrades with Leapp utility.": [
         ""

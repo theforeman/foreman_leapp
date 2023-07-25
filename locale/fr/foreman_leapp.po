@@ -1,44 +1,36 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# French translations for foreman_leapp package.
+# Copyright (C) 2023 THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the foreman_leapp package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-# Translators:
-# Martin Zimmermann <martin.zimmermann@gmx.com>, 2022
-# Ettore Atalan <atalanttore@googlemail.com>, 2022
-# Wiederoder <stefanwiederoder@googlemail.com>, 2022
-# Lukas Kallies <github.com@luke-web.de>, 2022
-# pdolinic, 2022
-# Crited <Alexander.Stoll@netways.de>, 2022
-# Bryan Kearney <bryan.kearney@gmail.com>, 2023
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: foreman_leapp 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2022-10-12 12:00+0000\n"
-"Last-Translator: Bryan Kearney <bryan.kearney@gmail.com>, 2023\n"
-"Language-Team: German (https://app.transifex.com/foreman/teams/114/de/)\n"
+"PO-Revision-Date: 2023-07-25 10:19+0200\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: French\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: de\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=; plural=;\n"
+"\n"
 
 msgid "A Foreman plugin to support inplace RHEL upgrades with Leapp utility."
 msgstr ""
 
 msgid "Action with sub plans"
-msgstr "Aktion mit Unterplänen"
+msgstr ""
 
 msgid "All"
-msgstr "Alle"
+msgstr ""
 
 msgid "Check for long running tasks"
 msgstr ""
 
 msgid "Command"
-msgstr "Befehl"
+msgstr ""
 
 msgid "Could not retrieve data: %(status) - %(msg)"
 msgstr ""
@@ -50,7 +42,7 @@ msgid "Failed to fetch preupgrade reports from server."
 msgstr ""
 
 msgid "Fix Selected"
-msgstr "Behebe Auswahl"
+msgstr ""
 
 msgid "Fix Type"
 msgstr ""
@@ -59,28 +51,28 @@ msgid "Has Remediation"
 msgstr ""
 
 msgid "Has Remediation?"
-msgstr "Hat Sanierungsplan?"
+msgstr ""
 
 msgid "High"
-msgstr "Hoch"
+msgstr ""
 
 msgid "High Risk Factor"
 msgstr ""
 
 msgid "Hint"
-msgstr "Hinweis"
+msgstr ""
 
 msgid "Host"
-msgstr "Host"
+msgstr ""
 
 msgid "Import Puppet classes"
-msgstr "Puppet-Klassen importieren"
+msgstr ""
 
 msgid "Import facts"
-msgstr "Fakten importieren"
+msgstr ""
 
 msgid "Info"
-msgstr "Info"
+msgstr ""
 
 msgid "Inhibitor"
 msgstr ""
@@ -101,22 +93,22 @@ msgid "List Preupgrade reports for Job invocation"
 msgstr ""
 
 msgid "Low"
-msgstr "Niedrig"
+msgstr ""
 
 msgid "Low Risk Factor"
 msgstr ""
 
 msgid "Medium"
-msgstr "Medium"
+msgstr ""
 
 msgid "Medium Risk Factor"
 msgstr ""
 
 msgid "Missing one of the required permissions: view_hosts"
-msgstr "Eine der erforderlichen Berechtigungen fehlt: %s"
+msgstr ""
 
 msgid "No"
-msgstr "Nein"
+msgstr ""
 
 msgid "No Preupgrade Report Available"
 msgstr ""
@@ -125,31 +117,31 @@ msgid "Preupgrade check with Leapp"
 msgstr ""
 
 msgid "Preupgrade job"
-msgstr "Pre-Upgrade-Job"
+msgstr ""
 
 msgid "Remediation plan"
-msgstr "Sanierungsplan"
+msgstr ""
 
 msgid "Remote action:"
-msgstr "Entfernte Aktion:"
+msgstr ""
 
 msgid "Risk Factor"
-msgstr "Risikofaktor"
+msgstr ""
 
 msgid "Run Leapp upgrade job for RHEL host"
 msgstr ""
 
 msgid "Run Remediation plan with Leapp"
-msgstr "Sanierungsplan mit Leapp ausführen"
+msgstr ""
 
 msgid "Run Upgrade"
-msgstr "Aktualisierung ausführen"
+msgstr ""
 
 msgid "Show Preupgrade report"
 msgstr ""
 
 msgid "Summary"
-msgstr "Zusammenfassung"
+msgstr ""
 
 msgid "Tags"
 msgstr ""
@@ -164,13 +156,13 @@ msgid "This issue inhibits the upgrade."
 msgstr ""
 
 msgid "Title"
-msgstr "Titel"
+msgstr ""
 
 msgid "Upgrade with Leapp"
-msgstr "Aktualisiere mit Leapp"
+msgstr ""
 
 msgid "Upgradeability check for RHEL host"
 msgstr ""
 
 msgid "Yes"
-msgstr "Ja"
+msgstr ""

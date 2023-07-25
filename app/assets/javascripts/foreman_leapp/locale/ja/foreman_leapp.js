@@ -1,24 +1,24 @@
- locales['foreman_leapp'] = locales['foreman_leapp'] || {}; locales['foreman_leapp']['de'] = {
+ locales['foreman_leapp'] = locales['foreman_leapp'] || {}; locales['foreman_leapp']['ja'] = {
   "domain": "foreman_leapp",
   "locale_data": {
     "foreman_leapp": {
       "": {
         "Project-Id-Version": "foreman_leapp 1.0.0",
         "Report-Msgid-Bugs-To": "",
-        "PO-Revision-Date": "2022-10-12 12:00+0000",
-        "Last-Translator": "Bryan Kearney <bryan.kearney@gmail.com>, 2023",
-        "Language-Team": "German (https://app.transifex.com/foreman/teams/114/de/)",
+        "PO-Revision-Date": "2023-07-25 10:19+0200",
+        "Last-Translator": "FULL NAME <EMAIL@ADDRESS>",
+        "Language-Team": "Japanese",
+        "Language": "ja",
         "MIME-Version": "1.0",
         "Content-Type": "text/plain; charset=UTF-8",
         "Content-Transfer-Encoding": "8bit",
-        "Language": "de",
-        "Plural-Forms": "nplurals=2; plural=(n != 1);",
-        "lang": "de",
+        "Plural-Forms": "nplurals=; plural=;",
+        "lang": "ja",
         "domain": "foreman_leapp",
-        "plural_forms": "nplurals=2; plural=(n != 1);"
+        "plural_forms": "nplurals=; plural=;"
       },
       "Missing one of the required permissions: view_hosts": [
-        "Eine der erforderlichen Berechtigungen fehlt: %s"
+        ""
       ],
       "List Preupgrade reports": [
         ""
@@ -33,7 +33,7 @@
         ""
       ],
       "Upgrade with Leapp": [
-        "Aktualisiere mit Leapp"
+        ""
       ],
       "Leapp preupgrade report": [
         ""
@@ -45,10 +45,10 @@
         ""
       ],
       "Remediation plan": [
-        "Sanierungsplan"
+        ""
       ],
       "Run Remediation plan with Leapp": [
-        "Sanierungsplan mit Leapp ausführen"
+        ""
       ],
       "Could not retrieve data: %(status) - %(msg)": [
         ""
@@ -57,13 +57,13 @@
         ""
       ],
       "Title": [
-        "Titel"
+        ""
       ],
       "Risk Factor": [
-        "Risikofaktor"
+        ""
       ],
       "Host": [
-        "Host"
+        ""
       ],
       "Fix Type": [
         ""
@@ -72,34 +72,34 @@
         ""
       ],
       "All": [
-        "Alle"
+        ""
       ],
       "Low": [
-        "Niedrig"
+        ""
       ],
       "Medium": [
-        "Medium"
+        ""
       ],
       "High": [
-        "Hoch"
+        ""
       ],
       "Info": [
-        "Info"
+        ""
       ],
       "Hint": [
-        "Hinweis"
+        ""
       ],
       "Command": [
-        "Befehl"
+        ""
       ],
       "Yes": [
-        "Ja"
+        ""
       ],
       "No": [
-        "Nein"
+        ""
       ],
       "Fix Selected": [
-        "Behebe Auswahl"
+        ""
       ],
       "The preupgrade report could not be generated, check the job details for the reason": [
         ""
@@ -111,13 +111,13 @@
         ""
       ],
       "Run Upgrade": [
-        "Aktualisierung ausführen"
+        ""
       ],
       "This issue inhibits the upgrade.": [
         ""
       ],
       "Has Remediation?": [
-        "Hat Sanierungsplan?"
+        ""
       ],
       "Inhibitor?": [
         ""
@@ -135,7 +135,7 @@
         ""
       ],
       "Summary": [
-        "Zusammenfassung"
+        ""
       ],
       "Tags": [
         ""
@@ -144,7 +144,7 @@
         ""
       ],
       "Action with sub plans": [
-        "Aktion mit Unterplänen"
+        ""
       ],
       "Check for long running tasks": [
         ""
@@ -153,16 +153,16 @@
         ""
       ],
       "Import Puppet classes": [
-        "Puppet-Klassen importieren"
+        ""
       ],
       "Import facts": [
-        "Fakten importieren"
+        ""
       ],
       "Preupgrade job": [
-        "Pre-Upgrade-Job"
+        ""
       ],
       "Remote action:": [
-        "Entfernte Aktion:"
+        ""
       ],
       "A Foreman plugin to support inplace RHEL upgrades with Leapp utility.": [
         ""

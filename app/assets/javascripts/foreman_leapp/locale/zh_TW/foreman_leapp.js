@@ -1,4 +1,4 @@
- locales['foreman_leapp'] = locales['foreman_leapp'] || {}; locales['foreman_leapp']['de'] = {
+ locales['foreman_leapp'] = locales['foreman_leapp'] || {}; locales['foreman_leapp']['zh_TW'] = {
   "domain": "foreman_leapp",
   "locale_data": {
     "foreman_leapp": {
@@ -7,18 +7,18 @@
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2022-10-12 12:00+0000",
         "Last-Translator": "Bryan Kearney <bryan.kearney@gmail.com>, 2023",
-        "Language-Team": "German (https://app.transifex.com/foreman/teams/114/de/)",
+        "Language-Team": "Chinese (Taiwan) (https://app.transifex.com/foreman/teams/114/zh_TW/)",
         "MIME-Version": "1.0",
         "Content-Type": "text/plain; charset=UTF-8",
         "Content-Transfer-Encoding": "8bit",
-        "Language": "de",
-        "Plural-Forms": "nplurals=2; plural=(n != 1);",
-        "lang": "de",
+        "Language": "zh_TW",
+        "Plural-Forms": "nplurals=1; plural=0;",
+        "lang": "zh_TW",
         "domain": "foreman_leapp",
-        "plural_forms": "nplurals=2; plural=(n != 1);"
+        "plural_forms": "nplurals=1; plural=0;"
       },
       "Missing one of the required permissions: view_hosts": [
-        "Eine der erforderlichen Berechtigungen fehlt: %s"
+        ""
       ],
       "List Preupgrade reports": [
         ""
@@ -33,7 +33,7 @@
         ""
       ],
       "Upgrade with Leapp": [
-        "Aktualisiere mit Leapp"
+        ""
       ],
       "Leapp preupgrade report": [
         ""
@@ -45,10 +45,10 @@
         ""
       ],
       "Remediation plan": [
-        "Sanierungsplan"
+        ""
       ],
       "Run Remediation plan with Leapp": [
-        "Sanierungsplan mit Leapp ausführen"
+        ""
       ],
       "Could not retrieve data: %(status) - %(msg)": [
         ""
@@ -57,13 +57,13 @@
         ""
       ],
       "Title": [
-        "Titel"
+        "時間"
       ],
       "Risk Factor": [
-        "Risikofaktor"
+        ""
       ],
       "Host": [
-        "Host"
+        "主機"
       ],
       "Fix Type": [
         ""
@@ -72,34 +72,34 @@
         ""
       ],
       "All": [
-        "Alle"
+        "全部"
       ],
       "Low": [
-        "Niedrig"
+        ""
       ],
       "Medium": [
-        "Medium"
+        "媒介"
       ],
       "High": [
-        "Hoch"
+        ""
       ],
       "Info": [
-        "Info"
+        "資訊"
       ],
       "Hint": [
-        "Hinweis"
+        ""
       ],
       "Command": [
-        "Befehl"
+        "指令"
       ],
       "Yes": [
-        "Ja"
+        "是"
       ],
       "No": [
-        "Nein"
+        "否"
       ],
       "Fix Selected": [
-        "Behebe Auswahl"
+        ""
       ],
       "The preupgrade report could not be generated, check the job details for the reason": [
         ""
@@ -111,13 +111,13 @@
         ""
       ],
       "Run Upgrade": [
-        "Aktualisierung ausführen"
+        ""
       ],
       "This issue inhibits the upgrade.": [
         ""
       ],
       "Has Remediation?": [
-        "Hat Sanierungsplan?"
+        ""
       ],
       "Inhibitor?": [
         ""
@@ -135,7 +135,7 @@
         ""
       ],
       "Summary": [
-        "Zusammenfassung"
+        "概要"
       ],
       "Tags": [
         ""
@@ -144,7 +144,7 @@
         ""
       ],
       "Action with sub plans": [
-        "Aktion mit Unterplänen"
+        "有子計畫的動作"
       ],
       "Check for long running tasks": [
         ""
@@ -153,16 +153,16 @@
         ""
       ],
       "Import Puppet classes": [
-        "Puppet-Klassen importieren"
+        "匯入 Puppet 類別"
       ],
       "Import facts": [
-        "Fakten importieren"
+        "匯入詳情"
       ],
       "Preupgrade job": [
-        "Pre-Upgrade-Job"
+        ""
       ],
       "Remote action:": [
-        "Entfernte Aktion:"
+        "遠端動作："
       ],
       "A Foreman plugin to support inplace RHEL upgrades with Leapp utility.": [
         ""

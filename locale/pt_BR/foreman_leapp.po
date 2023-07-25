@@ -4,12 +4,9 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# Martin Zimmermann <martin.zimmermann@gmx.com>, 2022
-# Ettore Atalan <atalanttore@googlemail.com>, 2022
-# Wiederoder <stefanwiederoder@googlemail.com>, 2022
-# Lukas Kallies <github.com@luke-web.de>, 2022
-# pdolinic, 2022
-# Crited <Alexander.Stoll@netways.de>, 2022
+# Flamarion Jorge <jorge.flamarion@gmail.com>, 2022
+# Luiz Henrique Vasconcelos <luizvasconceloss@yahoo.com.br>, 2022
+# Amit Upadhye <aupadhye@redhat.com>, 2022
 # Bryan Kearney <bryan.kearney@gmail.com>, 2023
 #
 msgid ""
@@ -18,27 +15,29 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2022-10-12 12:00+0000\n"
 "Last-Translator: Bryan Kearney <bryan.kearney@gmail.com>, 2023\n"
-"Language-Team: German (https://app.transifex.com/foreman/teams/114/de/)\n"
+"Language-Team: Portuguese (Brazil) (https://app.transifex.com/foreman/teams/11"
+"4/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: de\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: pt_BR\n"
+"Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 100000"
+"0 == 0 ? 1 : 2;\n"
 
 msgid "A Foreman plugin to support inplace RHEL upgrades with Leapp utility."
 msgstr ""
 
 msgid "Action with sub plans"
-msgstr "Aktion mit Unterplänen"
+msgstr "Ação com subplanos "
 
 msgid "All"
-msgstr "Alle"
+msgstr "Todos(as)"
 
 msgid "Check for long running tasks"
 msgstr ""
 
 msgid "Command"
-msgstr "Befehl"
+msgstr "Comando"
 
 msgid "Could not retrieve data: %(status) - %(msg)"
 msgstr ""
@@ -50,7 +49,7 @@ msgid "Failed to fetch preupgrade reports from server."
 msgstr ""
 
 msgid "Fix Selected"
-msgstr "Behebe Auswahl"
+msgstr ""
 
 msgid "Fix Type"
 msgstr ""
@@ -59,28 +58,28 @@ msgid "Has Remediation"
 msgstr ""
 
 msgid "Has Remediation?"
-msgstr "Hat Sanierungsplan?"
+msgstr ""
 
 msgid "High"
-msgstr "Hoch"
+msgstr ""
 
 msgid "High Risk Factor"
 msgstr ""
 
 msgid "Hint"
-msgstr "Hinweis"
+msgstr ""
 
 msgid "Host"
-msgstr "Host"
+msgstr "Máquina"
 
 msgid "Import Puppet classes"
-msgstr "Puppet-Klassen importieren"
+msgstr "Importar classes de Puppet"
 
 msgid "Import facts"
-msgstr "Fakten importieren"
+msgstr "Importar fatos"
 
 msgid "Info"
-msgstr "Info"
+msgstr "Informação"
 
 msgid "Inhibitor"
 msgstr ""
@@ -101,22 +100,22 @@ msgid "List Preupgrade reports for Job invocation"
 msgstr ""
 
 msgid "Low"
-msgstr "Niedrig"
+msgstr ""
 
 msgid "Low Risk Factor"
 msgstr ""
 
 msgid "Medium"
-msgstr "Medium"
+msgstr "Médio"
 
 msgid "Medium Risk Factor"
 msgstr ""
 
 msgid "Missing one of the required permissions: view_hosts"
-msgstr "Eine der erforderlichen Berechtigungen fehlt: %s"
+msgstr ""
 
 msgid "No"
-msgstr "Nein"
+msgstr "Não"
 
 msgid "No Preupgrade Report Available"
 msgstr ""
@@ -125,31 +124,31 @@ msgid "Preupgrade check with Leapp"
 msgstr ""
 
 msgid "Preupgrade job"
-msgstr "Pre-Upgrade-Job"
+msgstr "Trabalho de pré-aperfeiçoamento"
 
 msgid "Remediation plan"
-msgstr "Sanierungsplan"
+msgstr ""
 
 msgid "Remote action:"
-msgstr "Entfernte Aktion:"
+msgstr "Ação remota:"
 
 msgid "Risk Factor"
-msgstr "Risikofaktor"
+msgstr ""
 
 msgid "Run Leapp upgrade job for RHEL host"
 msgstr ""
 
 msgid "Run Remediation plan with Leapp"
-msgstr "Sanierungsplan mit Leapp ausführen"
+msgstr ""
 
 msgid "Run Upgrade"
-msgstr "Aktualisierung ausführen"
+msgstr ""
 
 msgid "Show Preupgrade report"
 msgstr ""
 
 msgid "Summary"
-msgstr "Zusammenfassung"
+msgstr "Sumário"
 
 msgid "Tags"
 msgstr ""
@@ -164,13 +163,13 @@ msgid "This issue inhibits the upgrade."
 msgstr ""
 
 msgid "Title"
-msgstr "Titel"
+msgstr "Título"
 
 msgid "Upgrade with Leapp"
-msgstr "Aktualisiere mit Leapp"
+msgstr ""
 
 msgid "Upgradeability check for RHEL host"
 msgstr ""
 
 msgid "Yes"
-msgstr "Ja"
+msgstr "Sim"
