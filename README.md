@@ -14,6 +14,14 @@ The plugin will add following jobs:
 - Remediation plan
 - Run upgrade via Leapp
 
+### Channel
+
+Leapp by default will use the same "channel" (e4s, eus, aus) as the current OS, so if you are using "eus" repositories, the target OS will be on "eus" repositories as well.
+But if you are upgrading and want to target a different channel, i.e. from a RHEL 7.9 to a RHEL 8.6 EUS, you can do it by explicitely setting the channel to "eus".
+
+The channel have to be specified in both the preupgrade and upgrade jobs.
+Default value of "channel" is "ga" - General availability: regular repositories are used by default.
+
 ## Api
 - `GET /api/preupgrade_reports` List Preupgrade reports
 - `GET /api/preupgrade_reports/:id` Show Preupgrade report

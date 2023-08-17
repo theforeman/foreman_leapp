@@ -6,12 +6,22 @@ description_format: 'Upgradeability check for RHEL host'
 provider_type: SSH
 feature: leapp_preupgrade
 model: JobTemplate
+template_inputs:
+- name: Channel
+  description: Set if the target OS is required to use the General Availability (GA) channel - the default - or a specific channel among: Update Services for SAP Solutions (E4S), Extended Upgrade Support (EUS) or Advanced Update Support (AUS).
+  input_type: user
+  required: true
+  default: "ga"
+  options: "ga\ne4s\neus\naus"
+%>
+<%
+  channel_opts = input('Channel') == 'ga' ? '' : "--channel #{input('Channel')}"
 %>
 
 <%= render_template 'Check Leapp' %>
 
 rm -f /var/log/leapp/leapp-report.json
-leapp preupgrade
+leapp preupgrade <%= channel_opts %>
 
 echo "===leap_upgrade_report_start==="
 cat /var/log/leapp/leapp-report.json

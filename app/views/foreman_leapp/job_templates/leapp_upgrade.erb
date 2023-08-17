@@ -7,6 +7,12 @@ provider_type: Ansible
 feature: leapp_upgrade
 model: JobTemplate
 template_inputs:
+- name: Channel
+  description: Set if the target OS is required to use the General Availability (GA) channel - the default - or a specific channel among: Update Services for SAP Solutions (E4S), Extended Upgrade Support (EUS) or Advanced Update Support (AUS).
+  input_type: user
+  required: true
+  default: "ga"
+  options: "ga\ne4s\neus\naus"
 - name: Reboot
   description: Reboot the host automaticaly to continue with the upgrade
   input_type: user
@@ -16,9 +22,12 @@ template_inputs:
 %>
 ---
 - hosts: all
+  vars:
+    - channel_opts: <% input('Channel') == 'ga' ? '' : "--channel #{input('Channel')}" %>
   tasks:
     - name: Run Leapp Upgrade
-      command: leapp upgrade
+      command: leapp upgrade {{ channel_opts }}
+
 <%- if input('Reboot') == "true" -%>
     - name: Reboot the machine
       reboot:
