@@ -7,12 +7,17 @@ class PreupgradeReport < ::Report
   scoped_search on: :job_invocation_id, only_explicit: true
 
   def self.create_report(host, data, job_invocation_id)
-    report = PreupgradeReport.create(host: host, status: 0,
-                                     job_invocation_id: job_invocation_id,
-                                     reported_at: DateTime.now.utc)
+    # We don't have specific permissions for the Preupgrade leapp reports,
+    # so we need to skip the permission check for non-admin users.
+    # The user is still required to have permission to run the job and view the hosts.
+    skip_permission_check do
+      report = PreupgradeReport.create  host: host, status: 0,
+                                        job_invocation_id: job_invocation_id,
+                                        reported_at: DateTime.now.utc
 
-    data['entries']&.each do |entry|
-      PreupgradeReportEntry.create! entry_params(report, entry, host, data)
+      data['entries']&.each do |entry|
+        PreupgradeReportEntry.create! entry_params(report, entry, host, data)
+      end
     end
   end
 
