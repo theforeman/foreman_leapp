@@ -3,7 +3,6 @@
 # This file is distributed under the same license as the foreman_leapp package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: foreman_leapp 1.0.0\n"
@@ -18,9 +17,6 @@ msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
 msgid "A Foreman plugin to support inplace RHEL upgrades with Leapp utility."
-msgstr ""
-
-msgid "Action with sub plans"
 msgstr ""
 
 msgid "All"
@@ -57,12 +53,6 @@ msgid "Hint"
 msgstr ""
 
 msgid "Host"
-msgstr ""
-
-msgid "Import Puppet classes"
-msgstr ""
-
-msgid "Import facts"
 msgstr ""
 
 msgid "Info"
@@ -110,13 +100,7 @@ msgstr ""
 msgid "Preupgrade check with Leapp"
 msgstr ""
 
-msgid "Preupgrade job"
-msgstr ""
-
 msgid "Remediation plan"
-msgstr ""
-
-msgid "Remote action:"
 msgstr ""
 
 msgid "Risk Factor"

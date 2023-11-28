@@ -22,9 +22,6 @@ msgstr ""
 msgid "A Foreman plugin to support inplace RHEL upgrades with Leapp utility."
 msgstr "Foreman-ის დამატება RHEL-ის Leapp-ით ადგილზე განახლების მხარდასაჭერად."
 
-msgid "Action with sub plans"
-msgstr "ქმედება ქვე-გეგმებით"
-
 msgid "All"
 msgstr "ყველა"
 
@@ -60,12 +57,6 @@ msgstr "მინიშნება"
 
 msgid "Host"
 msgstr "ჰოსტი"
-
-msgid "Import Puppet classes"
-msgstr "Puppet-ის კლასების შემოტანა"
-
-msgid "Import facts"
-msgstr "ფაქტების შემოტანა"
 
 msgid "Info"
 msgstr "ინფორმაცია"
@@ -112,14 +103,8 @@ msgstr "განახლებისწინა ანგარიში ხ�
 msgid "Preupgrade check with Leapp"
 msgstr "განახლებისწინა შემოწმება Leapp-ით"
 
-msgid "Preupgrade job"
-msgstr "განახლებისწინა დავალება"
-
 msgid "Remediation plan"
 msgstr "გაუქმების გეგმა"
-
-msgid "Remote action:"
-msgstr "დაშორებული ქმედება:"
 
 msgid "Risk Factor"
 msgstr "რისკის ფაქტორი"

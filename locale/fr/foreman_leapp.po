@@ -1,0 +1,157 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the foreman_leapp package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+# Translators:
+# Claer <transiblu@claer.hammock.fr>, 2022
+# Pierre-Emmanuel Dutang <dutangp@gmail.com>, 2022
+# 21966816214bc546c1fc8a185e75ca1c, 2022
+# Bryan Kearney <bryan.kearney@gmail.com>, 2022
+# Baptiste Agasse <baptiste.agasse@gmail.com>, 2022
+# Amit Upadhye <aupadhye@redhat.com>, 2023
+# Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarden.nl>, 2023
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: foreman_leapp 1.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2022-10-12 12:00+0000\n"
+"Last-Translator: Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarde"
+"n.nl>, 2023\n"
+"Language-Team: French (https://app.transifex.com/foreman/teams/114/fr/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: fr\n"
+"Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 100000"
+"0 == 0 ? 1 : 2;\n"
+
+msgid "A Foreman plugin to support inplace RHEL upgrades with Leapp utility."
+msgstr "Un plugin Foreman pour prendre en charge les mises à jour in situ de RHEL avec l'utilitaire Leapp."
+
+msgid "All"
+msgstr "Tout"
+
+msgid "Command"
+msgstr "Commande"
+
+msgid "Could not retrieve data: %(status) - %(msg)"
+msgstr "Impossible de récupérer les données : %(status) - %(msg)"
+
+msgid "Failed to fetch preupgrade reports from server."
+msgstr "Échec de la récupération des rapports de pré-mise à niveau du serveur."
+
+msgid "Fix Selected"
+msgstr "Correction de la sélection"
+
+msgid "Fix Type"
+msgstr "Type de fixation"
+
+msgid "Has Remediation"
+msgstr "Remédiation"
+
+msgid "Has Remediation?"
+msgstr "Plan de remédiation ?"
+
+msgid "High"
+msgstr "Haut"
+
+msgid "High Risk Factor"
+msgstr "Facteur de risque élevé"
+
+msgid "Hint"
+msgstr "Indice"
+
+msgid "Host"
+msgstr "Hôte"
+
+msgid "Info"
+msgstr "Info"
+
+msgid "Inhibitor"
+msgstr "Inhibiteur"
+
+msgid "Inhibitor?"
+msgstr "Inhibiteur ?"
+
+msgid "Leapp preupgrade report"
+msgstr "Rapport de pré-mise à niveau de Leapp"
+
+msgid "Links"
+msgstr "Liens"
+
+msgid "List Preupgrade reports"
+msgstr "Liste des rapports de pré-mise à niveau"
+
+msgid "List Preupgrade reports for Job invocation"
+msgstr "Liste des rapports de pré-mise à niveau pour l'invocation du job"
+
+msgid "Low"
+msgstr "Faible"
+
+msgid "Low Risk Factor"
+msgstr "Facteur de risque faible"
+
+msgid "Medium"
+msgstr "Moyen"
+
+msgid "Medium Risk Factor"
+msgstr "Facteur de risque moyen"
+
+msgid "Missing one of the required permissions: view_hosts"
+msgstr "Il manque une des permissions requises : view_hosts"
+
+msgid "No"
+msgstr "Non"
+
+msgid "No Preupgrade Report Available"
+msgstr "Aucun rapport de pré-mise à niveau disponible"
+
+msgid "Preupgrade check with Leapp"
+msgstr "Contrôle pré-mise à niveau avec Leapp"
+
+msgid "Remediation plan"
+msgstr "Plan de remédiation"
+
+msgid "Risk Factor"
+msgstr "Facteur de risque"
+
+msgid "Run Leapp upgrade job for RHEL host"
+msgstr "Exécuter le travail de mise à niveau de Leapp pour l'hôte RHEL"
+
+msgid "Run Remediation plan with Leapp"
+msgstr "Exécuter le plan de remédiation avec Leapp"
+
+msgid "Run Upgrade"
+msgstr "Mettre à niveau"
+
+msgid "Show Preupgrade report"
+msgstr "Afficher le rapport de pré-mise à niveau"
+
+msgid "Summary"
+msgstr "Résumé"
+
+msgid "Tags"
+msgstr "Balises"
+
+msgid "The preupgrade report could not be generated, check the job details for the reason"
+msgstr "Le rapport de pré-mise à niveau n'a pas pu être généré, vérifiez les détails de la tâche pour en connaître la raison"
+
+msgid "The preupgrade report will be available after the job finishes"
+msgstr "Le rapport de pré-mise à niveau sera disponible après la fin du travail"
+
+msgid "This issue inhibits the upgrade."
+msgstr "Ce problème empêche la mise à niveau."
+
+msgid "Title"
+msgstr "Titre"
+
+msgid "Upgrade with Leapp"
+msgstr "Mise à niveau avec Leapp"
+
+msgid "Upgradeability check for RHEL host"
+msgstr "Vérification de l'évolutivité de l'hôte RHEL"
+
+msgid "Yes"
+msgstr "Oui"
