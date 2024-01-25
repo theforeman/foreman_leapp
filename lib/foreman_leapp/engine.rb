@@ -1,5 +1,8 @@
 # frozen_string_literal: true
 
+require 'foreman_ansible'
+require 'foreman_remote_execution'
+
 module ForemanLeapp
   class Engine < ::Rails::Engine
     engine_name 'foreman_leapp'
