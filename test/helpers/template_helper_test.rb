@@ -16,8 +16,8 @@ module ForemanLeapp
 
       test 'without remediation commands' do
         empty_entry = FactoryBot.create(:preupgrade_report_entry, host: host, preupgrade_report: report,
-                                                                  detail: { remediations: [{ type: 'hint',
-                                                                                             context: 'meh.' }] })
+          detail: { remediations: [{ type: 'hint',
+                                     context: 'meh.' }] })
         template = build_remediation_plan([empty_entry.id], host)
         assert_equal template, ''
       end

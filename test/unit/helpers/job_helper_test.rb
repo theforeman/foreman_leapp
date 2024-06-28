@@ -8,7 +8,7 @@ module Helpers
 
     let(:job_template) do
       FactoryBot.create(:job_template, template: 'echo "1"', job_category: 'leapp',
-                                       provider_type: 'SSH', name: 'Leapp preupgrade')
+        provider_type: 'SSH', name: 'Leapp preupgrade')
     end
     let(:job_invocation) { FactoryBot.create(:job_invocation) }
 

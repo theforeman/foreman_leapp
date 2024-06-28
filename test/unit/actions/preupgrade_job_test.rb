@@ -9,7 +9,7 @@ module ForemanLeapp
     let(:host) { FactoryBot.create(:host) }
     let(:job_template) do
       FactoryBot.create(:job_template, template: 'echo "1"', job_category: 'leapp',
-                                       provider_type: 'SSH', name: 'Leapp preupgrade')
+        provider_type: 'SSH', name: 'Leapp preupgrade')
     end
     let(:job_invocation) { FactoryBot.create(:job_invocation) }
     let(:template_invocation) do

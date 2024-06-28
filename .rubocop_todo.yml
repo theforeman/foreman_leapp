@@ -36,13 +36,6 @@ Layout/ArgumentAlignment:
 
 # Offense count: 1
 # Cop supports --auto-correct.
-# Configuration parameters: AllowHeredoc, AllowURI, URISchemes, IgnoreCopDirectives, IgnoredPatterns.
-# URISchemes: http, https
-Layout/LineLength:
-  Max: 134
-
-# Offense count: 1
-# Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle.
 # SupportedStyles: space, compact, no_space
 Layout/SpaceInsideParens:

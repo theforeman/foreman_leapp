@@ -13,8 +13,8 @@ module ApiAuthorizer
     return if User.current.can?('view_hosts')
 
     render_error 'access_denied', status: :forbidden,
-                                  locals: { details: N_('Missing one of the required permissions: view_hosts'),
-                                            missing_permissions: 'view_hosts' }
+      locals: { details: N_('Missing one of the required permissions: view_hosts'),
+                missing_permissions: 'view_hosts' }
   end
 
   def resource_scope(_options = {})
