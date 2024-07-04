@@ -7,6 +7,9 @@ module ForemanLeapp
   class Engine < ::Rails::Engine
     engine_name 'foreman_leapp'
 
+    config.eager_load_paths += Dir["#{config.root}/app/controllers/api/v2/concerns"]
+    config.eager_load_paths += Dir["#{config.root}/app/lib/helpers"]
+
     config.autoload_paths += Dir["#{config.root}/app/controllers/concerns"]
     config.autoload_paths += Dir["#{config.root}/app/controllers/api/v2/concerns"]
     config.autoload_paths += Dir["#{config.root}/app/helpers/concerns"]
@@ -36,8 +39,8 @@ module ForemanLeapp
                          name: _('Leapp preupgrade report'),
                          id: 'leapp_preupgrade_report',
                          onlyif: proc { |subject|
-                           ::Helpers::JobHelper.correct_feature?(subject, 'leapp_preupgrade') ||
-                             ::Helpers::JobHelper.correct_feature?(subject, 'leapp_remediation_plan')
+                           ::JobHelper.correct_feature?(subject, 'leapp_preupgrade') ||
+                             ::JobHelper.correct_feature?(subject, 'leapp_remediation_plan')
                          }
         end
 
