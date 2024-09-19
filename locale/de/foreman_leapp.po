@@ -8,13 +8,11 @@
 # Ettore Atalan <atalanttore@googlemail.com>, 2022
 # Wiederoder <stefanwiederoder@googlemail.com>, 2022
 # Lukas Kallies <github.com@luke-web.de>, 2022
-# Patrick Dolinic, 2022
-# Crited <Alexander.Stoll@netways.de>, 2022
 # Bryan Kearney <bryan.kearney@gmail.com>, 2023
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_leapp 0.1.14\n"
+"Project-Id-Version: foreman_leapp 2.0.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2022-10-12 12:00+0000\n"
 "Last-Translator: Bryan Kearney <bryan.kearney@gmail.com>, 2023\n"

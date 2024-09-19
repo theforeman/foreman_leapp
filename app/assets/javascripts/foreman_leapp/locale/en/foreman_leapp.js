@@ -5,7 +5,7 @@
       "": {
         "Project-Id-Version": "foreman_leapp 1.0.0",
         "Report-Msgid-Bugs-To": "",
-        "PO-Revision-Date": "2023-05-18 10:53+0000",
+        "PO-Revision-Date": "2024-09-19 13:05+0200",
         "Last-Translator": "FULL NAME <EMAIL@ADDRESS>",
         "Language-Team": "LANGUAGE <LL@li.org>",
         "Language": "",
@@ -17,37 +17,13 @@
         "domain": "foreman_leapp",
         "plural_forms": "nplurals=INTEGER; plural=EXPRESSION;"
       },
-      "Missing one of the required permissions: view_hosts": [
+      "A Foreman plugin to support inplace RHEL upgrades with Leapp utility.": [
         ""
       ],
-      "List Preupgrade reports": [
+      "All": [
         ""
       ],
-      "Show Preupgrade report": [
-        ""
-      ],
-      "List Preupgrade reports for Job invocation": [
-        ""
-      ],
-      "Preupgrade check with Leapp": [
-        ""
-      ],
-      "Upgrade with Leapp": [
-        ""
-      ],
-      "Leapp preupgrade report": [
-        ""
-      ],
-      "Upgradeability check for RHEL host": [
-        ""
-      ],
-      "Run Leapp upgrade job for RHEL host": [
-        ""
-      ],
-      "Remediation plan": [
-        ""
-      ],
-      "Run Remediation plan with Leapp": [
+      "Command": [
         ""
       ],
       "Could not retrieve data: %(status) - %(msg)": [
@@ -56,82 +32,91 @@
       "Failed to fetch preupgrade reports from server.": [
         ""
       ],
-      "Title": [
-        ""
-      ],
-      "Risk Factor": [
-        ""
-      ],
-      "Host": [
+      "Fix Selected": [
         ""
       ],
       "Fix Type": [
         ""
       ],
-      "Inhibitor": [
-        ""
-      ],
-      "All": [
-        ""
-      ],
-      "Low": [
-        ""
-      ],
-      "Medium": [
-        ""
-      ],
-      "High": [
-        ""
-      ],
-      "Info": [
-        ""
-      ],
-      "Hint": [
-        ""
-      ],
-      "Command": [
-        ""
-      ],
-      "Yes": [
-        ""
-      ],
-      "No": [
-        ""
-      ],
-      "Fix Selected": [
-        ""
-      ],
-      "The preupgrade report could not be generated, check the job details for the reason": [
-        ""
-      ],
-      "The preupgrade report will be available after the job finishes": [
-        ""
-      ],
-      "No Preupgrade Report Available": [
-        ""
-      ],
-      "Run Upgrade": [
-        ""
-      ],
-      "This issue inhibits the upgrade.": [
+      "Has Remediation": [
         ""
       ],
       "Has Remediation?": [
         ""
       ],
-      "Inhibitor?": [
-        ""
-      ],
-      "Low Risk Factor": [
-        ""
-      ],
-      "Medium Risk Factor": [
+      "High": [
         ""
       ],
       "High Risk Factor": [
         ""
       ],
-      "Has Remediation": [
+      "Hint": [
+        ""
+      ],
+      "Host": [
+        ""
+      ],
+      "Info": [
+        ""
+      ],
+      "Inhibitor": [
+        ""
+      ],
+      "Inhibitor?": [
+        ""
+      ],
+      "Leapp preupgrade report": [
+        ""
+      ],
+      "Links": [
+        ""
+      ],
+      "List Preupgrade reports": [
+        ""
+      ],
+      "List Preupgrade reports for Job invocation": [
+        ""
+      ],
+      "Low": [
+        ""
+      ],
+      "Low Risk Factor": [
+        ""
+      ],
+      "Medium": [
+        ""
+      ],
+      "Medium Risk Factor": [
+        ""
+      ],
+      "Missing one of the required permissions: view_hosts": [
+        ""
+      ],
+      "No": [
+        ""
+      ],
+      "No Preupgrade Report Available": [
+        ""
+      ],
+      "Preupgrade check with Leapp": [
+        ""
+      ],
+      "Remediation plan": [
+        ""
+      ],
+      "Risk Factor": [
+        ""
+      ],
+      "Run Leapp upgrade job for RHEL host": [
+        ""
+      ],
+      "Run Remediation plan with Leapp": [
+        ""
+      ],
+      "Run Upgrade": [
+        ""
+      ],
+      "Show Preupgrade report": [
         ""
       ],
       "Summary": [
@@ -140,10 +125,25 @@
       "Tags": [
         ""
       ],
-      "Links": [
+      "The preupgrade report could not be generated, check the job details for the reason": [
         ""
       ],
-      "A Foreman plugin to support inplace RHEL upgrades with Leapp utility.": [
+      "The preupgrade report will be available after the job finishes": [
+        ""
+      ],
+      "This issue inhibits the upgrade.": [
+        ""
+      ],
+      "Title": [
+        ""
+      ],
+      "Upgrade with Leapp": [
+        ""
+      ],
+      "Upgradeability check for RHEL host": [
+        ""
+      ],
+      "Yes": [
         ""
       ]
     }

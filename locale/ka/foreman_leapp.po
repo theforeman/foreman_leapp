@@ -8,7 +8,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_leapp 0.1.14\n"
+"Project-Id-Version: foreman_leapp 2.0.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2022-10-12 12:00+0000\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>, 2023\n"
@@ -29,10 +29,10 @@ msgid "Command"
 msgstr "ბრძანება"
 
 msgid "Could not retrieve data: %(status) - %(msg)"
-msgstr ""
+msgstr "მონაცემების მიღების შეცდომა: %(status) - %(msg)"
 
 msgid "Failed to fetch preupgrade reports from server."
-msgstr ""
+msgstr "სერვერიდან განახლებისწინა ანგარიშების გამოთხოვის შეცდომა."
 
 msgid "Fix Selected"
 msgstr "არჩეული გასწორება"
@@ -41,7 +41,7 @@ msgid "Fix Type"
 msgstr "გასწორების ტიპი"
 
 msgid "Has Remediation"
-msgstr ""
+msgstr "აქვს აღდგენა"
 
 msgid "Has Remediation?"
 msgstr "აქვს გაუქმება?"
@@ -50,7 +50,7 @@ msgid "High"
 msgstr "მაღალი"
 
 msgid "High Risk Factor"
-msgstr ""
+msgstr "მაღალი რისკის ფაქტორი"
 
 msgid "Hint"
 msgstr "მინიშნება"
@@ -71,7 +71,7 @@ msgid "Leapp preupgrade report"
 msgstr "Leapp-ის განახლებისწინა ანგარიში"
 
 msgid "Links"
-msgstr ""
+msgstr "ბმულები"
 
 msgid "List Preupgrade reports"
 msgstr "განახლებისწინა ანგარიშების სია"
@@ -83,13 +83,13 @@ msgid "Low"
 msgstr "დაბალი"
 
 msgid "Low Risk Factor"
-msgstr ""
+msgstr "დაბალი რისკის ფაქტორი"
 
 msgid "Medium"
 msgstr "საშუალო"
 
 msgid "Medium Risk Factor"
-msgstr ""
+msgstr "საშუალო რისკის ფაქტორი"
 
 msgid "Missing one of the required permissions: view_hosts"
 msgstr "აკლია ერთ-ერთი საჭირო ნებართვა: view_hosts"
@@ -125,7 +125,7 @@ msgid "Summary"
 msgstr "შეჯამება"
 
 msgid "Tags"
-msgstr ""
+msgstr "ჭდეები"
 
 msgid "The preupgrade report could not be generated, check the job details for the reason"
 msgstr "განახლებამდელი ანგარიშის შექმნის შეცდომა. მიზეზისთვის იხილეთ დავალების დეტალები"
