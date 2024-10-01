@@ -19,6 +19,9 @@ template_inputs:
   required: true
   options: "true\nfalse"
   default: "true"
+foreign_input_sets:
+- include_all: true
+  template: Run preupgrade via Leapp
 %>
 
 <%= render_template 'Check Leapp' %>
