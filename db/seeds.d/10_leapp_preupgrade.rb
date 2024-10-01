@@ -14,7 +14,7 @@ User.as_anonymous_admin do
     end
     JobTemplate.without_auditing do
       Dir[File.join("#{ForemanLeapp::Engine.root}/app/views/foreman_leapp/"\
-                    'job_templates/**/*.erb')].each do |template|
+                    'job_templates/**/*.erb')].sort.each do |template|
         template = JobTemplate.import_raw!(File.read(template),
                                            :default => true,
                                            :lock => true,
