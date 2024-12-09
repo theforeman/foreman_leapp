@@ -39,3 +39,6 @@ Style/HashTransformValues:
 
 Rails/HelperInstanceVariable:
   Enabled: false
+
+Metrics/BlockLength:
+  Enabled: false

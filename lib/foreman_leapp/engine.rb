@@ -7,17 +7,6 @@ module ForemanLeapp
   class Engine < ::Rails::Engine
     engine_name 'foreman_leapp'
 
-    config.eager_load_paths += Dir["#{config.root}/app/controllers/api/v2/concerns"]
-    config.eager_load_paths += Dir["#{config.root}/app/lib/helpers"]
-
-    config.autoload_paths += Dir["#{config.root}/app/controllers/concerns"]
-    config.autoload_paths += Dir["#{config.root}/app/controllers/api/v2/concerns"]
-    config.autoload_paths += Dir["#{config.root}/app/helpers/concerns"]
-    config.autoload_paths += Dir["#{config.root}/app/models/concerns"]
-    config.autoload_paths += Dir["#{config.root}/app/overrides"]
-    config.autoload_paths += Dir["#{config.root}/app/lib/helpers"]
-    config.autoload_paths += Dir["#{config.root}/test/"]
-
     # Add any db migrations
     initializer 'foreman_leapp.load_app_instance_data' do |app|
       ForemanLeapp::Engine.paths['db/migrate'].existent.each do |path|
@@ -25,33 +14,35 @@ module ForemanLeapp
       end
     end
 
-    initializer 'foreman_leapp.register_plugin', before: :finisher_hook do |_app|
-      Foreman::Plugin.register :foreman_leapp do
-        requires_foreman '>= 3.7'
-        register_gettext
+    initializer 'foreman_leapp.register_plugin', before: :finisher_hook do |app|
+      app.reloader.to_prepare do
+        Foreman::Plugin.register :foreman_leapp do
+          requires_foreman '>= 3.13'
+          register_gettext
 
-        apipie_documented_controllers ["#{ForemanLeapp::Engine.root}/app/controllers/api/v2/*.rb"]
-        extend_template_helpers ForemanLeapp::TemplateHelper
+          apipie_documented_controllers ["#{ForemanLeapp::Engine.root}/app/controllers/api/v2/*.rb"]
+          extend_template_helpers ForemanLeapp::TemplateHelper
 
-        extend_page 'job_invocations/show' do |cx|
-          cx.add_pagelet :main_tabs,
-                         partial: 'job_invocations/leapp_preupgrade_report',
-                         name: _('Leapp preupgrade report'),
-                         id: 'leapp_preupgrade_report',
-                         onlyif: proc { |subject|
-                           ::JobHelper.correct_feature?(subject, 'leapp_preupgrade') ||
-                             ::JobHelper.correct_feature?(subject, 'leapp_remediation_plan')
-                         }
-        end
+          extend_page 'job_invocations/show' do |cx|
+            cx.add_pagelet :main_tabs,
+                          partial: 'job_invocations/leapp_preupgrade_report',
+                          name: _('Leapp preupgrade report'),
+                          id: 'leapp_preupgrade_report',
+                          onlyif: proc { |subject|
+                            ::Helpers::JobHelper.correct_feature?(subject, 'leapp_preupgrade') ||
+                              ::Helpers::JobHelper.correct_feature?(subject, 'leapp_remediation_plan')
+                          }
+          end
 
-        security_block :foreman_leapp do
-          permission :view_job_invocations, { :preupgrade_reports => %i[index show job_invocation],
-                                              'api/v2/preupgrade_reports' => %i[index show job_invocation] },
-                                            :resource_type => 'JobInvocation'
-        end
+          security_block :foreman_leapp do
+            permission :view_job_invocations, { :preupgrade_reports => %i[index show job_invocation],
+                                                'api/v2/preupgrade_reports' => %i[index show job_invocation] },
+                                              :resource_type => 'JobInvocation'
+          end
 
-        describe_host do
-          multiple_actions_provider :leapp_hosts_multiple_actions
+          describe_host do
+            multiple_actions_provider :leapp_hosts_multiple_actions
+          end
         end
       end
     end

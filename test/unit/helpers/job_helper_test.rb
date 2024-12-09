@@ -4,7 +4,7 @@ require 'test_plugin_helper'
 
 module Helpers
   class JobHelperTest < ActionView::TestCase
-    let(:helper) { ::JobHelper }
+    let(:helper) { ::Helpers::JobHelper }
 
     let(:job_template) do
       FactoryBot.create(:job_template, template: 'echo "1"', job_category: 'leapp',

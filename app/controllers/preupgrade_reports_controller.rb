@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class PreupgradeReportsController < ::Api::V2::BaseController
-  include ApiAuthorizer
+  include Api::V2::ApiAuthorizer
 
   def index
     @preupgrade_reports = resource_scope.includes(:preupgrade_report_entries).search_for(*search_options)
