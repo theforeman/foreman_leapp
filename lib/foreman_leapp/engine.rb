@@ -46,7 +46,8 @@ module ForemanLeapp
 
         security_block :foreman_leapp do
           permission :view_job_invocations, { :preupgrade_reports => %i[index show job_invocation],
-                                              'api/v2/preupgrade_reports' => %i[index show job_invocation] }
+                                              'api/v2/preupgrade_reports' => %i[index show job_invocation] },
+                                            :resource_type => 'JobInvocation'
         end
 
         describe_host do
