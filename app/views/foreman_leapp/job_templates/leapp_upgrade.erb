@@ -23,7 +23,7 @@ template_inputs:
 ---
 - hosts: all
   vars:
-    - channel_opts: <% input('Channel') == 'ga' ? '' : "--channel #{input('Channel')}" %>
+    - channel_opts: <%= input('Channel') == 'ga' ? '' : "--channel #{input('Channel')}" %>
   tasks:
     - name: Run Leapp Upgrade
       command: leapp upgrade {{ channel_opts }}
