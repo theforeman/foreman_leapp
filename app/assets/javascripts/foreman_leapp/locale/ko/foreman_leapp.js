@@ -1,150 +1,150 @@
- locales['foreman_leapp'] = locales['foreman_leapp'] || {}; locales['foreman_leapp']['zh_CN'] = {
+ locales['foreman_leapp'] = locales['foreman_leapp'] || {}; locales['foreman_leapp']['ko'] = {
   "domain": "foreman_leapp",
   "locale_data": {
     "foreman_leapp": {
       "": {
-        "Project-Id-Version": "foreman_leapp 2.0.3",
+        "Project-Id-Version": "foreman_leapp 1.0.0",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2022-10-12 12:00+0000",
-        "Last-Translator": "Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarden.nl>, 2023",
-        "Language-Team": "Chinese (China) (https://app.transifex.com/foreman/teams/114/zh_CN/)",
+        "Last-Translator": "Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarden.nl>, 2025",
+        "Language-Team": "Korean (https://app.transifex.com/foreman/teams/114/ko/)",
         "MIME-Version": "1.0",
         "Content-Type": "text/plain; charset=UTF-8",
         "Content-Transfer-Encoding": "8bit",
-        "Language": "zh_CN",
+        "Language": "ko",
         "Plural-Forms": "nplurals=1; plural=0;",
-        "lang": "zh_CN",
+        "lang": "ko",
         "domain": "foreman_leapp",
         "plural_forms": "nplurals=1; plural=0;"
       },
       "A Foreman plugin to support inplace RHEL upgrades with Leapp utility.": [
-        "支持使用 Leapp 的 RHEL 原位升级的 Foreman 插件。"
+        "Leapp 유틸리티를 사용하여 기존 RHEL 업그레이드를 지원하는 Foreman 플러그인입니다."
       ],
       "All": [
-        "全部"
+        "모두"
       ],
       "Command": [
-        "命令"
+        "명령어"
       ],
       "Could not retrieve data: %(status) - %(msg)": [
-        "无法检索数据：%(status) - %(msg)"
+        "%(status) - %(msg) 데이터를 검색할 수 없습니다:"
       ],
       "Failed to fetch preupgrade reports from server.": [
-        "从服务器获取预升级报告失败。"
+        "서버에서 사전 업그레이드 보고서를 가져오지 못했습니다."
       ],
       "Fix Selected": [
-        "选择的修复"
+        "선택한 항목 수정"
       ],
       "Fix Type": [
-        "修复类型"
+        "수정 유형"
       ],
       "Has Remediation": [
-        "有补救"
+        "수정 계획 있음"
       ],
       "Has Remediation?": [
-        "有补救？"
+        "수정 계획?"
       ],
       "High": [
-        "高"
+        "높음"
       ],
       "High Risk Factor": [
-        "高风险因素"
+        "높은 리스크 요소"
       ],
       "Hint": [
-        "提示"
+        "힌트"
       ],
       "Host": [
-        "主机"
+        "호스트 "
       ],
       "Info": [
-        "Info"
+        "정보 "
       ],
       "Inhibitor": [
-        "Inhibitor"
+        "억제 요인"
       ],
       "Inhibitor?": [
-        "Inhibitor?"
+        "억제 요인?"
       ],
       "Leapp preupgrade report": [
-        "Leapp 预升级报告"
+        "Leapp 사전 업그레이드 보고서"
       ],
       "Links": [
-        "链接"
+        "링크"
       ],
       "List Preupgrade reports": [
-        "列出预升级报告"
+        "사전 업그레이드 보고서 목록"
       ],
       "List Preupgrade reports for Job invocation": [
-        "列出作业调用的预升级报告"
+        "작업 호출을 위한 사전 업그레이드 보고서 목록"
       ],
       "Low": [
-        "低"
+        "낮음"
       ],
       "Low Risk Factor": [
-        "低风险因素"
+        "낮은 리스크 요소"
       ],
       "Medium": [
-        "中"
+        "중간"
       ],
       "Medium Risk Factor": [
-        "中风险因素"
+        "중간 리스크 요소"
       ],
       "Missing one of the required permissions: view_hosts": [
-        "缺少所需权限之一：view_hosts"
+        "필수 권한 중 하나가 없습니다: view_hosts"
       ],
       "No": [
-        "否"
+        "아니오  "
       ],
       "No Preupgrade Report Available": [
-        "没有可用的预升级报告"
+        "사전 업그레이드 보고서가 없습니다"
       ],
       "Preupgrade check with Leapp": [
-        "使用 Leapp 的预升级检查"
+        "Leapp으로 업그레이드 전 확인"
       ],
       "Remediation plan": [
-        "补救计划"
+        "수정 계획"
       ],
       "Risk Factor": [
-        "风险因素"
+        "리스크 요소"
       ],
       "Run Leapp upgrade job for RHEL host": [
-        "为 RHEL 主机运行 Leapp 升级作业"
+        "RHEL 호스트에 대한 Leapp 업그레이드 작업 실행"
       ],
       "Run Remediation plan with Leapp": [
-        "使用 Leapp 的运行补救计划"
+        "Leapp으로 수정 계획 실행"
       ],
       "Run Upgrade": [
-        "运行升级"
+        "업그레이드 실행"
       ],
       "Show Preupgrade report": [
-        "显示预升级报告"
+        "사전 업그레이드 보고서 표시"
       ],
       "Summary": [
-        "摘要"
+        "요약"
       ],
       "Tags": [
-        "标签"
+        "태그"
       ],
       "The preupgrade report could not be generated, check the job details for the reason": [
-        "无法生成预升级报告，查看作业详情以了解更多信息"
+        "사전 업그레이드 보고서를 생성할 수 없습니다. 해당 사유에 대한 작업 세부 정보를 확인하세요."
       ],
       "The preupgrade report will be available after the job finishes": [
-        "预升级报告将在作业完成后可用"
+        "작업이 완료되면 사전 업그레이드 보고서를 사용할 수 있습니다."
       ],
       "This issue inhibits the upgrade.": [
-        "此问题会阻止升级。"
+        "이 문제로 인해 업그레이드가 불가능합니다."
       ],
       "Title": [
-        "提示"
+        "제목"
       ],
       "Upgrade with Leapp": [
-        "使用 Leapp 升级"
+        "Leapp으로 업그레이드"
       ],
       "Upgradeability check for RHEL host": [
-        "RHEL 主机的可升级检查"
+        "RHEL 호스트에 대한 업그레이드 가능성 확인"
       ],
       "Yes": [
-        "是"
+        "예  "
       ]
     }
   }

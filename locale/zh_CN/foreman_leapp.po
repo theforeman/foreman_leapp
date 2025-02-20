@@ -8,9 +8,10 @@
 # Amit Upadhye <aupadhye@redhat.com>, 2023
 # Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarden.nl>, 2023
 #
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_leapp 2.0.0\n"
+"Project-Id-Version: foreman_leapp 2.0.3\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2022-10-12 12:00+0000\n"
 "Last-Translator: Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarde"
