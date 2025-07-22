@@ -35,8 +35,5 @@
     "eslint": "^6.8.0",
     "jest-svg-transformer": "^1.0.0",
     "prettier": "^1.19.1"
-  },
-  "dependencies": {
-    "react-ellipsis-with-tooltip": "^1.0.8"
   }
 }
