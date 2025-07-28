@@ -17,7 +17,7 @@ module ForemanLeapp
     initializer 'foreman_leapp.register_plugin', before: :finisher_hook do |app|
       app.reloader.to_prepare do
         Foreman::Plugin.register :foreman_leapp do
-          requires_foreman '>= 3.13'
+          requires_foreman '>= 3.16'
           register_gettext
 
           apipie_documented_controllers ["#{ForemanLeapp::Engine.root}/app/controllers/api/v2/*.rb"]
