@@ -19,14 +19,16 @@ template_inputs:
   required: false
 %>
 <%
-  channel_opts = input('Channel') == 'ga' ? '' : "--channel #{input('Channel')}"
-  target_opts = input('Target Version') == '' ? '' : "--target #{input('Target Version')}"
+  options = []
+  options << ['channel', input('Channel')] if input('Channel') != 'ga'
+  options << ['target', input('Target Version')] if input('Target Version').present?
+  options_string = options.map { |k, v| "--#{k}=#{shell_escape(v)}"}.join(' ')
 %>
 
 <%= render_template 'Check Leapp' %>
 
 rm -f /var/log/leapp/leapp-report.json
-leapp preupgrade <%= target_opts %> <%= channel_opts %>
+leapp preupgrade <%= options_string %>
 
 echo "===leap_upgrade_report_start==="
 cat /var/log/leapp/leapp-report.json

@@ -25,13 +25,16 @@ template_inputs:
   required: false
 %>
 ---
+<%
+  options = []
+  options << ['channel', input('Channel')] if input('Channel') != 'ga'
+  options << ['target', input('Target Version')] if input('Target Version').present?
+  options_string = options.map { |k, v| "--#{k}=#{shell_escape(v)}"}.join(' ')
+%>
 - hosts: all
-  vars:
-    - channel_opts: <%= input('Channel') == 'ga' ? '' : "--channel #{input('Channel')}" %>
-    - target_opts: <%= input('Target Version') == '' ? '' : "--target #{input('Target Version')}" %>
   tasks:
     - name: Run Leapp Upgrade
-      command: leapp upgrade {{ target_opts }} {{ channel_opts }}
+      command: leapp upgrade <%= options_string %>
 
 <%- if input('Reboot') == "true" -%>
     - name: Reboot the machine
