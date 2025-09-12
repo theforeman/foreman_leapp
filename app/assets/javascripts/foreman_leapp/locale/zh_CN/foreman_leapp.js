@@ -101,6 +101,9 @@
       "Preupgrade check with Leapp": [
         "使用 Leapp 的预升级检查"
       ],
+      "Preupgrade job": [
+        ""
+      ],
       "Remediation plan": [
         "补救计划"
       ],

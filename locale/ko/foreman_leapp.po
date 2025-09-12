@@ -8,10 +8,9 @@
 # Bryan Kearney <bryan.kearney@gmail.com>, 2022
 # Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarden.nl>, 2025
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_leapp 1.0.0\n"
+"Project-Id-Version: foreman_leapp 3.0.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2022-10-12 12:00+0000\n"
 "Last-Translator: Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarde"
@@ -106,6 +105,9 @@ msgstr "사전 업그레이드 보고서가 없습니다"
 
 msgid "Preupgrade check with Leapp"
 msgstr "Leapp으로 업그레이드 전 확인"
+
+msgid "Preupgrade job"
+msgstr ""
 
 msgid "Remediation plan"
 msgstr "수정 계획"

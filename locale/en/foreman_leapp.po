@@ -1,0 +1,150 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the foreman_leapp package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: foreman_leapp 1.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2025-09-12 13:19+0200\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+msgid "A Foreman plugin to support inplace RHEL upgrades with Leapp utility."
+msgstr ""
+
+msgid "All"
+msgstr ""
+
+msgid "Command"
+msgstr ""
+
+msgid "Could not retrieve data: %(status) - %(msg)"
+msgstr ""
+
+msgid "Failed to fetch preupgrade reports from server."
+msgstr ""
+
+msgid "Fix Selected"
+msgstr ""
+
+msgid "Fix Type"
+msgstr ""
+
+msgid "Has Remediation"
+msgstr ""
+
+msgid "Has Remediation?"
+msgstr ""
+
+msgid "High"
+msgstr ""
+
+msgid "High Risk Factor"
+msgstr ""
+
+msgid "Hint"
+msgstr ""
+
+msgid "Host"
+msgstr ""
+
+msgid "Info"
+msgstr ""
+
+msgid "Inhibitor"
+msgstr ""
+
+msgid "Inhibitor?"
+msgstr ""
+
+msgid "Leapp preupgrade report"
+msgstr ""
+
+msgid "Links"
+msgstr ""
+
+msgid "List Preupgrade reports"
+msgstr ""
+
+msgid "List Preupgrade reports for Job invocation"
+msgstr ""
+
+msgid "Low"
+msgstr ""
+
+msgid "Low Risk Factor"
+msgstr ""
+
+msgid "Medium"
+msgstr ""
+
+msgid "Medium Risk Factor"
+msgstr ""
+
+msgid "Missing one of the required permissions: view_hosts"
+msgstr ""
+
+msgid "No"
+msgstr ""
+
+msgid "No Preupgrade Report Available"
+msgstr ""
+
+msgid "Preupgrade check with Leapp"
+msgstr ""
+
+msgid "Preupgrade job"
+msgstr ""
+
+msgid "Remediation plan"
+msgstr ""
+
+msgid "Risk Factor"
+msgstr ""
+
+msgid "Run Leapp upgrade job for RHEL host"
+msgstr ""
+
+msgid "Run Remediation plan with Leapp"
+msgstr ""
+
+msgid "Run Upgrade"
+msgstr ""
+
+msgid "Show Preupgrade report"
+msgstr ""
+
+msgid "Summary"
+msgstr ""
+
+msgid "Tags"
+msgstr ""
+
+msgid "The preupgrade report could not be generated, check the job details for the reason"
+msgstr ""
+
+msgid "The preupgrade report will be available after the job finishes"
+msgstr ""
+
+msgid "This issue inhibits the upgrade."
+msgstr ""
+
+msgid "Title"
+msgstr ""
+
+msgid "Upgrade with Leapp"
+msgstr ""
+
+msgid "Upgradeability check for RHEL host"
+msgstr ""
+
+msgid "Yes"
+msgstr ""

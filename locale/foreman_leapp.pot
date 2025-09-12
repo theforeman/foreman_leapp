@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: foreman_leapp 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-28 22:30+0100\n"
-"PO-Revision-Date: 2023-11-28 22:30+0100\n"
+"POT-Creation-Date: 2025-09-12 13:19+0200\n"
+"PO-Revision-Date: 2025-09-12 13:19+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -17,10 +17,6 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
-
-#: ../app/controllers/api/v2/concerns/api_authorizer.rb:16
-msgid "Missing one of the required permissions: view_hosts"
-msgstr ""
 
 #: ../app/controllers/api/v2/preupgrade_reports_controller.rb:10
 msgid "List Preupgrade reports"
@@ -34,33 +30,37 @@ msgstr ""
 msgid "List Preupgrade reports for Job invocation"
 msgstr ""
 
+#: ../app/controllers/concerns/api/v2/api_authorizer.rb:18
+msgid "Missing one of the required permissions: view_hosts"
+msgstr ""
+
 #: ../app/helpers/foreman_leapp/hosts_helper.rb:6
-#: ../lib/foreman_leapp/engine.rb:83
+#: ../lib/foreman_leapp/engine.rb:81
 msgid "Preupgrade check with Leapp"
 msgstr ""
 
 #: ../app/helpers/foreman_leapp/hosts_helper.rb:8
-#: ../lib/foreman_leapp/engine.rb:90
+#: ../lib/foreman_leapp/engine.rb:88
 msgid "Upgrade with Leapp"
 msgstr ""
 
-#: ../lib/foreman_leapp/engine.rb:33
+#: ../lib/foreman_leapp/engine.rb:29
 msgid "Leapp preupgrade report"
 msgstr ""
 
-#: ../lib/foreman_leapp/engine.rb:84
+#: ../lib/foreman_leapp/engine.rb:82
 msgid "Upgradeability check for RHEL host"
 msgstr ""
 
-#: ../lib/foreman_leapp/engine.rb:91
+#: ../lib/foreman_leapp/engine.rb:89
 msgid "Run Leapp upgrade job for RHEL host"
 msgstr ""
 
-#: ../lib/foreman_leapp/engine.rb:97
+#: ../lib/foreman_leapp/engine.rb:95
 msgid "Remediation plan"
 msgstr ""
 
-#: ../lib/foreman_leapp/engine.rb:98
+#: ../lib/foreman_leapp/engine.rb:96
 msgid "Run Remediation plan with Leapp"
 msgstr ""
 
@@ -202,6 +202,10 @@ msgstr ""
 
 #: ../webpack/components/PreupgradeReportsList/components/helpers.js:143
 msgid "Links"
+msgstr ""
+
+#: action_names.rb:2
+msgid "Preupgrade job"
 msgstr ""
 
 #: gemspec.rb:4
