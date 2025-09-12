@@ -10,10 +10,9 @@
 # Lukas Kallies <github.com@luke-web.de>, 2022
 # Bryan Kearney <bryan.kearney@gmail.com>, 2023
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_leapp 2.0.3\n"
+"Project-Id-Version: foreman_leapp 3.0.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2022-10-12 12:00+0000\n"
 "Last-Translator: Bryan Kearney <bryan.kearney@gmail.com>, 2023\n"
@@ -106,6 +105,9 @@ msgid "No Preupgrade Report Available"
 msgstr ""
 
 msgid "Preupgrade check with Leapp"
+msgstr ""
+
+msgid "Preupgrade job"
 msgstr ""
 
 msgid "Remediation plan"
