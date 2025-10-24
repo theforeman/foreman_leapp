@@ -13,15 +13,22 @@ template_inputs:
   required: true
   default: "ga"
   options: "ga\ne4s\neus\naus"
+- name: Target Version
+  description: "Specify the target release version of the operating system to upgrade to. By default, the latest release is used."
+  input_type: user
+  required: false
 %>
 <%
-  channel_opts = input('Channel') == 'ga' ? '' : "--channel #{input('Channel')}"
+  options = []
+  options << ['channel', input('Channel')] if input('Channel') != 'ga'
+  options << ['target', input('Target Version')] if input('Target Version').present?
+  options_string = options.map { |k, v| "--#{k}=#{shell_escape(v)}"}.join(' ')
 %>
 
 <%= render_template 'Check Leapp' %>
 
 rm -f /var/log/leapp/leapp-report.json
-leapp preupgrade <%= channel_opts %>
+leapp preupgrade <%= options_string %>
 
 echo "===leap_upgrade_report_start==="
 cat /var/log/leapp/leapp-report.json
