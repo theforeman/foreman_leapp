@@ -106,9 +106,6 @@ msgstr "사전 업그레이드 보고서가 없습니다"
 msgid "Preupgrade check with Leapp"
 msgstr "Leapp으로 업그레이드 전 확인"
 
-msgid "Preupgrade job"
-msgstr ""
-
 msgid "Remediation plan"
 msgstr "수정 계획"
 

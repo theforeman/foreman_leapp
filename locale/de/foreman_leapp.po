@@ -107,9 +107,6 @@ msgstr ""
 msgid "Preupgrade check with Leapp"
 msgstr ""
 
-msgid "Preupgrade job"
-msgstr ""
-
 msgid "Remediation plan"
 msgstr "Sanierungsplan"
 

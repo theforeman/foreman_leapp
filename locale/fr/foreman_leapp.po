@@ -10,14 +10,14 @@
 # 21966816214bc546c1fc8a185e75ca1c, 2022
 # Amit Upadhye <aupadhye@redhat.com>, 2023
 # Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarden.nl>, 2023
+# Ondřej Gajdušek, 2025
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: foreman_leapp 3.0.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2022-10-12 12:00+0000\n"
-"Last-Translator: Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarde"
-"n.nl>, 2023\n"
+"Last-Translator: Ondřej Gajdušek, 2025\n"
 "Language-Team: French (https://app.transifex.com/foreman/teams/114/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -109,9 +109,6 @@ msgstr "Aucun rapport de pré-mise à niveau disponible"
 
 msgid "Preupgrade check with Leapp"
 msgstr "Contrôle pré-mise à niveau avec Leapp"
-
-msgid "Preupgrade job"
-msgstr ""
 
 msgid "Remediation plan"
 msgstr "Plan de remédiation"

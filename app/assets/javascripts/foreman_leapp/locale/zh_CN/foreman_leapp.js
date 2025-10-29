@@ -3,10 +3,10 @@
   "locale_data": {
     "foreman_leapp": {
       "": {
-        "Project-Id-Version": "foreman_leapp 2.0.3",
+        "Project-Id-Version": "foreman_leapp 3.0.0",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2022-10-12 12:00+0000",
-        "Last-Translator": "Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarden.nl>, 2023",
+        "Last-Translator": "Ondřej Gajdušek, 2025",
         "Language-Team": "Chinese (China) (https://app.transifex.com/foreman/teams/114/zh_CN/)",
         "MIME-Version": "1.0",
         "Content-Type": "text/plain; charset=UTF-8",
@@ -100,9 +100,6 @@
       ],
       "Preupgrade check with Leapp": [
         "使用 Leapp 的预升级检查"
-      ],
-      "Preupgrade job": [
-        ""
       ],
       "Remediation plan": [
         "补救计划"
