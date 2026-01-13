@@ -33,12 +33,13 @@ const PreupgradeReportsTable = ({ data = {} }) => {
   const [reportData, setReportData] = useState(null);
   const [status, setStatus] = useState(STATUS.RESOLVED);
   const dispatch = useDispatch();
+  // eslint-disable-next-line camelcase
   const isLeappJob = data?.template_name?.includes('Run preupgrade via Leapp');
 
   useEffect(() => {
     let isMounted = true;
     if (!isLeappJob || !isExpanded || reportData) {
-      return;
+      return undefined;
     }
     setStatus(STATUS.PENDING);
 
@@ -70,11 +71,9 @@ const PreupgradeReportsTable = ({ data = {} }) => {
                 },
               })
             );
-          } else {
-            if (isMounted) {
-              setReportData({});
-              setStatus(STATUS.RESOLVED);
-            }
+          } else if (isMounted) {
+            setReportData({});
+            setStatus(STATUS.RESOLVED);
           }
         },
         handleError: err => {
@@ -91,8 +90,7 @@ const PreupgradeReportsTable = ({ data = {} }) => {
     };
   }, [isExpanded, data.id, isLeappJob, reportData, dispatch]);
 
-  if (!isLeappJob) return null;
-
+  // eslint-disable-next-line camelcase
   const entries = reportData?.preupgrade_report_entries || [];
   const pagedEntries = entriesPage(entries, pagination);
 
@@ -119,6 +117,8 @@ const PreupgradeReportsTable = ({ data = {} }) => {
     }),
     [pagedEntries, entries.length, pagination, status]
   );
+
+  if (!isLeappJob) return null;
 
   const topPagination = (
     <Pagination
@@ -181,7 +181,7 @@ const PreupgradeReportsTable = ({ data = {} }) => {
         <Table
           ouiaId="leapp-report-table"
           columns={columns}
-          isEmbedded={true}
+          isEmbedded
           params={{
             page: pagination.page,
             per_page: pagination.per_page,
