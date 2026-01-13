@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export const Table = ({ children, bottomPagination, customEmptyState }) => (
   <div data-testid="mock-table">
@@ -9,3 +10,15 @@ export const Table = ({ children, bottomPagination, customEmptyState }) => (
     {bottomPagination}
   </div>
 );
+
+Table.propTypes = {
+  children: PropTypes.node,
+  bottomPagination: PropTypes.node,
+  customEmptyState: PropTypes.node,
+};
+
+Table.defaultProps = {
+  children: null,
+  bottomPagination: null,
+  customEmptyState: null,
+};
