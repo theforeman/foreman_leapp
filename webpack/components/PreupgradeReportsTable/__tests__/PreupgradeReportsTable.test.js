@@ -3,14 +3,25 @@ import { render, screen, waitFor, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import { Provider } from 'react-redux';
 import configureMockStore from 'redux-mock-store';
-import { thunk } from 'redux-thunk';
+import thunk from 'redux-thunk';
 import { APIActions } from 'foremanReact/redux/API';
 import PreupgradeReportsTable from '../index';
 
 jest.mock('foremanReact/redux/API');
-jest.mock('foremanReact/common/I18n');
-jest.mock('foremanReact/components/Pagination');
-jest.mock('foremanReact/components/PF4/TableIndexPage/Table/Table');
+jest.mock('foremanReact/common/I18n', () => ({
+  translate: text => text,
+}));
+jest.mock('foremanReact/components/PF4/TableIndexPage/Table/Table', () => ({
+  Table: ({ children, customEmptyState, childrenOutsideTbody }) => (
+    <table data-testid="table">
+      {childrenOutsideTbody ? children : null}
+      <tbody>
+        {customEmptyState}
+        {!childrenOutsideTbody ? children : null}
+      </tbody>
+    </table>
+  ),
+}));
 
 jest.mock(
   'foremanReact/components/PF4/TableIndexPage/TableIndexPage',
