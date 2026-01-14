@@ -62,6 +62,8 @@ exports[`PreupgradeReportsList should render 1`] = `
   <Pagination
     itemCount={4}
     onChange={[Function]}
+    page={1}
+    perPage={20}
     viewType="list"
   />
 </ListView>
@@ -129,6 +131,8 @@ exports[`PreupgradeReportsList should render when working 1`] = `
   <Pagination
     itemCount={4}
     onChange={[Function]}
+    page={1}
+    perPage={20}
     viewType="list"
   />
 </ListView>
