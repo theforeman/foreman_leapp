@@ -9,20 +9,6 @@ import PreupgradeReportsTable from '../index';
 
 jest.mock('foremanReact/redux/API');
 
-jest.mock(
-  'foremanReact/components/PF4/TableIndexPage/TableIndexPage',
-  () => ({
-    __esModule: true,
-    default: ({ children, customToolbarItems }) => (
-      <div data-testid="table-index-page">
-        <div className="toolbar">{customToolbarItems}</div>
-        {children}
-      </div>
-    ),
-  }),
-  { virtual: true }
-);
-
 const mockStore = configureMockStore([thunk]);
 
 const mockJobId = 42;
@@ -45,7 +31,7 @@ describe('PreupgradeReportsTable', () => {
   let store;
 
   beforeEach(() => {
-    store = mockStore({});
+    store = mockStore({ API: {} });
     jest.clearAllMocks();
 
     APIActions.get.mockImplementation(({ key, handleSuccess }) => {
