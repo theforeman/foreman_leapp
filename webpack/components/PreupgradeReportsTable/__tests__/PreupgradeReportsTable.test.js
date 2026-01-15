@@ -114,7 +114,7 @@ describe('PreupgradeReportsTable', () => {
     expandSection();
     await waitFor(() => screen.getByText('Report Entry 1'));
 
-    fireEvent.click(screen.getAllByText('Next Page')[0]);
+    fireEvent.click(screen.getAllByLabelText('Go to next page')[0]);
 
     await waitFor(() => screen.getByText('Report Entry 6'));
     expect(screen.getByText('Report Entry 10')).toBeInTheDocument();
@@ -126,7 +126,8 @@ describe('PreupgradeReportsTable', () => {
     expandSection();
     await waitFor(() => screen.getByText('Report Entry 1'));
 
-    fireEvent.click(screen.getAllByText('Set 10')[0]);
+    fireEvent.click(screen.getByLabelText('Items per page'));
+    fireEvent.click(screen.getAllByText('10 per page')[0]);
 
     await waitFor(() => {
       expect(screen.getByText('Report Entry 10')).toBeInTheDocument();
