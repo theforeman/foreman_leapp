@@ -111,7 +111,7 @@ describe('PreupgradeReportsTable', () => {
     expandSection();
 
     await waitFor(() => {
-      expect(screen.getByText('No issues found')).toBeInTheDocument();
+      expect(screen.getByText('The preupgrade report shows no issues.')).toBeInTheDocument();
     });
   });
 });
