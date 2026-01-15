@@ -8,20 +8,6 @@ import { APIActions } from 'foremanReact/redux/API';
 import PreupgradeReportsTable from '../index';
 
 jest.mock('foremanReact/redux/API');
-jest.mock('foremanReact/common/I18n', () => ({
-  translate: text => text,
-}));
-jest.mock('foremanReact/components/PF4/TableIndexPage/Table/Table', () => ({
-  Table: ({ children, customEmptyState, childrenOutsideTbody }) => (
-    <table data-testid="table">
-      {childrenOutsideTbody ? children : null}
-      <tbody>
-        {customEmptyState}
-        {!childrenOutsideTbody ? children : null}
-      </tbody>
-    </table>
-  ),
-}));
 
 jest.mock(
   'foremanReact/components/PF4/TableIndexPage/TableIndexPage',
@@ -33,17 +19,6 @@ jest.mock(
         {children}
       </div>
     ),
-  }),
-  { virtual: true }
-);
-
-jest.mock(
-  'foremanReact/Root/Context/ForemanContext',
-  () => ({
-    useForemanSettings: () => ({
-      perPage: 20,
-      perPageOptions: [5, 10, 20, 50],
-    }),
   }),
   { virtual: true }
 );
@@ -126,7 +101,7 @@ describe('PreupgradeReportsTable', () => {
     expandSection();
     await waitFor(() => screen.getByText('Report Entry 1'));
 
-    fireEvent.click(screen.getByLabelText('Items per page'));
+    fireEvent.click(screen.getAllByLabelText('Items per page')[0]);
     fireEvent.click(screen.getAllByText('10 per page')[0]);
 
     await waitFor(() => {
