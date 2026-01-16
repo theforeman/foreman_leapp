@@ -82,7 +82,7 @@ describe('PreupgradeReportsTable', () => {
     expect(screen.queryByText('Report Entry 1')).not.toBeInTheDocument();
   });
 
-  it('changes per_page limit to 10', async () => {
+  it('changes perPage limit to 10', async () => {
     renderComponent();
     expandSection();
     await waitFor(() => screen.getByText('Report Entry 1'));

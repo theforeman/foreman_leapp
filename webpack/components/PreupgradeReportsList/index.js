@@ -22,7 +22,7 @@ const PreupgradeReportsList = ({
   const { perPage, perPageOptions } = useForemanSettings();
   const [pagination, setPagination] = useState({
     page: 1,
-    per_page: perPage,
+    perPage,
     perPageOptions,
   });
 

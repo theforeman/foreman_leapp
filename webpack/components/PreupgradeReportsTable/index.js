@@ -4,21 +4,16 @@ import { useDispatch } from 'react-redux';
 import { ExpandableSection, Tooltip } from '@patternfly/react-core';
 import { translate as __ } from 'foremanReact/common/I18n';
 import { Table } from 'foremanReact/components/PF4/TableIndexPage/Table/Table';
-import Pagination from 'foremanReact/components/Pagination';
 import { APIActions } from 'foremanReact/redux/API';
 import { entriesPage } from '../PreupgradeReports/PreupgradeReportsHelpers';
-import {
-  PER_PAGE_OPTIONS,
-  STATUS,
-  renderSeverityLabel,
-} from './PreupgradeReportsTableConstants';
+import { STATUS, renderSeverityLabel } from './PreupgradeReportsTableConstants';
 
 import './PreupgradeReportsTable.scss';
 
 const PreupgradeReportsTable = ({ data = {} }) => {
   const [error, setError] = useState(null);
   const [isExpanded, setIsExpanded] = useState(false);
-  const [pagination, setPagination] = useState({ page: 1, per_page: 5 });
+  const [pagination, setPagination] = useState({ page: 1, perPage: 5 });
   const [reportData, setReportData] = useState(null);
   const [status, setStatus] = useState(STATUS.RESOLVED);
   const dispatch = useDispatch();
@@ -118,23 +113,11 @@ const PreupgradeReportsTable = ({ data = {} }) => {
     setPagination(prev => ({
       ...prev,
       page: newParams.page || prev.page,
-      per_page: newParams.perPage || newParams.per_page || prev.per_page,
+      perPage: newParams.per_page || prev.perPage,
     }));
   };
 
   if (!isLeappJob) return null;
-
-  const bottomPagination = (
-    <Pagination
-      itemCount={entries.length}
-      key="custom-bottom-pagination"
-      onChange={handleParamsChange}
-      page={pagination.page}
-      perPage={pagination.per_page}
-      perPageOptions={PER_PAGE_OPTIONS}
-      updateParamsByUrl={false}
-    />
-  );
 
   return (
     <ExpandableSection
@@ -149,8 +132,7 @@ const PreupgradeReportsTable = ({ data = {} }) => {
         isEmbedded
         params={{
           page: pagination.page,
-          per_page: pagination.per_page,
-          perPage: pagination.per_page,
+          perPage: pagination.perPage,
           order: '',
         }}
         results={pagedEntries}
@@ -165,7 +147,6 @@ const PreupgradeReportsTable = ({ data = {} }) => {
         isDeleteable={false}
         emptyMessage={__('The preupgrade report shows no issues.')}
         setParams={handleParamsChange}
-        bottomPagination={bottomPagination}
       />
     </ExpandableSection>
   );
