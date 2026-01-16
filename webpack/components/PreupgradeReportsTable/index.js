@@ -1,14 +1,28 @@
 import PropTypes from 'prop-types';
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { ExpandableSection, Tooltip } from '@patternfly/react-core';
+import { ExpandableSection, Label, Tooltip } from '@patternfly/react-core';
 import { translate as __ } from 'foremanReact/common/I18n';
 import { Table } from 'foremanReact/components/PF4/TableIndexPage/Table/Table';
 import { APIActions } from 'foremanReact/redux/API';
-import { entriesPage } from '../PreupgradeReports/PreupgradeReportsHelpers';
-import { STATUS, renderSeverityLabel } from './PreupgradeReportsTableConstants';
+import { STATUS } from 'foremanReact/constants';
 
-import './PreupgradeReportsTable.scss';
+import { entriesPage } from '../PreupgradeReports/PreupgradeReportsHelpers';
+
+const renderSeverityLabel = severity => {
+  switch (severity) {
+    case 'high':
+      return <Label color="red">{__('High')}</Label>;
+    case 'medium':
+      return <Label color="orange">{__('Medium')}</Label>;
+    case 'low':
+      return <Label color="blue">{__('Low')}</Label>;
+    case 'info':
+      return <Label color="grey">{__('Info')}</Label>;
+    default:
+      return <Label color="grey">{severity || __('Info')}</Label>;
+  }
+};
 
 const PreupgradeReportsTable = ({ data = {} }) => {
   const [error, setError] = useState(null);
