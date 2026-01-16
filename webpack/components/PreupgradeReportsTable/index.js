@@ -1,18 +1,19 @@
 import PropTypes from 'prop-types';
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { ExpandableSection } from '@patternfly/react-core';
+import { ExpandableSection, Tooltip } from '@patternfly/react-core';
 import { translate as __ } from 'foremanReact/common/I18n';
 import { Table } from 'foremanReact/components/PF4/TableIndexPage/Table/Table';
 import Pagination from 'foremanReact/components/Pagination';
 import { APIActions } from 'foremanReact/redux/API';
 import { entriesPage } from '../PreupgradeReports/PreupgradeReportsHelpers';
-import './PreupgradeReportsTable.scss';
 import {
   PER_PAGE_OPTIONS,
   STATUS,
-  columns,
+  renderSeverityLabel,
 } from './PreupgradeReportsTableConstants';
+
+import './PreupgradeReportsTable.scss';
 
 const PreupgradeReportsTable = ({ data = {} }) => {
   const [error, setError] = useState(null);
@@ -23,6 +24,37 @@ const PreupgradeReportsTable = ({ data = {} }) => {
   const dispatch = useDispatch();
   // eslint-disable-next-line camelcase
   const isLeappJob = data?.template_name?.includes('Run preupgrade via Leapp');
+
+  const columns = {
+    title: {
+      title: __('Title'),
+    },
+    host: {
+      title: __('Host'),
+      wrapper: entry =>
+        entry.hostname || (reportData && reportData.hostname) || '-',
+    },
+    risk_factor: {
+      title: __('Risk Factor'),
+      wrapper: ({ severity }) => renderSeverityLabel(severity),
+    },
+    has_remediation: {
+      title: __('Has Remediation?'),
+      wrapper: entry =>
+        entry.detail && entry.detail.remediations ? __('Yes') : __('No'),
+    },
+    inhibitor: {
+      title: __('Inhibitor?'),
+      wrapper: entry =>
+        entry.flags && entry.flags.some(flag => flag === 'inhibitor') ? (
+          <Tooltip content={__('This issue inhibits the upgrade.')}>
+            <span>{__('Yes')}</span>
+          </Tooltip>
+        ) : (
+          __('No')
+        ),
+    },
+  };
 
   useEffect(() => {
     let isMounted = true;
