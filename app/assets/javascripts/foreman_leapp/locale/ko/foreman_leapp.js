@@ -101,9 +101,6 @@
       "Preupgrade check with Leapp": [
         "Leapp으로 업그레이드 전 확인"
       ],
-      "Preupgrade job": [
-        ""
-      ],
       "Remediation plan": [
         "수정 계획"
       ],
