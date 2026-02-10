@@ -5,7 +5,7 @@
       "": {
         "Project-Id-Version": "foreman_leapp 1.0.0",
         "Report-Msgid-Bugs-To": "",
-        "PO-Revision-Date": "2025-09-12 13:19+0200",
+        "PO-Revision-Date": "2026-02-10 12:35+0100",
         "Last-Translator": "FULL NAME <EMAIL@ADDRESS>",
         "Language-Team": "LANGUAGE <LL@li.org>",
         "Language": "",
@@ -26,7 +26,7 @@
       "Command": [
         ""
       ],
-      "Could not retrieve data: %(status) - %(msg)": [
+      "Could not retrieve data: %(status)s - %(msg)s": [
         ""
       ],
       "Failed to fetch preupgrade reports from server.": [
@@ -101,9 +101,6 @@
       "Preupgrade check with Leapp": [
         ""
       ],
-      "Preupgrade job": [
-        ""
-      ],
       "Remediation plan": [
         ""
       ],
@@ -129,6 +126,9 @@
         ""
       ],
       "The preupgrade report could not be generated, check the job details for the reason": [
+        ""
+      ],
+      "The preupgrade report shows no issues.": [
         ""
       ],
       "The preupgrade report will be available after the job finishes": [

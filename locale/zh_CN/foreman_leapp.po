@@ -7,14 +7,14 @@
 # Bryan Kearney <bryan.kearney@gmail.com>, 2022
 # Amit Upadhye <aupadhye@redhat.com>, 2023
 # Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarden.nl>, 2023
+# Ondřej Gajdušek, 2025
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_leapp 2.0.3\n"
+"Project-Id-Version: foreman_leapp 3.2.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2022-10-12 12:00+0000\n"
-"Last-Translator: Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarde"
-"n.nl>, 2023\n"
+"Last-Translator: Ondřej Gajdušek, 2025\n"
 "Language-Team: Chinese (China) (https://app.transifex.com/foreman/teams/114/zh"
 "_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -32,8 +32,8 @@ msgstr "全部"
 msgid "Command"
 msgstr "命令"
 
-msgid "Could not retrieve data: %(status) - %(msg)"
-msgstr "无法检索数据：%(status) - %(msg)"
+msgid "Could not retrieve data: %(status)s - %(msg)s"
+msgstr ""
 
 msgid "Failed to fetch preupgrade reports from server."
 msgstr "从服务器获取预升级报告失败。"
@@ -107,9 +107,6 @@ msgstr "没有可用的预升级报告"
 msgid "Preupgrade check with Leapp"
 msgstr "使用 Leapp 的预升级检查"
 
-msgid "Preupgrade job"
-msgstr ""
-
 msgid "Remediation plan"
 msgstr "补救计划"
 
@@ -136,6 +133,9 @@ msgstr "标签"
 
 msgid "The preupgrade report could not be generated, check the job details for the reason"
 msgstr "无法生成预升级报告，查看作业详情以了解更多信息"
+
+msgid "The preupgrade report shows no issues."
+msgstr ""
 
 msgid "The preupgrade report will be available after the job finishes"
 msgstr "预升级报告将在作业完成后可用"
