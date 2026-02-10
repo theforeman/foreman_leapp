@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: foreman_leapp 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2025-09-12 13:19+0200\n"
+"PO-Revision-Date: 2026-02-10 12:35+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -26,7 +26,7 @@ msgstr ""
 msgid "Command"
 msgstr ""
 
-msgid "Could not retrieve data: %(status) - %(msg)"
+msgid "Could not retrieve data: %(status)s - %(msg)s"
 msgstr ""
 
 msgid "Failed to fetch preupgrade reports from server."
@@ -101,9 +101,6 @@ msgstr ""
 msgid "Preupgrade check with Leapp"
 msgstr ""
 
-msgid "Preupgrade job"
-msgstr ""
-
 msgid "Remediation plan"
 msgstr ""
 
@@ -129,6 +126,9 @@ msgid "Tags"
 msgstr ""
 
 msgid "The preupgrade report could not be generated, check the job details for the reason"
+msgstr ""
+
+msgid "The preupgrade report shows no issues."
 msgstr ""
 
 msgid "The preupgrade report will be available after the job finishes"

@@ -10,7 +10,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_leapp 3.0.0\n"
+"Project-Id-Version: foreman_leapp 3.2.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2022-10-12 12:00+0000\n"
 "Last-Translator: Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarde"
@@ -31,8 +31,8 @@ msgstr "모두"
 msgid "Command"
 msgstr "명령어"
 
-msgid "Could not retrieve data: %(status) - %(msg)"
-msgstr "%(status) - %(msg) 데이터를 검색할 수 없습니다:"
+msgid "Could not retrieve data: %(status)s - %(msg)s"
+msgstr ""
 
 msgid "Failed to fetch preupgrade reports from server."
 msgstr "서버에서 사전 업그레이드 보고서를 가져오지 못했습니다."
@@ -106,9 +106,6 @@ msgstr "사전 업그레이드 보고서가 없습니다"
 msgid "Preupgrade check with Leapp"
 msgstr "Leapp으로 업그레이드 전 확인"
 
-msgid "Preupgrade job"
-msgstr ""
-
 msgid "Remediation plan"
 msgstr "수정 계획"
 
@@ -135,6 +132,9 @@ msgstr "태그"
 
 msgid "The preupgrade report could not be generated, check the job details for the reason"
 msgstr "사전 업그레이드 보고서를 생성할 수 없습니다. 해당 사유에 대한 작업 세부 정보를 확인하세요."
+
+msgid "The preupgrade report shows no issues."
+msgstr ""
 
 msgid "The preupgrade report will be available after the job finishes"
 msgstr "작업이 완료되면 사전 업그레이드 보고서를 사용할 수 있습니다."

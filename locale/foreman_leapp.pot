@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: foreman_leapp 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-12 13:19+0200\n"
-"PO-Revision-Date: 2025-09-12 13:19+0200\n"
+"POT-Creation-Date: 2026-02-10 12:35+0100\n"
+"PO-Revision-Date: 2026-02-10 12:35+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -35,37 +35,38 @@ msgid "Missing one of the required permissions: view_hosts"
 msgstr ""
 
 #: ../app/helpers/foreman_leapp/hosts_helper.rb:6
-#: ../lib/foreman_leapp/engine.rb:81
+#: ../lib/foreman_leapp/engine.rb:83
 msgid "Preupgrade check with Leapp"
 msgstr ""
 
 #: ../app/helpers/foreman_leapp/hosts_helper.rb:8
-#: ../lib/foreman_leapp/engine.rb:88
+#: ../lib/foreman_leapp/engine.rb:90
 msgid "Upgrade with Leapp"
 msgstr ""
 
 #: ../lib/foreman_leapp/engine.rb:29
+#: ../webpack/components/PreupgradeReportsTable/index.js:141
 msgid "Leapp preupgrade report"
 msgstr ""
 
-#: ../lib/foreman_leapp/engine.rb:82
+#: ../lib/foreman_leapp/engine.rb:84
 msgid "Upgradeability check for RHEL host"
 msgstr ""
 
-#: ../lib/foreman_leapp/engine.rb:89
+#: ../lib/foreman_leapp/engine.rb:91
 msgid "Run Leapp upgrade job for RHEL host"
 msgstr ""
 
-#: ../lib/foreman_leapp/engine.rb:95
+#: ../lib/foreman_leapp/engine.rb:97
 msgid "Remediation plan"
 msgstr ""
 
-#: ../lib/foreman_leapp/engine.rb:96
+#: ../lib/foreman_leapp/engine.rb:98
 msgid "Run Remediation plan with Leapp"
 msgstr ""
 
 #: ../webpack/components/PreupgradeReports/PreupgradeReports.js:122
-msgid "Could not retrieve data: %(status) - %(msg)"
+msgid "Could not retrieve data: %(status)s - %(msg)s"
 msgstr ""
 
 #: ../webpack/components/PreupgradeReports/PreupgradeReportsActions.js:27
@@ -75,17 +76,20 @@ msgstr ""
 #: ../webpack/components/PreupgradeReports/components/EntriesFilter.js:19
 #: ../webpack/components/PreupgradeReportsList/components/PreupgradeReportsListHeader.js:38
 #: ../webpack/components/PreupgradeReportsList/components/helpers.js:81
+#: ../webpack/components/PreupgradeReportsTable/index.js:39
 msgid "Title"
 msgstr ""
 
 #: ../webpack/components/PreupgradeReports/components/EntriesFilter.js:20
 #: ../webpack/components/PreupgradeReportsList/components/PreupgradeReportsListHeader.js:13
 #: ../webpack/components/PreupgradeReportsList/components/helpers.js:95
+#: ../webpack/components/PreupgradeReportsTable/index.js:47
 msgid "Risk Factor"
 msgstr ""
 
 #: ../webpack/components/PreupgradeReports/components/EntriesFilter.js:21
 #: ../webpack/components/PreupgradeReportsList/components/PreupgradeReportsListHeader.js:12
+#: ../webpack/components/PreupgradeReportsTable/index.js:42
 msgid "Host"
 msgstr ""
 
@@ -105,18 +109,23 @@ msgid "All"
 msgstr ""
 
 #: ../webpack/components/PreupgradeReports/components/EntriesFilter.js:28
+#: ../webpack/components/PreupgradeReportsTable/index.js:19
 msgid "Low"
 msgstr ""
 
 #: ../webpack/components/PreupgradeReports/components/EntriesFilter.js:29
+#: ../webpack/components/PreupgradeReportsTable/index.js:17
 msgid "Medium"
 msgstr ""
 
 #: ../webpack/components/PreupgradeReports/components/EntriesFilter.js:30
+#: ../webpack/components/PreupgradeReportsTable/index.js:15
 msgid "High"
 msgstr ""
 
 #: ../webpack/components/PreupgradeReports/components/EntriesFilter.js:31
+#: ../webpack/components/PreupgradeReportsTable/index.js:21
+#: ../webpack/components/PreupgradeReportsTable/index.js:23
 msgid "Info"
 msgstr ""
 
@@ -131,10 +140,14 @@ msgid "Command"
 msgstr ""
 
 #: ../webpack/components/PreupgradeReports/components/EntriesFilter.js:42
+#: ../webpack/components/PreupgradeReportsTable/index.js:53
+#: ../webpack/components/PreupgradeReportsTable/index.js:60
 msgid "Yes"
 msgstr ""
 
 #: ../webpack/components/PreupgradeReports/components/EntriesFilter.js:43
+#: ../webpack/components/PreupgradeReportsTable/index.js:53
+#: ../webpack/components/PreupgradeReportsTable/index.js:63
 msgid "No"
 msgstr ""
 
@@ -162,16 +175,19 @@ msgstr ""
 
 #:
 #: ../webpack/components/PreupgradeReportsList/components/InhibitorInfoItem.js:17
+#: ../webpack/components/PreupgradeReportsTable/index.js:59
 msgid "This issue inhibits the upgrade."
 msgstr ""
 
 #:
 #: ../webpack/components/PreupgradeReportsList/components/PreupgradeReportsListHeader.js:14
+#: ../webpack/components/PreupgradeReportsTable/index.js:51
 msgid "Has Remediation?"
 msgstr ""
 
 #:
 #: ../webpack/components/PreupgradeReportsList/components/PreupgradeReportsListHeader.js:15
+#: ../webpack/components/PreupgradeReportsTable/index.js:56
 msgid "Inhibitor?"
 msgstr ""
 
@@ -204,8 +220,8 @@ msgstr ""
 msgid "Links"
 msgstr ""
 
-#: action_names.rb:2
-msgid "Preupgrade job"
+#: ../webpack/components/PreupgradeReportsTable/index.js:162
+msgid "The preupgrade report shows no issues."
 msgstr ""
 
 #: gemspec.rb:4

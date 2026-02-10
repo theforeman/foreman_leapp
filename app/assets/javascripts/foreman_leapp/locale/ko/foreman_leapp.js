@@ -3,7 +3,7 @@
   "locale_data": {
     "foreman_leapp": {
       "": {
-        "Project-Id-Version": "foreman_leapp 3.0.0",
+        "Project-Id-Version": "foreman_leapp 3.2.0",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2022-10-12 12:00+0000",
         "Last-Translator": "Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarden.nl>, 2025",
@@ -26,8 +26,8 @@
       "Command": [
         "명령어"
       ],
-      "Could not retrieve data: %(status) - %(msg)": [
-        "%(status) - %(msg) 데이터를 검색할 수 없습니다:"
+      "Could not retrieve data: %(status)s - %(msg)s": [
+        ""
       ],
       "Failed to fetch preupgrade reports from server.": [
         "서버에서 사전 업그레이드 보고서를 가져오지 못했습니다."
@@ -101,9 +101,6 @@
       "Preupgrade check with Leapp": [
         "Leapp으로 업그레이드 전 확인"
       ],
-      "Preupgrade job": [
-        ""
-      ],
       "Remediation plan": [
         "수정 계획"
       ],
@@ -130,6 +127,9 @@
       ],
       "The preupgrade report could not be generated, check the job details for the reason": [
         "사전 업그레이드 보고서를 생성할 수 없습니다. 해당 사유에 대한 작업 세부 정보를 확인하세요."
+      ],
+      "The preupgrade report shows no issues.": [
+        ""
       ],
       "The preupgrade report will be available after the job finishes": [
         "작업이 완료되면 사전 업그레이드 보고서를 사용할 수 있습니다."

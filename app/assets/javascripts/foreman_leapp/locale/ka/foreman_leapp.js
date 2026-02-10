@@ -3,10 +3,10 @@
   "locale_data": {
     "foreman_leapp": {
       "": {
-        "Project-Id-Version": "foreman_leapp 3.0.0",
+        "Project-Id-Version": "foreman_leapp 3.2.0",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2022-10-12 12:00+0000",
-        "Last-Translator": "Temuri Doghonadze <temuri.doghonadze@gmail.com>, 2023",
+        "Last-Translator": "Temuri Doghonadze <temuri.doghonadze@gmail.com>, 2025",
         "Language-Team": "Georgian (https://app.transifex.com/foreman/teams/114/ka/)",
         "MIME-Version": "1.0",
         "Content-Type": "text/plain; charset=UTF-8",
@@ -26,8 +26,8 @@
       "Command": [
         "ბრძანება"
       ],
-      "Could not retrieve data: %(status) - %(msg)": [
-        "მონაცემების მიღების შეცდომა: %(status) - %(msg)"
+      "Could not retrieve data: %(status)s - %(msg)s": [
+        ""
       ],
       "Failed to fetch preupgrade reports from server.": [
         "სერვერიდან განახლებისწინა ანგარიშების გამოთხოვის შეცდომა."
@@ -101,9 +101,6 @@
       "Preupgrade check with Leapp": [
         "განახლებისწინა შემოწმება Leapp-ით"
       ],
-      "Preupgrade job": [
-        ""
-      ],
       "Remediation plan": [
         "გაუქმების გეგმა"
       ],
@@ -130,6 +127,9 @@
       ],
       "The preupgrade report could not be generated, check the job details for the reason": [
         "განახლებამდელი ანგარიშის შექმნის შეცდომა. მიზეზისთვის იხილეთ დავალების დეტალები"
+      ],
+      "The preupgrade report shows no issues.": [
+        ""
       ],
       "The preupgrade report will be available after the job finishes": [
         "განახლებისწინა ანგარიში დავალების დასრულების შემდეგ იქნება ხელმისაწვდომი"
