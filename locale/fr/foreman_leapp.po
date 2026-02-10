@@ -10,14 +10,14 @@
 # 21966816214bc546c1fc8a185e75ca1c, 2022
 # Amit Upadhye <aupadhye@redhat.com>, 2023
 # Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarden.nl>, 2023
+# Ondřej Gajdušek, 2025
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_leapp 3.0.0\n"
+"Project-Id-Version: foreman_leapp 3.2.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2022-10-12 12:00+0000\n"
-"Last-Translator: Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarde"
-"n.nl>, 2023\n"
+"Last-Translator: Ondřej Gajdušek, 2025\n"
 "Language-Team: French (https://app.transifex.com/foreman/teams/114/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -35,8 +35,8 @@ msgstr "Tout"
 msgid "Command"
 msgstr "Commande"
 
-msgid "Could not retrieve data: %(status) - %(msg)"
-msgstr "Impossible de récupérer les données : %(status) - %(msg)"
+msgid "Could not retrieve data: %(status)s - %(msg)s"
+msgstr ""
 
 msgid "Failed to fetch preupgrade reports from server."
 msgstr "Échec de la récupération des rapports de pré-mise à niveau du serveur."
@@ -110,9 +110,6 @@ msgstr "Aucun rapport de pré-mise à niveau disponible"
 msgid "Preupgrade check with Leapp"
 msgstr "Contrôle pré-mise à niveau avec Leapp"
 
-msgid "Preupgrade job"
-msgstr ""
-
 msgid "Remediation plan"
 msgstr "Plan de remédiation"
 
@@ -139,6 +136,9 @@ msgstr "Balises"
 
 msgid "The preupgrade report could not be generated, check the job details for the reason"
 msgstr "Le rapport de pré-mise à niveau n'a pas pu être généré, vérifiez les détails de la tâche pour en connaître la raison"
+
+msgid "The preupgrade report shows no issues."
+msgstr ""
 
 msgid "The preupgrade report will be available after the job finishes"
 msgstr "Le rapport de pré-mise à niveau sera disponible après la fin du travail"

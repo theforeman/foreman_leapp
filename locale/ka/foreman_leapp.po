@@ -4,14 +4,14 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# Temuri Doghonadze <temuri.doghonadze@gmail.com>, 2023
+# Temuri Doghonadze <temuri.doghonadze@gmail.com>, 2025
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_leapp 3.0.0\n"
+"Project-Id-Version: foreman_leapp 3.2.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2022-10-12 12:00+0000\n"
-"Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>, 2023\n"
+"Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>, 2025\n"
 "Language-Team: Georgian (https://app.transifex.com/foreman/teams/114/ka/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -28,8 +28,8 @@ msgstr "ყველა"
 msgid "Command"
 msgstr "ბრძანება"
 
-msgid "Could not retrieve data: %(status) - %(msg)"
-msgstr "მონაცემების მიღების შეცდომა: %(status) - %(msg)"
+msgid "Could not retrieve data: %(status)s - %(msg)s"
+msgstr ""
 
 msgid "Failed to fetch preupgrade reports from server."
 msgstr "სერვერიდან განახლებისწინა ანგარიშების გამოთხოვის შეცდომა."
@@ -103,9 +103,6 @@ msgstr "განახლებისწინა ანგარიში ხ�
 msgid "Preupgrade check with Leapp"
 msgstr "განახლებისწინა შემოწმება Leapp-ით"
 
-msgid "Preupgrade job"
-msgstr ""
-
 msgid "Remediation plan"
 msgstr "გაუქმების გეგმა"
 
@@ -132,6 +129,9 @@ msgstr "ჭდეები"
 
 msgid "The preupgrade report could not be generated, check the job details for the reason"
 msgstr "განახლებამდელი ანგარიშის შექმნის შეცდომა. მიზეზისთვის იხილეთ დავალების დეტალები"
+
+msgid "The preupgrade report shows no issues."
+msgstr ""
 
 msgid "The preupgrade report will be available after the job finishes"
 msgstr "განახლებისწინა ანგარიში დავალების დასრულების შემდეგ იქნება ხელმისაწვდომი"
