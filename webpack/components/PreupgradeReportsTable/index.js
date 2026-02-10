@@ -1,52 +1,74 @@
 import PropTypes from 'prop-types';
-import React, { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { ExpandableSection, Tooltip } from '@patternfly/react-core';
+import React, { useState } from 'react';
+import {
+  ExpandableSection,
+  Toolbar,
+  ToolbarContent,
+  ToolbarItem,
+  Tooltip,
+} from '@patternfly/react-core';
 import { ExpandableRowContent, Tbody, Td, Tr } from '@patternfly/react-table';
 import { translate as __ } from 'foremanReact/common/I18n';
 import { Table } from 'foremanReact/components/PF4/TableIndexPage/Table/Table';
 import { getColumnHelpers } from 'foremanReact/components/PF4/TableIndexPage/Table/helpers';
-import { APIActions } from 'foremanReact/redux/API';
 import { STATUS } from 'foremanReact/constants';
-import { entriesPage } from '../PreupgradeReports/PreupgradeReportsHelpers';
+import { SearchAutocomplete } from 'foremanReact/components/SearchBar/SearchAutocomplete';
+import { getPreupgradeTableState } from './PreupgradeReportsTableHelpers';
 import ReportDetails, { renderSeverityLabel } from './ReportDetails';
 
 const PreupgradeReportsTable = ({ data = {} }) => {
-  const [error, setError] = useState(null);
+  const [isReportExpanded, setIsReportExpanded] = useState(false);
 
-  const [isReportExpanded, setIsReportExpanded] = useState(false); // Outer expansion state (Leapp Report Section)
-  const [pagination, setPagination] = useState({ page: 1, perPage: 5 });
-  const [reportData, setReportData] = useState(null);
-  const [status, setStatus] = useState(STATUS.RESOLVED);
-  const [expandedRowIds, setExpandedRowIds] = useState(new Set()); // Inner table expansion state (Rows)
+  const {
+    isLeappJob,
+    status,
+    error,
+    rows,
+    totalCount,
+    pagination,
+    sortBy,
+    searchValue,
+    setSearchValue,
+    setPagination,
+    setSortBy,
+    expandedRowIds,
+    toggleRowExpansion,
+    areAllExpanded,
+    toggleAllExpansion,
+  } = getPreupgradeTableState(data, isReportExpanded);
 
-  const dispatch = useDispatch();
-  // eslint-disable-next-line camelcase
-  const isLeappJob = data?.template_name?.includes('Run preupgrade via Leapp');
+  const autocompleteResults = [
+    { label: 'title = ', category: '' },
+    { label: 'hostname = ', category: '' },
+    { label: 'severity = ', category: '' },
+    { label: 'summary ~ ', category: '' },
+    { label: 'has_remediation = true', category: '' },
+    { label: 'inhibitor = true', category: '' },
+  ];
 
   const columns = {
-    title: {
-      title: __('Title'),
-    },
-    host: {
+    title: { title: __('Title'), isSorted: true },
+    hostname: {
       title: __('Host'),
-      wrapper: entry =>
-        entry.hostname || (reportData && reportData.hostname) || '-',
+      wrapper: e => e.hostname || '-',
+      isSorted: true,
     },
-    risk_factor: {
+    severity: {
       title: __('Risk Factor'),
       wrapper: ({ severity }) => renderSeverityLabel(severity),
+      isSorted: true,
     },
     has_remediation: {
       title: __('Has Remediation?'),
-      wrapper: entry =>
-        entry.detail && entry.detail.remediations ? __('Yes') : __('No'),
+      isSorted: true,
+      wrapper: e => (e.detail?.remediations ? __('Yes') : __('No')),
     },
     inhibitor: {
       title: __('Inhibitor?'),
-      wrapper: entry =>
-        entry.flags && entry.flags.some(flag => flag === 'inhibitor') ? (
-          <Tooltip content={__('This issue inhibits the upgrade.')}>
+      isSorted: true,
+      wrapper: e =>
+        e.flags?.includes('inhibitor') ? (
+          <Tooltip>
             <span>{__('Yes')}</span>
           </Tooltip>
         ) : (
@@ -55,96 +77,16 @@ const PreupgradeReportsTable = ({ data = {} }) => {
     },
   };
 
-  useEffect(() => {
-    let isMounted = true;
-    if (!isLeappJob || !isReportExpanded || reportData) {
-      return undefined;
-    }
-    setStatus(STATUS.PENDING);
-
-    dispatch(
-      APIActions.get({
-        key: `GET_LEAPP_REPORT_LIST_${data.id}`,
-        url: `/api/job_invocations/${data.id}/preupgrade_reports`,
-        handleSuccess: listResponse => {
-          if (!isMounted) return;
-          const listPayload = listResponse.data || listResponse;
-          const summary = listPayload.results?.[0];
-          if (summary?.id) {
-            dispatch(
-              APIActions.get({
-                key: `GET_LEAPP_REPORT_DETAIL_${summary.id}`,
-                url: `/api/preupgrade_reports/${summary.id}`,
-                handleSuccess: detailResponse => {
-                  if (isMounted) {
-                    const detailPayload = detailResponse.data || detailResponse;
-                    setReportData(detailPayload);
-                    setStatus(STATUS.RESOLVED);
-                  }
-                },
-                handleError: err => {
-                  if (isMounted) {
-                    setError(err);
-                    setStatus(STATUS.ERROR);
-                  }
-                },
-              })
-            );
-          } else if (isMounted) {
-            setReportData({});
-            setStatus(STATUS.RESOLVED);
-          }
-        },
-        handleError: err => {
-          if (isMounted) {
-            setError(err);
-            setStatus(STATUS.ERROR);
-          }
-        },
-      })
-    );
-
-    return () => {
-      isMounted = false;
-    };
-  }, [isReportExpanded, data.id, isLeappJob, reportData, dispatch]);
-
-  // eslint-disable-next-line camelcase
-  const entries = reportData?.preupgrade_report_entries || [];
-  const pagedEntries = entriesPage(entries, pagination);
-
   const handleParamsChange = newParams => {
+    if (newParams.order) {
+      const [index, direction] = newParams.order.split(' ');
+      setSortBy({ index, direction: direction.toLowerCase() });
+    }
     setPagination(prev => ({
       ...prev,
       page: newParams.page || prev.page,
-      perPage: newParams.per_page || prev.perPage,
+      perPage: newParams.perPage || prev.perPage,
     }));
-    setExpandedRowIds(new Set());
-  };
-
-  const toggleRowExpansion = (id, isExpanding) => {
-    setExpandedRowIds(prev => {
-      const newSet = new Set(prev);
-      if (isExpanding) {
-        newSet.add(id);
-      } else {
-        newSet.delete(id);
-      }
-      return newSet;
-    });
-  };
-
-  const areAllRowsExpanded =
-    pagedEntries.length > 0 &&
-    pagedEntries.every(entry => expandedRowIds.has(entry.id));
-
-  const onExpandAll = () => {
-    setExpandedRowIds(() => {
-      if (areAllRowsExpanded) {
-        return new Set();
-      }
-      return new Set(pagedEntries.map(e => e.id));
-    });
   };
 
   const [columnKeys, keysToColumnNames] = getColumnHelpers(columns);
@@ -155,9 +97,32 @@ const PreupgradeReportsTable = ({ data = {} }) => {
     <ExpandableSection
       className="leapp-report-section"
       isExpanded={isReportExpanded}
-      onToggle={(_event, val) => setIsReportExpanded(val)}
+      onToggle={(_e, val) => setIsReportExpanded(val)}
       toggleText={__('Leapp preupgrade report')}
     >
+      <Toolbar
+        id="leapp-report-toolbar"
+        className="pf-c-toolbar"
+        ouiaId="leapp-report-toolbar"
+      >
+        <ToolbarContent>
+          <ToolbarItem style={{ width: '100%', maxWidth: '600px' }}>
+            <div className="foreman-search-bar">
+              <SearchAutocomplete
+                value={searchValue}
+                results={autocompleteResults}
+                onSearchChange={val => {
+                  setSearchValue(val);
+                  setPagination(prev => ({ ...prev, page: 1 }));
+                }}
+                onSearch={val => setSearchValue(val)}
+                placeholder={__('Search')}
+              />
+            </div>
+          </ToolbarItem>
+        </ToolbarContent>
+      </Toolbar>
+
       <Table
         ouiaId="leapp-report-table"
         columns={columns}
@@ -165,10 +130,10 @@ const PreupgradeReportsTable = ({ data = {} }) => {
         params={{
           page: pagination.page,
           perPage: pagination.perPage,
-          order: '',
+          order: `${sortBy.index} ${sortBy.direction.toUpperCase()}`,
         }}
-        results={pagedEntries}
-        itemCount={entries.length}
+        results={rows}
+        itemCount={totalCount}
         url=""
         isPending={status === STATUS.PENDING}
         errorMessage={
@@ -177,14 +142,18 @@ const PreupgradeReportsTable = ({ data = {} }) => {
         showCheckboxes={false}
         refreshData={() => {}}
         isDeleteable={false}
-        emptyMessage={__('The preupgrade report shows no issues.')}
+        emptyMessage={
+          searchValue
+            ? __('No results found for your search.')
+            : __('The preupgrade report shows no issues.')
+        }
         setParams={handleParamsChange}
         childrenOutsideTbody
-        onExpandAll={onExpandAll}
+        onExpandAll={(_e, isOpen) => toggleAllExpansion(isOpen)}
         // Inverted per PatternFly implementation to ensure correct toggle icon state
-        areAllRowsExpanded={!areAllRowsExpanded}
+        areAllRowsExpanded={!areAllExpanded}
       >
-        {pagedEntries.map((entry, rowIndex) => {
+        {rows.map((entry, rowIndex) => {
           const isRowExpanded = expandedRowIds.has(entry.id);
           return (
             <Tbody key={entry.id} isExpanded={isRowExpanded}>
@@ -193,7 +162,7 @@ const PreupgradeReportsTable = ({ data = {} }) => {
                   expand={{
                     rowIndex,
                     isExpanded: isRowExpanded,
-                    onToggle: (_event, _rowIndex, isOpen) =>
+                    onToggle: (_e, _idx, isOpen) =>
                       toggleRowExpansion(entry.id, isOpen),
                   }}
                 />
