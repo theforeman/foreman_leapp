@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: foreman_leapp 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-02-10 12:35+0100\n"
+"PO-Revision-Date: 2026-03-09 16:32+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -99,6 +99,9 @@ msgid "No Preupgrade Report Available"
 msgstr ""
 
 msgid "Preupgrade check with Leapp"
+msgstr ""
+
+msgid "Preupgrade job"
 msgstr ""
 
 msgid "Remediation plan"
