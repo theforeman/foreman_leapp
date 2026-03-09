@@ -6,7 +6,7 @@
         "Project-Id-Version": "foreman_leapp 3.2.0",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2022-10-12 12:00+0000",
-        "Last-Translator": "Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarden.nl>, 2025",
+        "Last-Translator": "Ondřej Gajdušek, 2026",
         "Language-Team": "Korean (https://app.transifex.com/foreman/teams/114/ko/)",
         "MIME-Version": "1.0",
         "Content-Type": "text/plain; charset=UTF-8",
@@ -27,7 +27,7 @@
         "명령어"
       ],
       "Could not retrieve data: %(status)s - %(msg)s": [
-        ""
+        "데이터를 가져올 수 없습니다:%(status)s - %(msg)s"
       ],
       "Failed to fetch preupgrade reports from server.": [
         "서버에서 사전 업그레이드 보고서를 가져오지 못했습니다."
@@ -101,6 +101,9 @@
       "Preupgrade check with Leapp": [
         "Leapp으로 업그레이드 전 확인"
       ],
+      "Preupgrade job": [
+        ""
+      ],
       "Remediation plan": [
         "수정 계획"
       ],
@@ -129,7 +132,7 @@
         "사전 업그레이드 보고서를 생성할 수 없습니다. 해당 사유에 대한 작업 세부 정보를 확인하세요."
       ],
       "The preupgrade report shows no issues.": [
-        ""
+        "사전 업그레이드 보고서에는 문제가 없는 것으로 표시됩니다."
       ],
       "The preupgrade report will be available after the job finishes": [
         "작업이 완료되면 사전 업그레이드 보고서를 사용할 수 있습니다."

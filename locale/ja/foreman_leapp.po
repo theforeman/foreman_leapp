@@ -9,14 +9,14 @@
 # Amit Upadhye <aupadhye@redhat.com>, 2022
 # Bryan Kearney <bryan.kearney@gmail.com>, 2023
 # Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarden.nl>, 2023
-# Ondřej Gajdušek, 2025
+# Ondřej Gajdušek, 2026
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: foreman_leapp 3.2.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2022-10-12 12:00+0000\n"
-"Last-Translator: Ondřej Gajdušek, 2025\n"
+"Last-Translator: Ondřej Gajdušek, 2026\n"
 "Language-Team: Japanese (https://app.transifex.com/foreman/teams/114/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -34,7 +34,7 @@ msgid "Command"
 msgstr "コマンド"
 
 msgid "Could not retrieve data: %(status)s - %(msg)s"
-msgstr ""
+msgstr "データを取得できませんでした: %(status)s - %(msg)s"
 
 msgid "Failed to fetch preupgrade reports from server."
 msgstr "サーバーからアップグレード前のレポートを取得できませんでした。"
@@ -108,6 +108,9 @@ msgstr "アップグレード前のレポートはありません"
 msgid "Preupgrade check with Leapp"
 msgstr "Leapp によるアップグレード前のチェック"
 
+msgid "Preupgrade job"
+msgstr ""
+
 msgid "Remediation plan"
 msgstr "修復プラン"
 
@@ -133,13 +136,13 @@ msgid "Tags"
 msgstr "タグ"
 
 msgid "The preupgrade report could not be generated, check the job details for the reason"
-msgstr "アップグレード前のレポートを生成できませんでした。理由は、ジョブの詳細を確認してください。"
+msgstr "アップグレード前のレポートを生成できませんでした、理由はジョブの詳細を確認してください"
 
 msgid "The preupgrade report shows no issues."
-msgstr ""
+msgstr "アップグレード前のレポートには問題は表示されていません。"
 
 msgid "The preupgrade report will be available after the job finishes"
-msgstr "アップグレード前のレポートは、ジョブの終了後に利用できるようになります。"
+msgstr "アップグレード前のレポートは、ジョブの終了後に利用できるようになります"
 
 msgid "This issue inhibits the upgrade."
 msgstr "この問題が原因でアップグレードが行われません。"

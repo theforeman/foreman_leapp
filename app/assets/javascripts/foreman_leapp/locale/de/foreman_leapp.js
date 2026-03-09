@@ -101,6 +101,9 @@
       "Preupgrade check with Leapp": [
         ""
       ],
+      "Preupgrade job": [
+        ""
+      ],
       "Remediation plan": [
         "Sanierungsplan"
       ],

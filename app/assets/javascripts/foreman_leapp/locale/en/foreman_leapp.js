@@ -5,7 +5,7 @@
       "": {
         "Project-Id-Version": "foreman_leapp 1.0.0",
         "Report-Msgid-Bugs-To": "",
-        "PO-Revision-Date": "2026-02-10 12:35+0100",
+        "PO-Revision-Date": "2026-03-09 16:32+0100",
         "Last-Translator": "FULL NAME <EMAIL@ADDRESS>",
         "Language-Team": "LANGUAGE <LL@li.org>",
         "Language": "",
@@ -99,6 +99,9 @@
         ""
       ],
       "Preupgrade check with Leapp": [
+        ""
+      ],
+      "Preupgrade job": [
         ""
       ],
       "Remediation plan": [

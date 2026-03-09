@@ -6,7 +6,7 @@
         "Project-Id-Version": "foreman_leapp 3.2.0",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2022-10-12 12:00+0000",
-        "Last-Translator": "Ondřej Gajdušek, 2025",
+        "Last-Translator": "Ondřej Gajdušek, 2026",
         "Language-Team": "French (https://app.transifex.com/foreman/teams/114/fr/)",
         "MIME-Version": "1.0",
         "Content-Type": "text/plain; charset=UTF-8",
@@ -27,7 +27,7 @@
         "Commande"
       ],
       "Could not retrieve data: %(status)s - %(msg)s": [
-        ""
+        "Impossible de récupérer les données : %(status)s - %(msg)s"
       ],
       "Failed to fetch preupgrade reports from server.": [
         "Échec de la récupération des rapports de pré-mise à niveau du serveur."
@@ -101,6 +101,9 @@
       "Preupgrade check with Leapp": [
         "Contrôle pré-mise à niveau avec Leapp"
       ],
+      "Preupgrade job": [
+        ""
+      ],
       "Remediation plan": [
         "Plan de remédiation"
       ],
@@ -129,7 +132,7 @@
         "Le rapport de pré-mise à niveau n'a pas pu être généré, vérifiez les détails de la tâche pour en connaître la raison"
       ],
       "The preupgrade report shows no issues.": [
-        ""
+        "Le rapport pré-mise à niveau n'indique aucun problème."
       ],
       "The preupgrade report will be available after the job finishes": [
         "Le rapport de pré-mise à niveau sera disponible après la fin du travail"
