@@ -6,7 +6,7 @@
         "Project-Id-Version": "foreman_leapp 3.2.0",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2022-10-12 12:00+0000",
-        "Last-Translator": "Ondřej Gajdušek, 2025",
+        "Last-Translator": "Ondřej Gajdušek, 2026",
         "Language-Team": "Japanese (https://app.transifex.com/foreman/teams/114/ja/)",
         "MIME-Version": "1.0",
         "Content-Type": "text/plain; charset=UTF-8",
@@ -27,7 +27,7 @@
         "コマンド"
       ],
       "Could not retrieve data: %(status)s - %(msg)s": [
-        ""
+        "データを取得できませんでした: %(status)s - %(msg)s"
       ],
       "Failed to fetch preupgrade reports from server.": [
         "サーバーからアップグレード前のレポートを取得できませんでした。"
@@ -101,6 +101,9 @@
       "Preupgrade check with Leapp": [
         "Leapp によるアップグレード前のチェック"
       ],
+      "Preupgrade job": [
+        ""
+      ],
       "Remediation plan": [
         "修復プラン"
       ],
@@ -126,13 +129,13 @@
         "タグ"
       ],
       "The preupgrade report could not be generated, check the job details for the reason": [
-        "アップグレード前のレポートを生成できませんでした。理由は、ジョブの詳細を確認してください。"
+        "アップグレード前のレポートを生成できませんでした、理由はジョブの詳細を確認してください"
       ],
       "The preupgrade report shows no issues.": [
-        ""
+        "アップグレード前のレポートには問題は表示されていません。"
       ],
       "The preupgrade report will be available after the job finishes": [
-        "アップグレード前のレポートは、ジョブの終了後に利用できるようになります。"
+        "アップグレード前のレポートは、ジョブの終了後に利用できるようになります"
       ],
       "This issue inhibits the upgrade.": [
         "この問題が原因でアップグレードが行われません。"

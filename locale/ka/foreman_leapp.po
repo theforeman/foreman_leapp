@@ -4,14 +4,14 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# Temuri Doghonadze <temuri.doghonadze@gmail.com>, 2025
+# Temuri Doghonadze <temuri.doghonadze@gmail.com>, 2023
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: foreman_leapp 3.2.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2022-10-12 12:00+0000\n"
-"Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>, 2025\n"
+"Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>, 2023\n"
 "Language-Team: Georgian (https://app.transifex.com/foreman/teams/114/ka/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -102,6 +102,9 @@ msgstr "განახლებისწინა ანგარიში ხ�
 
 msgid "Preupgrade check with Leapp"
 msgstr "განახლებისწინა შემოწმება Leapp-ით"
+
+msgid "Preupgrade job"
+msgstr ""
 
 msgid "Remediation plan"
 msgstr "გაუქმების გეგმა"

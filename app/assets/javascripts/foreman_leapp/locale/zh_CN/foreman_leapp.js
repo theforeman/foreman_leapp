@@ -6,7 +6,7 @@
         "Project-Id-Version": "foreman_leapp 3.2.0",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2022-10-12 12:00+0000",
-        "Last-Translator": "Ondřej Gajdušek, 2025",
+        "Last-Translator": "Ondřej Gajdušek, 2026",
         "Language-Team": "Chinese (China) (https://app.transifex.com/foreman/teams/114/zh_CN/)",
         "MIME-Version": "1.0",
         "Content-Type": "text/plain; charset=UTF-8",
@@ -27,7 +27,7 @@
         "命令"
       ],
       "Could not retrieve data: %(status)s - %(msg)s": [
-        ""
+        "无法检索数据：%(status)s - %(msg)s"
       ],
       "Failed to fetch preupgrade reports from server.": [
         "从服务器获取预升级报告失败。"
@@ -101,6 +101,9 @@
       "Preupgrade check with Leapp": [
         "使用 Leapp 的预升级检查"
       ],
+      "Preupgrade job": [
+        ""
+      ],
       "Remediation plan": [
         "补救计划"
       ],
@@ -129,7 +132,7 @@
         "无法生成预升级报告，查看作业详情以了解更多信息"
       ],
       "The preupgrade report shows no issues.": [
-        ""
+        "预升级报告没有显示问题。"
       ],
       "The preupgrade report will be available after the job finishes": [
         "预升级报告将在作业完成后可用"
