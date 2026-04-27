@@ -4,4 +4,4 @@ source 'https://rubygems.org'
 
 gemspec
 
-gem 'theforeman-rubocop', '~> 0.1.0.pre'
+gem 'theforeman-rubocop', '~> 0.1.2', groups: %i[development rubocop]

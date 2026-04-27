@@ -21,5 +21,4 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'foreman_remote_execution', '>= 8.1.1'
   s.add_dependency 'foreman_ansible', '>= 5.0'
-  s.add_development_dependency 'rdoc', '~> 6.2'
 end
