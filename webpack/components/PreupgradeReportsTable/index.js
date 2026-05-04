@@ -1,6 +1,12 @@
 /* eslint-disable max-lines */
 import PropTypes from 'prop-types';
-import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import React, {
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
 import { useDispatch } from 'react-redux';
 import {
   Button,
@@ -77,6 +83,11 @@ const PreupgradeReportsTable = ({ data = {} }) => {
   // eslint-disable-next-line camelcase
   const isLeappJob = data?.template_name?.includes(LEAPP_TEMPLATE_NAME);
 
+  // eslint-disable-next-line camelcase
+  const jobStatusLabel = data?.status_label;
+
+  const lastFetchedKeyRef = useRef(null);
+
   const columns = useMemo(
     () => ({
       title: { title: __('Title') },
@@ -110,7 +121,14 @@ const PreupgradeReportsTable = ({ data = {} }) => {
 
   useEffect(() => {
     let isMounted = true;
-    if (!isLeappJob || !isReportExpanded || reportData) return undefined;
+    const fetchKey = `${data.id}:${jobStatusLabel}`;
+
+    if (
+      !isLeappJob ||
+      !isReportExpanded ||
+      lastFetchedKeyRef.current === fetchKey
+    )
+      return undefined;
 
     const fail = err => {
       if (!isMounted) return;
@@ -120,7 +138,8 @@ const PreupgradeReportsTable = ({ data = {} }) => {
 
     const succeed = response => {
       if (!isMounted) return;
-      setReportData(response?.data || response || {});
+      lastFetchedKeyRef.current = fetchKey;
+      setReportData(response?.data || response || null);
       setStatus(STATUS.RESOLVED);
     };
 
@@ -143,7 +162,7 @@ const PreupgradeReportsTable = ({ data = {} }) => {
             );
             return;
           }
-          succeed();
+          succeed(null);
         },
         handleError: err => fail(err),
       })
@@ -152,7 +171,7 @@ const PreupgradeReportsTable = ({ data = {} }) => {
     return () => {
       isMounted = false;
     };
-  }, [isReportExpanded, data.id, isLeappJob, reportData, dispatch]);
+  }, [isReportExpanded, data.id, isLeappJob, dispatch, jobStatusLabel]);
 
   // eslint-disable-next-line camelcase
   const entries = useMemo(() => reportData?.preupgrade_report_entries || [], [
@@ -428,7 +447,10 @@ const PreupgradeReportsTable = ({ data = {} }) => {
 PreupgradeReportsTable.propTypes = {
   data: PropTypes.shape({
     id: PropTypes.number,
+    // eslint-disable-next-line camelcase
     template_name: PropTypes.string,
+    // eslint-disable-next-line camelcase
+    status_label: PropTypes.string,
     targeting: PropTypes.shape({
       host_id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     }),
