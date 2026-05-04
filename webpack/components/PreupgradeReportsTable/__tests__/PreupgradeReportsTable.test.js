@@ -102,6 +102,50 @@ describe('PreupgradeReportsTable', () => {
     ).not.toBeInTheDocument();
   });
 
+  it('refetches when status_label transitions (e.g. Running → Succeeded)', async () => {
+    const { rerender } = render(
+      <Provider store={store}>
+        <PreupgradeReportsTable
+          data={{ ...mockJobData, status_label: 'Running' }}
+        />
+      </Provider>
+    );
+    expandSection();
+    await waitForTable();
+
+    const callCountAfterFirstFetch = APIActions.get.mock.calls.length;
+
+    rerender(
+      <Provider store={store}>
+        <PreupgradeReportsTable
+          data={{ ...mockJobData, status_label: 'Succeeded' }}
+        />
+      </Provider>
+    );
+
+    await waitFor(() =>
+      expect(APIActions.get.mock.calls.length).toBeGreaterThan(
+        callCountAfterFirstFetch
+      )
+    );
+    expect(
+      screen.getByText('Report Entry 1', { selector: 'td' })
+    ).toBeInTheDocument();
+  });
+
+  it('does not refetch on collapse/re-expand when status_label is unchanged', async () => {
+    renderComponent({ ...mockJobData, status_label: 'Succeeded' });
+    expandSection();
+    await waitForTable();
+
+    const callCountAfterFirstFetch = APIActions.get.mock.calls.length;
+
+    fireEvent.click(screen.getByText('Leapp preupgrade report')); // collapse
+    fireEvent.click(screen.getByText('Leapp preupgrade report')); // re-expand
+
+    expect(APIActions.get.mock.calls.length).toBe(callCountAfterFirstFetch);
+  });
+
   it('renders empty state message when no issues found', async () => {
     APIActions.get.mockImplementation(({ key, handleSuccess }) => {
       return () => {
