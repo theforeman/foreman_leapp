@@ -22,9 +22,9 @@ module Api
         get :show, params: { id: @report.id }
         assert_response :success
 
-        response = JSON.parse(@response.body)
-        assert_equal response['id'], @report.id
-        assert_not_empty response['preupgrade_report_entries']
+        body = JSON.parse(@response.body)
+        assert_equal @report.id, body['id']
+        assert_nil body['results']
       end
 
       test 'should get :job_invocation' do
@@ -49,7 +49,9 @@ module Api
         test 'should get :show' do
           get :show, params: { id: @report.id }, session: set_session_user(@user)
           assert_response :success
-          assert_equal @report.id, JSON.parse(@response.body)['id']
+          json = ActiveSupport::JSON.decode(@response.body)
+          assert_equal @report.id, json['id']
+          assert_nil json['results']
         end
 
         test 'should get :job_invocation' do
@@ -96,7 +98,7 @@ module Api
           assert_includes JSON.parse(@response.body)['error']['missing_permissions'], 'view_hosts'
         end
 
-        test 'should not get :job_invocation' do
+        test 'should not get :show' do
           get :show, params: { id: @report.id }, session: set_session_user(@user)
           assert_response :forbidden
           assert_includes JSON.parse(@response.body)['error']['missing_permissions'], 'view_hosts'
