@@ -1,7 +1,18 @@
+.leapp-report-details-wrapper {
+  min-width: 0;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
 .leapp-report-details {
   dd {
     white-space: pre-wrap;
   }
+}
+
+.leapp-searchbar-item {
+  min-width: 400px;
+  flex-grow: 1;
 }
 
 .leapp-expanded-tbody {
@@ -9,6 +20,9 @@
   box-shadow: var(--pf-v5-global--BoxShadow--sm);
 
   tr:first-child > td {
-    background-color: var(--pf-v5-global--primary-color--light-background, #e7f1fa);
+    background-color: var(
+      --pf-v5-global--primary-color--light-background,
+      #e7f1fa
+    );
   }
 }
