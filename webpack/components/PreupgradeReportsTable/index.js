@@ -198,6 +198,7 @@ const PreupgradeReportsTable = ({ data = {} }) => {
     pagedFixableEntries.length > 0 &&
     pagedFixableEntries.every(e => inclusionSet.has(e.id));
 
+  // eslint-disable-next-line camelcase
   const globalHostId = data?.targeting?.host_id;
 
   const getHostId = useCallback(
@@ -478,7 +479,6 @@ const PreupgradeReportsTable = ({ data = {} }) => {
                   <Td
                     key={`${rowKey}-col-${key}`}
                     dataLabel={keysToColumnNames[key]}
-                    className={columns[key].props?.className}
                   >
                     {columns[key].wrapper
                       ? columns[key].wrapper(entry)
@@ -492,11 +492,7 @@ const PreupgradeReportsTable = ({ data = {} }) => {
               >
                 <Td colSpan={columnKeys.length + 2}>
                   <ExpandableRowContent>
-                    {isRowExpanded && (
-                      <div className="leapp-report-details-wrapper">
-                        <ReportDetails entry={entry} />
-                      </div>
-                    )}
+                    {isRowExpanded && <ReportDetails entry={entry} />}
                   </ExpandableRowContent>
                 </Td>
               </Tr>

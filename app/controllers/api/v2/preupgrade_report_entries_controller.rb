@@ -32,7 +32,7 @@ module Api
       param :excluded_ids, Array, required: false, desc: N_('Array of excluded entry IDs')
       def bulk_remediate
         entries = filtered_remediation_entries
-        remediation_ids = entries.pluck(:id)
+        remediation_ids = entries.pluck(:id).sort
 
         if remediation_ids.empty?
           return render json: { error: _('No fixable entries found matching the selection.') },
@@ -49,7 +49,9 @@ module Api
 
         render json: { id: job_invocation.id }
       rescue StandardError => e
-        render json: { error: e.message }, status: :internal_server_error
+        Foreman::Logging.exception('Failed to trigger bulk remediation job', e)
+        render json: { error: _('An unexpected error occurred while creating the remediation job.') },
+          status: :internal_server_error
       end
 
       protected
@@ -81,11 +83,9 @@ module Api
       private
 
       def filtered_remediation_entries
-        entries = resource_scope
-        entries = entries.search_for(params[:search].to_s) if params[:search].present?
-        entries = entries.search_for('has_remediation = yes')
+        combined_search = [params[:search].presence, 'fix_type = command'].compact.join(' AND ')
+        entries = resource_scope.search_for(combined_search)
         entries = entries.where.not(id: params[:excluded_ids]) if params[:excluded_ids].present?
-
         entries
       end
 
@@ -105,7 +105,14 @@ module Api
       end
 
       def path_to_authenticate
-        auth_action = (action_name == 'auto_complete_search') ? 'index' : action_name
+        auth_action = case action_name
+                      when 'auto_complete_search'
+                        'index'
+                      when 'bulk_remediate'
+                        'create'
+                      else
+                        action_name
+                      end
         path_params = params.slice(:id, :user_id)
                             .merge(action: auth_action, controller: 'api/v2/job_invocations')
         Foreman::AccessControl.normalize_path_hash(path_params)
