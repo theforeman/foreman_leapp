@@ -60,6 +60,49 @@ export const preupgradeReports = [
   },
 ];
 
+export const preupgradeReportsWithFixableEntries = [
+  {
+    hostId: 5,
+    entries: [
+      {
+        title: 'Fixable entry',
+        severity: 'high',
+        id: 100,
+        hostId: 5,
+        hostname: 'host.example.com',
+        flags: [],
+        detail: {
+          remediations: [{ type: 'command', context: ['echo', 'fix'] }],
+        },
+      },
+      {
+        title: 'Not fixable entry',
+        severity: 'low',
+        id: 101,
+        hostId: 5,
+        hostname: 'host.example.com',
+        flags: [],
+      },
+    ],
+  },
+  {
+    hostId: 6,
+    entries: [
+      {
+        title: 'Another fixable entry',
+        severity: 'medium',
+        id: 102,
+        hostId: 6,
+        hostname: 'foo.example.com',
+        flags: [],
+        detail: {
+          remediations: [{ type: 'command', context: ['echo', 'fix2'] }],
+        },
+      },
+    ],
+  },
+];
+
 export const reportsWithRemediations = [
   {
     hostId: 5,
