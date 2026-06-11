@@ -214,7 +214,7 @@ module Api
         end
 
         test 'triggers job invocation for all fixable entries' do
-          expected_ids = [@entry1.id, @entry2.id, @entry3.id].sort.join(',')
+          expected_ids = [@entry1.id, @entry2.id, @entry3.id].join(',')
 
           JobInvocationComposer.expects(:for_feature)
                                .with('leapp_remediation_plan', [@host.id], { 'remediation_ids' => expected_ids })
@@ -227,7 +227,7 @@ module Api
         end
 
         test 'respects the excluded_ids parameter' do
-          expected_ids = [@entry1.id, @entry3.id].sort.join(',')
+          expected_ids = [@entry1.id, @entry3.id].join(',')
 
           JobInvocationComposer.expects(:for_feature)
                                .with('leapp_remediation_plan', [@host.id], { 'remediation_ids' => expected_ids })

@@ -32,7 +32,7 @@ module Api
       param :excluded_ids, Array, required: false, desc: N_('Array of excluded entry IDs')
       def bulk_remediate
         entries = filtered_remediation_entries
-        remediation_ids = entries.pluck(:id).sort
+        remediation_ids = entries.pluck(:id)
 
         if remediation_ids.empty?
           return render json: { error: _('No fixable entries found matching the selection.') },
@@ -91,9 +91,7 @@ module Api
 
       def target_host_ids(entries)
         host_ids = entries.pluck(:host_id).uniq.compact
-
         host_ids = [@preupgrade_report.host_id].compact if host_ids.empty? && @preupgrade_report
-
         host_ids
       end
 
