@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import MessageBox from 'foremanReact/components/common/MessageBox';
+import { Icon } from '@patternfly/react-core';
+import { ExclamationCircleIcon } from '@patternfly/react-icons';
+import EmptyState from 'foremanReact/components/common/EmptyState';
 import { LoadingState, Row } from 'patternfly-react';
 import PropTypes from 'prop-types';
 import { sprintf, translate as __ } from 'foremanReact/common/I18n';
@@ -116,10 +118,15 @@ const withLoadingState = Component => componentProps => {
 
   if (!isEmpty(error)) {
     return (
-      <MessageBox
+      <EmptyState
         key="preupgrade-reports-error"
-        icontype="error-circle-o"
-        msg={sprintf(__('Could not retrieve data: %(status)s - %(msg)s'), {
+        variant="xs"
+        icon={
+          <Icon iconSize="lg">
+            <ExclamationCircleIcon />
+          </Icon>
+        }
+        header={sprintf(__('Could not retrieve data: %(status)s - %(msg)s'), {
           status: error.statusText,
           msg: error.errorMsg,
         })}
