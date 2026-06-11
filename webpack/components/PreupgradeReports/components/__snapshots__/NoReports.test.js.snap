@@ -9,6 +9,7 @@ exports[`NoReports should render when reports expected 1`] = `
   icon="warning-triangle-o"
   iconType="pf"
   secondaryActions={Array []}
+  variant="xl"
 />
 `;
 
@@ -21,5 +22,6 @@ exports[`NoReports should render when reports not expected 1`] = `
   icon="in-progress"
   iconType="pf"
   secondaryActions={Array []}
+  variant="xl"
 />
 `;
