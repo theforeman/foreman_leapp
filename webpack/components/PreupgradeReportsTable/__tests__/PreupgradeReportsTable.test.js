@@ -1,20 +1,15 @@
 import React from 'react';
-import {
-  render,
-  screen,
-  waitFor,
-  fireEvent,
-  within,
-  cleanup,
-} from '@testing-library/react';
-import '@testing-library/jest-dom/extend-expect';
 import { Provider } from 'react-redux';
-import configureMockStore from 'redux-mock-store';
-import thunk from 'redux-thunk';
+import { configureStore } from '@reduxjs/toolkit';
+import Immutable from 'seamless-immutable';
+import { render, screen, waitFor, fireEvent, within, cleanup } from '@testing-library/react';
+import '@testing-library/jest-dom';
 import { APIActions } from 'foremanReact/redux/API';
 import PreupgradeReportsTable from '../index';
 
 jest.mock('foremanReact/redux/API');
+
+const mockReducer = (state = Immutable({ API: {} })) => state;
 
 jest.mock('foremanReact/constants', () => ({
   ...jest.requireActual('foremanReact/constants'),
@@ -33,6 +28,7 @@ jest.mock('foremanReact/components/SearchBar', () => {
   const MockSearchBar = ({ onSearch, onChange }) => (
     <input
       data-testid="search-input"
+      aria-label="Search preupgrade report entries"
       onChange={e => onChange && onChange(e.target.value)}
       onKeyDown={e => {
         if (e.key === 'Enter') onSearch(e.target.value);
@@ -42,7 +38,6 @@ jest.mock('foremanReact/components/SearchBar', () => {
   return MockSearchBar;
 });
 
-const mockStore = configureMockStore([thunk]);
 const mockJobId = 42;
 const mockReportId = 999;
 const mockJobData = {
@@ -72,14 +67,11 @@ const mockEntries = Array.from({ length: 12 }, (_, i) => ({
 }));
 
 describe('PreupgradeReportsTable', () => {
-  let store;
-
   beforeEach(() => {
-    store = mockStore({ API: {} });
     jest.clearAllMocks();
 
     APIActions.get.mockImplementation(({ key, handleSuccess }) => {
-      return dispatch => {
+      return () => {
         if (key.includes('GET_LEAPP_REPORT_LIST')) {
           handleSuccess({ results: [{ id: mockReportId }] });
         }
@@ -101,12 +93,16 @@ describe('PreupgradeReportsTable', () => {
     cleanup();
   });
 
-  const renderComponent = (data = mockJobData) =>
-    render(
+  const renderComponent = (data = mockJobData) => {
+    const store = configureStore({
+      reducer: mockReducer,
+    });
+    return render(
       <Provider store={store}>
         <PreupgradeReportsTable data={data} />
       </Provider>
     );
+  };
 
   const expandSection = () => {
     fireEvent.click(screen.getByText('Leapp preupgrade report'));
@@ -132,6 +128,9 @@ describe('PreupgradeReportsTable', () => {
   });
 
   it('refetches when status_label transitions (e.g. Running → Succeeded)', async () => {
+    const store = configureStore({
+      reducer: mockReducer,
+    });
     const { rerender } = render(
       <Provider store={store}>
         <PreupgradeReportsTable
@@ -417,6 +416,43 @@ describe('PreupgradeReportsTable', () => {
     const hintCheckbox = screen.getAllByRole('checkbox')[2];
 
     expect(hintCheckbox).toBeDisabled();
+    expect(screen.getByRole('button', { name: 'Fix Selected' })).toBeDisabled();
+  });
+
+  it('disables Fix Selected when selecting all on page with no fixable entries', async () => {
+    APIActions.get.mockImplementation(({ key, handleSuccess }) => {
+      return () => {
+        if (key.includes('GET_LEAPP_REPORT_LIST')) {
+          handleSuccess({ results: [{ id: mockReportId }] });
+        }
+        if (key.includes('GET_LEAPP_REPORT_ENTRIES')) {
+          handleSuccess({
+            id: mockReportId,
+            results: [
+              {
+                id: 999,
+                title: 'Non-fixable Entry',
+                hostname: 'test.com',
+                host_id: 200,
+                severity: 'low',
+                summary: 'This has no command remediation',
+                detail: {
+                  remediations: [{ type: 'hint', context: 'Manual fix only' }],
+                },
+              },
+            ],
+            total: 1,
+          });
+        }
+        return { type: 'MOCK_API_SUCCESS' };
+      };
+    });
+
+    renderComponent();
+    expandSection();
+    await waitFor(() => screen.getByText('Non-fixable Entry', { selector: 'td' }));
+
+    fireEvent.click(screen.getByLabelText('Select all'));
     expect(screen.getByRole('button', { name: 'Fix Selected' })).toBeDisabled();
   });
 

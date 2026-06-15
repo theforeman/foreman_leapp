@@ -331,12 +331,15 @@ const PreupgradeReportsTable = ({ data = {} }) => {
 
   if (!isLeappJob) return null;
 
+  const hasAnySelection =
+    areAllRowsSelected() || exclusionSet.size > 0 || selectedIds.length > 0;
+
   const isFixSelectedDisabled =
     status === STATUS.PENDING ||
     isSubmitting ||
-    (!areAllRowsSelected() &&
-      exclusionSet.size === 0 &&
-      selectedIds.length === 0);
+    !hasAnySelection ||
+    // When using select-all, check if any fixable entries exist on current page
+    (areAllRowsSelected() && pagedFixableEntries.length === 0);
 
   const isRunUpgradeDisabled =
     status === STATUS.PENDING ||
