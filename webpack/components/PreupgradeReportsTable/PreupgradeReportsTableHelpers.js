@@ -15,6 +15,7 @@ export const usePreupgradeTableState = (data, isExpanded) => {
   const [reportId, setReportId] = useState(null);
   const [rows, setRows] = useState([]);
   const [totalCount, setTotalCount] = useState(0);
+  const [fixableCount, setFixableCount] = useState(0);
   const [searchValue, setSearchValue] = useState('');
   const [pagination, setPagination] = useState({
     page: 1,
@@ -98,6 +99,7 @@ export const usePreupgradeTableState = (data, isExpanded) => {
           const fetchedResults = payload.results;
           setRows(fetchedResults ? [].concat(fetchedResults) : []);
           setTotalCount(payload.subtotal ?? payload.total ?? 0);
+          setFixableCount(payload.fixable_count ?? 0);
           setStatus(STATUS.RESOLVED);
           setExpandedRowIds(new Set());
         },
@@ -150,6 +152,7 @@ export const usePreupgradeTableState = (data, isExpanded) => {
     reportId,
     rows,
     totalCount,
+    fixableCount,
     pagination,
     sortBy,
     searchValue,

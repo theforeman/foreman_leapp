@@ -91,6 +91,7 @@ const PreupgradeReportsTable = ({ data = {} }) => {
     reportId,
     rows,
     totalCount,
+    fixableCount,
     pagination,
     sortBy,
     searchValue,
@@ -178,7 +179,7 @@ const PreupgradeReportsTable = ({ data = {} }) => {
     metadata: {
       total: totalCount,
       page: pagination.page,
-      selectable: totalCount,
+      selectable: fixableCount,
     },
     initialSearchQuery: searchValue,
   });
@@ -372,7 +373,7 @@ const PreupgradeReportsTable = ({ data = {} }) => {
                   selectNone={selectNone}
                   selectedCount={selectedCount}
                   pageRowCount={pagedFixableEntries.length}
-                  totalCount={totalCount}
+                  totalCount={fixableCount}
                   areAllRowsOnPageSelected={areAllPageFixableSelected}
                   areAllRowsSelected={areAllRowsSelected()}
                   isDisabled={status === STATUS.PENDING || isSubmitting}
