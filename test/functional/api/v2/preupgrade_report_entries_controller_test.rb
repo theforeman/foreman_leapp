@@ -22,7 +22,6 @@ module Api
         assert_equal @entry.id, body['results'].first['id']
         assert_equal 1, body['total']
         assert_equal 1, body['subtotal']
-        assert body.key?('fixable_count'), "Expected 'fixable_count' field to be present"
       end
 
       test ':index response includes expected entry fields' do
@@ -84,43 +83,6 @@ module Api
         body = JSON.parse(@response.body)
         assert_equal 1, body['results'].size
         assert_equal other.id, body['results'].first['id']
-      end
-
-      test ':index returns fixable_count for entries with fix_type = command' do
-        FactoryBot.create(:preupgrade_report_entry, host: @host,
-          preupgrade_report: @report,
-          detail: { remediations: [{ type: 'command', context: ['yum', 'install', 'pkg'] }] })
-        FactoryBot.create(:preupgrade_report_entry, host: @host,
-          preupgrade_report: @report,
-          detail: { remediations: [{ type: 'command', context: ['yum', 'remove', 'pkg'] }] })
-        FactoryBot.create(:preupgrade_report_entry, host: @host,
-          preupgrade_report: @report,
-          detail: { remediations: [{ type: 'hint', context: 'Manual fix required' }] })
-
-        get :index, params: { preupgrade_report_id: @report.id }
-        assert_response :success
-
-        body = JSON.parse(@response.body)
-        assert_equal 4, body['total']
-        assert_equal 3, body['fixable_count']
-      end
-
-      test ':index fixable_count respects search filter' do
-        FactoryBot.create(:preupgrade_report_entry, host: @host,
-          preupgrade_report: @report,
-          title: 'Fixable issue AAA',
-          detail: { remediations: [{ type: 'command', context: ['fix', 'aaa'] }] })
-        FactoryBot.create(:preupgrade_report_entry, host: @host,
-          preupgrade_report: @report,
-          title: 'Fixable issue BBB',
-          detail: { remediations: [{ type: 'command', context: ['fix', 'bbb'] }] })
-
-        get :index, params: { preupgrade_report_id: @report.id, search: 'title ~ AAA' }
-        assert_response :success
-
-        body = JSON.parse(@response.body)
-        assert_equal 1, body['fixable_count']
-        assert_equal 1, body['subtotal']
       end
 
       test ':index supports order parameter' do

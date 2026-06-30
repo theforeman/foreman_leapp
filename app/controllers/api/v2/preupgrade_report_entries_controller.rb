@@ -9,8 +9,6 @@ module Api
       skip_before_action :store_redirect_to_url, :reset_redirect_to_url, raise: false
       before_action :find_preupgrade_report, if: -> { params[:preupgrade_report_id].present? }
 
-      layout 'api/v2/layouts/preupgrade_report_entries_index', only: :index
-
       api :GET, '/preupgrade_reports/:preupgrade_report_id/preupgrade_report_entries',
         N_('List entries for a specific preupgrade report')
       api :GET, '/preupgrade_report_entries', N_('List all preupgrade report entries')
@@ -21,7 +19,6 @@ module Api
         @total = resource_scope.count
         @preupgrade_report_entries = resource_scope_for_index
         @subtotal = @preupgrade_report_entries.total_entries
-        @fixable_count = fixable_scope.count
       end
 
       api :GET, '/preupgrade_report_entries/auto_complete_search',
@@ -85,14 +82,11 @@ module Api
 
       private
 
-      def fixable_scope
-        combined_search = [params[:search].presence, 'fix_type = command'].compact.join(' AND ')
-        resource_scope.search_for(combined_search)
-      end
-
       def filtered_remediation_entries
-        scope = fixable_scope
-        params[:excluded_ids].present? ? scope.where.not(id: params[:excluded_ids]) : scope
+        combined_search = [params[:search].presence, 'fix_type = command'].compact.join(' AND ')
+        entries = resource_scope.search_for(combined_search)
+        entries = entries.where.not(id: params[:excluded_ids]) if params[:excluded_ids].present?
+        entries
       end
 
       def target_host_ids(entries)

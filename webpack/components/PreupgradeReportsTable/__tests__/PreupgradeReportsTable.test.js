@@ -56,7 +56,7 @@ const mockEntries = Array.from({ length: 12 }, (_, i) => ({
   flags: i === 0 ? ['inhibitor'] : [],
   detail: {
     remediations:
-      i === 0 || i === 3 || i === 4
+      i === 0
         ? [{ type: 'command', context: ['echo', 'fix_command'] }]
         : i === 1
         ? [{ type: 'hint', context: 'Do something manually' }]
@@ -76,14 +76,10 @@ describe('PreupgradeReportsTable', () => {
           handleSuccess({ results: [{ id: mockReportId }] });
         }
         if (key.includes('GET_LEAPP_REPORT_ENTRIES')) {
-          const fixableCount = mockEntries.filter(
-            e => e.detail?.remediations?.some(r => r.type === 'command')
-          ).length;
           handleSuccess({
             id: mockReportId,
             results: mockEntries,
             total: mockEntries.length,
-            fixable_count: fixableCount,
           });
         }
         return { type: 'MOCK_API_SUCCESS' };
@@ -563,141 +559,5 @@ describe('PreupgradeReportsTable', () => {
         },
       })
     );
-  });
-
-  it('fetches and displays fixableCount from API response', async () => {
-    const mockFixableCount = 3;
-    APIActions.get.mockImplementation(({ key, handleSuccess }) => {
-      return () => {
-        if (key.includes('GET_LEAPP_REPORT_LIST')) {
-          handleSuccess({ results: [{ id: mockReportId }] });
-        }
-        if (key.includes('GET_LEAPP_REPORT_ENTRIES')) {
-          handleSuccess({
-            id: mockReportId,
-            results: mockEntries,
-            total: mockEntries.length,
-            subtotal: mockEntries.length,
-            fixable_count: mockFixableCount,
-          });
-        }
-        return { type: 'MOCK_API_SUCCESS' };
-      };
-    });
-
-    renderComponent();
-    expandSection();
-    await waitForTable();
-
-    const selectDropdown = screen.getByRole('button', { name: 'Select' });
-    fireEvent.click(selectDropdown);
-
-    await waitFor(() => {
-      const selectAllText = screen.getByText(/Select all \(3/i);
-      expect(selectAllText).toBeInTheDocument();
-    });
-  });
-
-  it('displays correct fixableCount when search filters are applied', async () => {
-    const mockFilteredFixableCount = 1;
-    APIActions.get.mockImplementation(({ key, handleSuccess, params }) => {
-      return () => {
-        if (key.includes('GET_LEAPP_REPORT_LIST')) {
-          handleSuccess({ results: [{ id: mockReportId }] });
-        }
-        if (key.includes('GET_LEAPP_REPORT_ENTRIES')) {
-          if (params?.search) {
-            handleSuccess({
-              id: mockReportId,
-              results: [mockEntries[0]], // Only one filtered result
-              total: mockEntries.length,
-              subtotal: 1,
-              fixable_count: mockFilteredFixableCount,
-            });
-          } else {
-            handleSuccess({
-              id: mockReportId,
-              results: mockEntries,
-              total: mockEntries.length,
-              subtotal: mockEntries.length,
-              fixable_count: 3,
-            });
-          }
-        }
-        return { type: 'MOCK_API_SUCCESS' };
-      };
-    });
-
-    renderComponent();
-    expandSection();
-    await waitForTable();
-
-    const input = screen.getByTestId('search-input');
-    fireEvent.change(input, { target: { value: 'title = "Report Entry 1"' } });
-    fireEvent.keyDown(input, { key: 'Enter' });
-
-    await waitFor(() => screen.getByText('Report Entry 1', { selector: 'td' }));
-
-    const selectDropdown = screen.getByRole('button', { name: 'Select' });
-    fireEvent.click(selectDropdown);
-
-    await waitFor(() => {
-      const selectAllText = screen.getByText(/Select all \(1/i);
-      expect(selectAllText).toBeInTheDocument();
-    });
-  });
-
-  it('shows 0 fixable items when all entries are non-fixable (hint-only)', async () => {
-    APIActions.get.mockImplementation(({ key, handleSuccess }) => {
-      return () => {
-        if (key.includes('GET_LEAPP_REPORT_LIST')) {
-          handleSuccess({ results: [{ id: mockReportId }] });
-        }
-        if (key.includes('GET_LEAPP_REPORT_ENTRIES')) {
-          handleSuccess({
-            id: mockReportId,
-            results: [
-              {
-                id: 1,
-                title: 'Hint-only Entry 1',
-                hostname: 'test.com',
-                host_id: 100,
-                severity: 'low',
-                summary: 'Summary',
-                detail: {
-                  remediations: [{ type: 'hint', context: 'Manual fix required' }],
-                },
-              },
-              {
-                id: 2,
-                title: 'Hint-only Entry 2',
-                hostname: 'test.com',
-                host_id: 101,
-                severity: 'low',
-                summary: 'Summary',
-                detail: {
-                  remediations: [{ type: 'hint', context: 'Manual fix required' }],
-                },
-              },
-            ],
-            total: 2,
-            subtotal: 2,
-            fixable_count: 0,
-          });
-        }
-        return { type: 'MOCK_API_SUCCESS' };
-      };
-    });
-
-    renderComponent();
-    expandSection();
-    await waitFor(() => screen.getByText('Hint-only Entry 1', { selector: 'td' }));
-
-    const checkboxes = screen.getAllByRole('checkbox');
-    checkboxes.forEach(checkbox => {
-      expect(checkbox).toBeDisabled();
-    });
-
-    expect(screen.getByRole('button', { name: 'Fix Selected' })).toBeDisabled();
   });
 });
