@@ -546,11 +546,7 @@ describe('PreupgradeReportsTable', () => {
     expandSection();
     await waitForTable();
 
-    const selectDropdown = screen.getByRole('button', { name: 'Select' });
-    fireEvent.click(selectDropdown);
-
-    const selectAllOption = screen.getByText('Select all');
-    fireEvent.click(selectAllOption);
+    fireEvent.click(screen.getByLabelText('Select all'));
 
     await waitFor(() =>
       expect(
@@ -599,11 +595,7 @@ describe('PreupgradeReportsTable', () => {
     expandSection();
     await waitForTable();
 
-    const selectDropdown = screen.getByRole('button', { name: 'Select' });
-    fireEvent.click(selectDropdown);
-
-    const selectAllOption = screen.getByText('Select all');
-    fireEvent.click(selectAllOption);
+    fireEvent.click(screen.getByLabelText('Select all'));
 
     await waitFor(() => {
       expect(fixableCountFetched).toBe(true);
