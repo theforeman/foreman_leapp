@@ -2,7 +2,14 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { configureStore } from '@reduxjs/toolkit';
 import Immutable from 'seamless-immutable';
-import { render, screen, waitFor, fireEvent, within, cleanup } from '@testing-library/react';
+import {
+  render,
+  screen,
+  waitFor,
+  fireEvent,
+  within,
+  cleanup,
+} from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { APIActions } from 'foremanReact/redux/API';
 import PreupgradeReportsTable from '../index';
@@ -450,7 +457,9 @@ describe('PreupgradeReportsTable', () => {
 
     renderComponent();
     expandSection();
-    await waitFor(() => screen.getByText('Non-fixable Entry', { selector: 'td' }));
+    await waitFor(() =>
+      screen.getByText('Non-fixable Entry', { selector: 'td' })
+    );
 
     fireEvent.click(screen.getByLabelText('Select all'));
     expect(screen.getByRole('button', { name: 'Fix Selected' })).toBeDisabled();
@@ -540,7 +549,7 @@ describe('PreupgradeReportsTable', () => {
     const selectDropdown = screen.getByRole('button', { name: 'Select' });
     fireEvent.click(selectDropdown);
 
-    const selectAllOption = screen.getByText(/Select all \(/i);
+    const selectAllOption = screen.getByText('Select all');
     fireEvent.click(selectAllOption);
 
     await waitFor(() =>
@@ -559,5 +568,45 @@ describe('PreupgradeReportsTable', () => {
         },
       })
     );
+  });
+
+  it('fetches fixable count on demand when Select All is clicked', async () => {
+    let fixableCountFetched = false;
+
+    APIActions.get.mockImplementation(({ key, handleSuccess, params }) => {
+      return () => {
+        if (key.includes('GET_LEAPP_REPORT_LIST')) {
+          handleSuccess({ results: [{ id: mockReportId }] });
+        }
+        if (key.includes('GET_LEAPP_REPORT_ENTRIES')) {
+          handleSuccess({
+            id: mockReportId,
+            results: mockEntries,
+            total: mockEntries.length,
+          });
+        }
+        if (key.includes('GET_FIXABLE_COUNT')) {
+          fixableCountFetched = true;
+          expect(params.search).toBe('fix_type = command');
+          expect(params.per_page).toBe(0);
+          handleSuccess({ total: 1, subtotal: 1 });
+        }
+        return { type: 'MOCK_API_SUCCESS' };
+      };
+    });
+
+    renderComponent();
+    expandSection();
+    await waitForTable();
+
+    const selectDropdown = screen.getByRole('button', { name: 'Select' });
+    fireEvent.click(selectDropdown);
+
+    const selectAllOption = screen.getByText('Select all');
+    fireEvent.click(selectAllOption);
+
+    await waitFor(() => {
+      expect(fixableCountFetched).toBe(true);
+    });
   });
 });

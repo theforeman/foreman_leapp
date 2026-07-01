@@ -81,6 +81,7 @@ const PreupgradeReportsTable = ({ data = {} }) => {
   const [isReportExpanded, setIsReportExpanded] = useState(false);
   const [submitError, setSubmitError] = useState(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [fixableCount, setFixableCount] = useState(null);
   const dispatch = useDispatch();
   const hasLoadedDataRef = useRef(false);
 
@@ -109,6 +110,10 @@ const PreupgradeReportsTable = ({ data = {} }) => {
     }
   }, [totalCount]);
   const hasData = totalCount > 0 || hasLoadedDataRef.current;
+
+  useEffect(() => {
+    setFixableCount(null);
+  }, [searchValue, reportId]);
 
   const searchProps = useMemo(() => {
     if (!reportId) return null;
@@ -178,19 +183,50 @@ const PreupgradeReportsTable = ({ data = {} }) => {
     metadata: {
       total: totalCount,
       page: pagination.page,
-      selectable: totalCount,
+      selectable: fixableCount,
     },
     initialSearchQuery: searchValue,
   });
 
   const {
-    selectAll,
+    selectAll: originalSelectAll,
     selectPage,
     selectNone,
     selectOne,
     areAllRowsSelected,
     isSelected,
   } = selectAllOptions;
+
+  const selectAll = useCallback(
+    (...args) => {
+      // Apply selection before count fetch completes
+      originalSelectAll(...args);
+
+      // Accurate count of the fixable report entries
+      if (fixableCount === null) {
+        dispatch(
+          APIActions.get({
+            key: `GET_FIXABLE_COUNT_${reportId}`,
+            url: `/api/v2/preupgrade_reports/${reportId}/preupgrade_report_entries`,
+            params: {
+              search: [searchValue, 'fix_type = command']
+                .filter(Boolean)
+                .join(' AND '),
+              per_page: 0,
+            },
+            handleSuccess: res => {
+              const payload = res.data || res;
+              setFixableCount(payload.subtotal ?? payload.total ?? 0);
+            },
+            handleError: () => {
+              setFixableCount(0);
+            },
+          })
+        );
+      }
+    },
+    [dispatch, reportId, searchValue, fixableCount, originalSelectAll]
+  );
 
   const selectedIds = Array.from(inclusionSet);
 
@@ -372,7 +408,7 @@ const PreupgradeReportsTable = ({ data = {} }) => {
                   selectNone={selectNone}
                   selectedCount={selectedCount}
                   pageRowCount={pagedFixableEntries.length}
-                  totalCount={totalCount}
+                  totalCount={fixableCount}
                   areAllRowsOnPageSelected={areAllPageFixableSelected}
                   areAllRowsSelected={areAllRowsSelected()}
                   isDisabled={status === STATUS.PENDING || isSubmitting}
