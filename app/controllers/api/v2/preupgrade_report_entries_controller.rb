@@ -57,7 +57,7 @@ module Api
       protected
 
       def model_of_controller
-        resource_scope
+        PreupgradeReportEntry
       end
 
       def resource_scope(_options = {})

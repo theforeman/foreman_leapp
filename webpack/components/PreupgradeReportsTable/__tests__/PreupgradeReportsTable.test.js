@@ -454,6 +454,10 @@ describe('PreupgradeReportsTable', () => {
             total: 1,
           });
         }
+        if (key.includes('GET_FIXABLE_COUNT')) {
+          // No fixable entries in this test
+          handleSuccess({ total: 0, subtotal: 0 });
+        }
         return { type: 'MOCK_API_SUCCESS' };
       };
     });
