@@ -87,6 +87,7 @@ describe('PreupgradeReportsTable', () => {
             id: mockReportId,
             results: mockEntries,
             total: mockEntries.length,
+            subtotal: mockEntries.length,
           });
         }
         if (key.includes('GET_FIXABLE_COUNT')) {
@@ -194,6 +195,7 @@ describe('PreupgradeReportsTable', () => {
             id: mockReportId,
             results: [],
             total: 0,
+            subtotal: 0,
           });
         return { type: 'EMPTY' };
       };
@@ -452,6 +454,7 @@ describe('PreupgradeReportsTable', () => {
               },
             ],
             total: 1,
+            subtotal: 1,
           });
         }
         if (key.includes('GET_FIXABLE_COUNT')) {
@@ -513,6 +516,7 @@ describe('PreupgradeReportsTable', () => {
             id: mockReportId,
             results: [],
             total: 0,
+            subtotal: 0,
           });
         return { type: 'EMPTY' };
       };
@@ -586,6 +590,7 @@ describe('PreupgradeReportsTable', () => {
             id: mockReportId,
             results: mockEntries,
             total: mockEntries.length,
+            subtotal: mockEntries.length,
           });
         }
         if (key.includes('GET_FIXABLE_COUNT')) {

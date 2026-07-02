@@ -97,7 +97,7 @@ export const usePreupgradeTableState = (data, isExpanded) => {
           const payload = res.data || res;
           const fetchedResults = payload.results;
           setRows(fetchedResults ? [].concat(fetchedResults) : []);
-          setTotalCount(payload.subtotal ?? payload.total ?? 0);
+          setTotalCount(payload.subtotal ?? 0);
           setStatus(STATUS.RESOLVED);
           setExpandedRowIds(new Set());
         },

@@ -213,7 +213,7 @@ const PreupgradeReportsTable = ({ data = {} }) => {
             },
             handleSuccess: res => {
               const payload = res.data || res;
-              const count = payload.subtotal ?? payload.total ?? 0;
+              const count = payload.subtotal ?? 0;
               setFixableCount(count);
               originalSelectAll(...args);
             },
