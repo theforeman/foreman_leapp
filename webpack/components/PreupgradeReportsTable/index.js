@@ -199,10 +199,7 @@ const PreupgradeReportsTable = ({ data = {} }) => {
 
   const selectAll = useCallback(
     (...args) => {
-      // Apply selection before count fetch completes
-      originalSelectAll(...args);
-
-      // Accurate count of the fixable report entries
+      // Get count of all fixable entries before selecting
       if (fixableCount === null) {
         dispatch(
           APIActions.get({
@@ -216,13 +213,17 @@ const PreupgradeReportsTable = ({ data = {} }) => {
             },
             handleSuccess: res => {
               const payload = res.data || res;
-              setFixableCount(payload.subtotal ?? payload.total ?? 0);
+              const count = payload.subtotal ?? payload.total ?? 0;
+              setFixableCount(count);
+              originalSelectAll(...args);
             },
             handleError: () => {
               setFixableCount(0);
             },
           })
         );
+      } else {
+        originalSelectAll(...args);
       }
     },
     [dispatch, reportId, searchValue, fixableCount, originalSelectAll]
@@ -411,7 +412,6 @@ const PreupgradeReportsTable = ({ data = {} }) => {
                   totalCount={fixableCount}
                   areAllRowsOnPageSelected={areAllPageFixableSelected}
                   areAllRowsSelected={areAllRowsSelected()}
-                  isDisabled={status === STATUS.PENDING || isSubmitting}
                 />
               </ToolbarItem>
             )}
