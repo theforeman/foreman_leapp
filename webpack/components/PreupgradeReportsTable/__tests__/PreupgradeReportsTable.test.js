@@ -89,6 +89,9 @@ describe('PreupgradeReportsTable', () => {
             total: mockEntries.length,
           });
         }
+        if (key.includes('GET_FIXABLE_COUNT')) {
+          handleSuccess({ total: 1, subtotal: 1 });
+        }
         return { type: 'MOCK_API_SUCCESS' };
       };
     });
