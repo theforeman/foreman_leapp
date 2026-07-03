@@ -4,11 +4,19 @@
   }
 }
 
+.leapp-searchbar-item {
+  min-width: 200px;
+  flex-grow: 1;
+}
+
 .leapp-expanded-tbody {
   border: 1px solid var(--pf-v5-global--BorderColor--100);
   box-shadow: var(--pf-v5-global--BoxShadow--sm);
 
   tr:first-child > td {
-    background-color: var(--pf-v5-global--primary-color--light-background, #e7f1fa);
+    background-color: var(
+      --pf-v5-global--primary-color--light-background,
+      #e7f1fa
+    );
   }
 }

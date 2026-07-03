@@ -1,23 +1,49 @@
-import '@testing-library/jest-dom/extend-expect';
-
+import React from 'react';
+import { Provider } from 'react-redux';
+import { configureStore } from '@reduxjs/toolkit';
+import Immutable from 'seamless-immutable';
 import {
-  fireEvent,
   render,
   screen,
   waitFor,
+  fireEvent,
   within,
+  cleanup,
 } from '@testing-library/react';
-
+import '@testing-library/jest-dom';
 import { APIActions } from 'foremanReact/redux/API';
 import PreupgradeReportsTable from '../index';
-import { Provider } from 'react-redux';
-import React from 'react';
-import configureMockStore from 'redux-mock-store';
-import thunk from 'redux-thunk';
 
 jest.mock('foremanReact/redux/API');
 
-const mockStore = configureMockStore([thunk]);
+const mockReducer = (state = Immutable({ API: {} })) => state;
+
+jest.mock('foremanReact/constants', () => ({
+  ...jest.requireActual('foremanReact/constants'),
+  getControllerSearchProps: jest.fn(() => ({
+    autocomplete: { url: '' },
+    bookmarks: { controller: 'preupgrade_report_entries', url: '/bookmarks' },
+  })),
+  STATUS: { PENDING: 'PENDING', RESOLVED: 'RESOLVED', ERROR: 'ERROR' },
+}));
+
+jest.mock('foremanReact/Root/Context/ForemanContext', () => ({
+  useForemanSettings: jest.fn(() => ({ perPage: 5 })),
+}));
+
+jest.mock('foremanReact/components/SearchBar', () => {
+  const MockSearchBar = ({ onSearch, onChange }) => (
+    <input
+      data-testid="search-input"
+      aria-label="Search preupgrade report entries"
+      onChange={e => onChange && onChange(e.target.value)}
+      onKeyDown={e => {
+        if (e.key === 'Enter') onSearch(e.target.value);
+      }}
+    />
+  );
+  return MockSearchBar;
+});
 
 const mockJobId = 42;
 const mockReportId = 999;
@@ -26,9 +52,6 @@ const mockJobData = {
   template_name: 'Run preupgrade via Leapp',
 };
 
-// Entry 0 (id=1):  command remediation + inhibitor flag → fixable + selectable
-// Entry 1 (id=2):  hint-only remediation                → has_remediation=Yes, NOT selectable
-// Entries 2-11:    no remediations                      → has_remediation=No,  NOT selectable
 const mockEntries = Array.from({ length: 12 }, (_, i) => ({
   id: i + 1,
   title: `Report Entry ${i + 1}`,
@@ -51,21 +74,25 @@ const mockEntries = Array.from({ length: 12 }, (_, i) => ({
 }));
 
 describe('PreupgradeReportsTable', () => {
-  let store;
-
   beforeEach(() => {
-    store = mockStore({ API: {} });
     jest.clearAllMocks();
 
     APIActions.get.mockImplementation(({ key, handleSuccess }) => {
-      return dispatch => {
-        if (key.includes('GET_LEAPP_REPORT_LIST'))
+      return () => {
+        if (key.includes('GET_LEAPP_REPORT_LIST')) {
           handleSuccess({ results: [{ id: mockReportId }] });
-        if (key.includes('GET_LEAPP_REPORT_DETAIL'))
+        }
+        if (key.includes('GET_LEAPP_REPORT_ENTRIES')) {
           handleSuccess({
             id: mockReportId,
-            preupgrade_report_entries: mockEntries,
+            results: mockEntries,
+            total: mockEntries.length,
+            subtotal: mockEntries.length,
           });
+        }
+        if (key.includes('GET_FIXABLE_COUNT')) {
+          handleSuccess({ total: 1, subtotal: 1 });
+        }
         return { type: 'MOCK_API_SUCCESS' };
       };
     });
@@ -73,15 +100,24 @@ describe('PreupgradeReportsTable', () => {
     APIActions.post.mockImplementation(() => () => ({ type: 'MOCK_API_POST' }));
   });
 
-  const renderComponent = (data = mockJobData) =>
-    render(
+  afterEach(() => {
+    cleanup();
+  });
+
+  const renderComponent = (data = mockJobData) => {
+    const store = configureStore({
+      reducer: mockReducer,
+    });
+    return render(
       <Provider store={store}>
         <PreupgradeReportsTable data={data} />
       </Provider>
     );
+  };
 
-  const expandSection = () =>
+  const expandSection = () => {
     fireEvent.click(screen.getByText('Leapp preupgrade report'));
+  };
 
   const waitForTable = () =>
     waitFor(() => screen.getByText('Report Entry 1', { selector: 'td' }));
@@ -103,6 +139,9 @@ describe('PreupgradeReportsTable', () => {
   });
 
   it('refetches when status_label transitions (e.g. Running → Succeeded)', async () => {
+    const store = configureStore({
+      reducer: mockReducer,
+    });
     const { rerender } = render(
       <Provider store={store}>
         <PreupgradeReportsTable
@@ -151,8 +190,13 @@ describe('PreupgradeReportsTable', () => {
       return () => {
         if (key.includes('GET_LEAPP_REPORT_LIST'))
           handleSuccess({ results: [{ id: mockReportId }] });
-        if (key.includes('GET_LEAPP_REPORT_DETAIL'))
-          handleSuccess({ id: mockReportId, preupgrade_report_entries: [] });
+        if (key.includes('GET_LEAPP_REPORT_ENTRIES'))
+          handleSuccess({
+            id: mockReportId,
+            results: [],
+            total: 0,
+            subtotal: 0,
+          });
         return { type: 'EMPTY' };
       };
     });
@@ -175,7 +219,7 @@ describe('PreupgradeReportsTable', () => {
     ).toBeInTheDocument();
   });
 
-  it('expands all rows', async () => {
+  it('expands all rows when expand-all is clicked', async () => {
     renderComponent();
     expandSection();
     await waitForTable();
@@ -186,6 +230,65 @@ describe('PreupgradeReportsTable', () => {
     expect(
       await screen.findByText('Summary for report entry 5')
     ).toBeInTheDocument();
+  });
+
+  it('collapses all rows when expand-all is clicked a second time', async () => {
+    renderComponent();
+    expandSection();
+    await waitForTable();
+
+    const expandAllButton = screen.getByLabelText('Expand all rows');
+    fireEvent.click(expandAllButton); // expand
+    await screen.findByText('Summary for report entry 1');
+    fireEvent.click(expandAllButton); // collapse
+
+    await waitFor(() => {
+      expect(
+        screen.queryByText('Summary for report entry 1')
+      ).not.toBeInTheDocument();
+    });
+  });
+
+  it('calls the show endpoint with search param', async () => {
+    renderComponent();
+    expandSection();
+    await waitForTable();
+
+    const input = screen.getByTestId('search-input');
+    fireEvent.change(input, { target: { value: 'title = Report' } });
+    fireEvent.keyDown(input, { key: 'Enter' });
+
+    await waitFor(() => {
+      const calls = APIActions.get.mock.calls
+        .flat()
+        .filter(
+          arg =>
+            arg?.key?.includes('GET_LEAPP_REPORT_ENTRIES') &&
+            arg?.params?.search
+        );
+      expect(calls.length).toBeGreaterThan(0);
+      expect(calls[0].params.search).toBe('title = Report');
+    });
+  });
+
+  it('calls the endpoint with sort parameters when a column header is clicked', async () => {
+    renderComponent();
+    expandSection();
+    await waitForTable();
+
+    const titleSortButton = screen.getByRole('button', { name: /Title/i });
+    fireEvent.click(titleSortButton);
+
+    await waitFor(() => {
+      const calls = APIActions.get.mock.calls
+        .flat()
+        .filter(
+          arg =>
+            arg?.key?.includes('GET_LEAPP_REPORT_ENTRIES') && arg?.params?.order
+        );
+      const lastCall = calls[calls.length - 1];
+      expect(lastCall.params.order).toContain('title');
+    });
   });
 
   it('paginates to the next page', async () => {
@@ -237,7 +340,6 @@ describe('PreupgradeReportsTable', () => {
     expandSection();
     await waitForTable();
 
-    // id=1: command → Yes
     const row1 = screen
       .getByText('Report Entry 1', { selector: 'td' })
       .closest('tr');
@@ -247,7 +349,6 @@ describe('PreupgradeReportsTable', () => {
       )
     ).toBeInTheDocument();
 
-    // id=2: hint-only → still Yes (display column shows any remediations)
     const row2 = screen
       .getByText('Report Entry 2', { selector: 'td' })
       .closest('tr');
@@ -257,7 +358,6 @@ describe('PreupgradeReportsTable', () => {
       )
     ).toBeInTheDocument();
 
-    // id=3: no remediations → No
     const row3 = screen
       .getByText('Report Entry 3', { selector: 'td' })
       .closest('tr');
@@ -326,9 +426,52 @@ describe('PreupgradeReportsTable', () => {
 
     // checkboxes[2] = entry id=2, which has hint-only remediation — must be disabled
     const hintCheckbox = screen.getAllByRole('checkbox')[2];
-    expect(hintCheckbox).toBeDisabled();
 
-    fireEvent.click(hintCheckbox);
+    expect(hintCheckbox).toBeDisabled();
+    expect(screen.getByRole('button', { name: 'Fix Selected' })).toBeDisabled();
+  });
+
+  it('disables Fix Selected when selecting all on page with no fixable entries', async () => {
+    APIActions.get.mockImplementation(({ key, handleSuccess }) => {
+      return () => {
+        if (key.includes('GET_LEAPP_REPORT_LIST')) {
+          handleSuccess({ results: [{ id: mockReportId }] });
+        }
+        if (key.includes('GET_LEAPP_REPORT_ENTRIES')) {
+          handleSuccess({
+            id: mockReportId,
+            results: [
+              {
+                id: 999,
+                title: 'Non-fixable Entry',
+                hostname: 'test.com',
+                host_id: 200,
+                severity: 'low',
+                summary: 'This has no command remediation',
+                detail: {
+                  remediations: [{ type: 'hint', context: 'Manual fix only' }],
+                },
+              },
+            ],
+            total: 1,
+            subtotal: 1,
+          });
+        }
+        if (key.includes('GET_FIXABLE_COUNT')) {
+          // No fixable entries in this test
+          handleSuccess({ total: 0, subtotal: 0 });
+        }
+        return { type: 'MOCK_API_SUCCESS' };
+      };
+    });
+
+    renderComponent();
+    expandSection();
+    await waitFor(() =>
+      screen.getByText('Non-fixable Entry', { selector: 'td' })
+    );
+
+    fireEvent.click(screen.getByLabelText('Select all'));
     expect(screen.getByRole('button', { name: 'Fix Selected' })).toBeDisabled();
   });
 
@@ -363,13 +506,18 @@ describe('PreupgradeReportsTable', () => {
     expect(callParams.inputs).toBeUndefined();
   });
 
-  it('does not render toolbar buttons when report has no entries', async () => {
+  it('renders toolbar buttons as disabled when report has no entries', async () => {
     APIActions.get.mockImplementation(({ key, handleSuccess }) => {
       return () => {
         if (key.includes('GET_LEAPP_REPORT_LIST'))
           handleSuccess({ results: [{ id: mockReportId }] });
-        if (key.includes('GET_LEAPP_REPORT_DETAIL'))
-          handleSuccess({ id: mockReportId, preupgrade_report_entries: [] });
+        if (key.includes('GET_LEAPP_REPORT_ENTRIES'))
+          handleSuccess({
+            id: mockReportId,
+            results: [],
+            total: 0,
+            subtotal: 0,
+          });
         return { type: 'EMPTY' };
       };
     });
@@ -378,12 +526,9 @@ describe('PreupgradeReportsTable', () => {
     await waitFor(() =>
       screen.getByText('The preupgrade report shows no issues.')
     );
-    expect(
-      screen.queryByRole('button', { name: 'Fix Selected' })
-    ).not.toBeInTheDocument();
-    expect(
-      screen.queryByRole('button', { name: 'Run Upgrade' })
-    ).not.toBeInTheDocument();
+
+    expect(screen.getByRole('button', { name: 'Fix Selected' })).toBeDisabled();
+    expect(screen.getByRole('button', { name: 'Run Upgrade' })).toBeDisabled();
   });
 
   it('renders the SelectAll checkbox', async () => {
@@ -405,5 +550,67 @@ describe('PreupgradeReportsTable', () => {
         screen.getByRole('button', { name: 'Fix Selected' })
       ).not.toBeDisabled()
     );
+  });
+
+  it('dispatches bulk_remediate API call when Fix Selected is clicked for all pages', async () => {
+    renderComponent();
+    expandSection();
+    await waitForTable();
+
+    fireEvent.click(screen.getByLabelText('Select all'));
+
+    await waitFor(() =>
+      expect(
+        screen.getByRole('button', { name: 'Fix Selected' })
+      ).not.toBeDisabled()
+    );
+    fireEvent.click(screen.getByRole('button', { name: 'Fix Selected' }));
+
+    expect(APIActions.post).toHaveBeenCalledWith(
+      expect.objectContaining({
+        url: expect.stringContaining('/bulk_remediate'),
+        params: {
+          search: '',
+          excluded_ids: [],
+        },
+      })
+    );
+  });
+
+  it('fetches fixable count on demand when Select All is clicked', async () => {
+    let fixableCountFetched = false;
+
+    APIActions.get.mockImplementation(({ key, handleSuccess, params }) => {
+      return () => {
+        if (key.includes('GET_LEAPP_REPORT_LIST')) {
+          handleSuccess({ results: [{ id: mockReportId }] });
+        }
+        if (key.includes('GET_LEAPP_REPORT_ENTRIES')) {
+          handleSuccess({
+            id: mockReportId,
+            results: mockEntries,
+            total: mockEntries.length,
+            subtotal: mockEntries.length,
+          });
+        }
+        if (key.includes('GET_FIXABLE_COUNT')) {
+          fixableCountFetched = true;
+          expect(params.search).toBe('fix_type = command');
+          expect(params.per_page).toBe(0);
+          handleSuccess({ total: 1, subtotal: 1 });
+        }
+        return { type: 'MOCK_API_SUCCESS' };
+      };
+    });
+
+    renderComponent();
+    expandSection();
+    await waitForTable();
+
+    fireEvent.click(screen.getByLabelText('Select all'));
+
+    await waitFor(() => {
+      expect(fixableCountFetched).toBe(true);
+    });
   });
 });
