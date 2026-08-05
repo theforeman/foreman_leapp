@@ -10,20 +10,22 @@ oses:
 %>
 <%
   os_major = @host.operatingsystem.major.to_i
+  arch = @host.architecture ? @host.architecture.name : "x86_64"
   rhel_compatible = @host.operatingsystem.family == 'Redhat' && @host.operatingsystem.name == 'RedHat'
-  supported_version = [7, 8].include? os_major
+  supported_versions = [7, 8, 9]
+  supported_version = supported_versions.include?(os_major)
 
   repos = case os_major
     when 7
       ['rhel-7-server-rpms', 'rhel-7-server-extras-rpms']
-    when 8
-      ['rhel-8-for-x86_64-baseos-rpms', 'rhel-8-for-x86_64-appstream-rpms']
+    when 8, 9
+      ["rhel-#{os_major}-for-#{arch}-baseos-rpms", "rhel-#{os_major}-for-#{arch}-appstream-rpms"]
     end
 
   package = case os_major
     when 7
       'leapp'
-    when 8
+    when 8, 9
       'leapp-upgrade'
     end
 -%>
@@ -38,7 +40,7 @@ oses:
         name: <%= package %>
         state: present
 <% else -%>
-    - name: Fail if the target server is not RHEL
+    - name: Fail if the target server is not a supported RHEL version
       fail:
-        msg: "This playbook can be executed only on RHEL server version 7 and 8."
+        msg: "This playbook can be executed only on RHEL server versions <%= supported_versions.join(", ") %>."
 <% end -%>
