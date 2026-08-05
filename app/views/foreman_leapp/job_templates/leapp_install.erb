@@ -21,13 +21,6 @@ oses:
     when 8, 9
       ["rhel-#{os_major}-for-#{arch}-baseos-rpms", "rhel-#{os_major}-for-#{arch}-appstream-rpms"]
     end
-
-  package = case os_major
-    when 7
-      'leapp'
-    when 8, 9
-      'leapp-upgrade'
-    end
 -%>
 ---
 - hosts: all
@@ -35,9 +28,9 @@ oses:
 <% if rhel_compatible && supported_version -%>
     - name: Enable Leapp repositories
       command: subscription-manager repos <%= repos.map{|r| "--enable #{r}"}.join(" ") %>
-    - name: Install <%= package %>
+    - name: Install leapp-upgrade
       package:
-        name: <%= package %>
+        name: leapp-upgrade
         state: present
 <% else -%>
     - name: Fail if the target server is not a supported RHEL version
