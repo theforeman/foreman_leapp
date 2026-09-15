@@ -27,8 +27,7 @@ module ForemanLeapp
                                'api/v2/job_invocations/leapp_preupgrade_report'
 
           security_block :foreman_leapp do
-            permission :view_job_invocations, { :preupgrade_reports => %i[index show job_invocation],
-                                                'api/v2/preupgrade_reports' => %i[index show job_invocation] },
+            permission :view_job_invocations, { 'api/v2/preupgrade_reports' => %i[index show job_invocation] },
                                               :resource_type => 'JobInvocation'
           end
 
