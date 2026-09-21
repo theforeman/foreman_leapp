@@ -2,7 +2,15 @@
 
 module Helpers
   module JobHelper
+    PREUPGRADE_REPORT_FEATURES = %w[leapp_preupgrade leapp_remediation_plan].freeze
+
     class << self
+      def with_leapp_report(job_invocation)
+        PREUPGRADE_REPORT_FEATURES.any? do |feature|
+          correct_feature?(job_invocation, feature)
+        end
+      end
+
       # Returns true if the given feature is present in the job_invocation's job_features,
       # or if a matching RemoteExecutionFeature exists for the job_template.
       def correct_feature?(job_invocation, feature)

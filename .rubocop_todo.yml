@@ -76,6 +76,7 @@ Style/FrozenStringLiteralComment:
     - 'app/views/api/v2/preupgrade_reports/index.json.rabl'
     - 'app/views/api/v2/preupgrade_reports/job_invocation.json.rabl'
     - 'app/views/api/v2/preupgrade_reports/show.json.rabl'
+    - 'app/views/api/v2/job_invocations/leapp_preupgrade_report.json.rabl'
     - 'app/views/preupgrade_report_entries/base.json.rabl'
     - 'app/views/preupgrade_reports/index.json.rabl'
     - 'app/views/preupgrade_reports/show.json.rabl'

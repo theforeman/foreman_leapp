@@ -24,7 +24,7 @@ export const usePreupgradeTableState = (data, isExpanded) => {
   const [expandedRowIds, setExpandedRowIds] = useState(new Set());
 
   // eslint-disable-next-line camelcase
-  const isLeappJob = data?.template_name?.includes('Run preupgrade via Leapp');
+  const isLeappJob = Boolean(data?.has_leapp_report);
   // eslint-disable-next-line camelcase
   const jobStatusLabel = data?.status_label;
 

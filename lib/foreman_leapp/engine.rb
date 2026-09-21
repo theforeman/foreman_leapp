@@ -23,14 +23,16 @@ module ForemanLeapp
           apipie_documented_controllers ["#{ForemanLeapp::Engine.root}/app/controllers/api/v2/*.rb"]
           extend_template_helpers ForemanLeapp::TemplateHelper
 
+          extend_rabl_template 'api/v2/job_invocations/main',
+                               'api/v2/job_invocations/leapp_preupgrade_report'
+
           extend_page 'job_invocations/show' do |cx|
             cx.add_pagelet :main_tabs,
                           partial: 'job_invocations/leapp_preupgrade_report',
                           name: _('Leapp preupgrade report'),
                           id: 'leapp_preupgrade_report',
                           onlyif: proc { |subject|
-                            ::Helpers::JobHelper.correct_feature?(subject, 'leapp_preupgrade') ||
-                              ::Helpers::JobHelper.correct_feature?(subject, 'leapp_remediation_plan')
+                            ::Helpers::JobHelper.with_leapp_report(subject)
                           }
           end
 

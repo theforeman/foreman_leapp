@@ -8,8 +8,7 @@ module Actions
       end
 
       def plan(job_invocation, host, *_args)
-        return unless ::Helpers::JobHelper.correct_feature?(job_invocation, 'leapp_preupgrade') ||
-                      ::Helpers::JobHelper.correct_feature?(job_invocation, 'leapp_remediation_plan')
+        return unless ::Helpers::JobHelper.with_leapp_report(job_invocation)
 
         plan_self(host_id: host.id, job_invocation_id: job_invocation.id)
       end
