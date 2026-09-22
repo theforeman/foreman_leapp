@@ -4,14 +4,14 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# Temuri Doghonadze <temuri.doghonadze@gmail.com>, 2023
+# Temuri Doghonadze <temuri.doghonadze@gmail.com>, 2026
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_leapp 3.2.0\n"
+"Project-Id-Version: foreman_leapp 4.1.2\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2022-10-12 12:00+0000\n"
-"Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>, 2023\n"
+"Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>, 2026\n"
 "Language-Team: Georgian (https://app.transifex.com/foreman/teams/114/ka/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -25,11 +25,17 @@ msgstr "Foreman-ის დამატება RHEL-ის Leapp-ით ად�
 msgid "All"
 msgstr "ყველა"
 
+msgid "An unexpected error occurred while creating the remediation job."
+msgstr ""
+
+msgid "Array of excluded entry IDs"
+msgstr ""
+
 msgid "Command"
 msgstr "ბრძანება"
 
 msgid "Could not retrieve data: %(status)s - %(msg)s"
-msgstr ""
+msgstr "მონაცემების მიღების შეცდომა: %(status)s - %(msg)s"
 
 msgid "Failed to fetch preupgrade reports from server."
 msgstr "სერვერიდან განახლებისწინა ანგარიშების გამოთხოვის შეცდომა."
@@ -58,6 +64,9 @@ msgstr "მინიშნება"
 msgid "Host"
 msgstr "ჰოსტი"
 
+msgid "ID of the preupgrade report"
+msgstr ""
+
 msgid "Info"
 msgstr "ინფორმაცია"
 
@@ -78,6 +87,12 @@ msgstr "განახლებისწინა ანგარიშებ�
 
 msgid "List Preupgrade reports for Job invocation"
 msgstr "განახლებისწინა ანგარიშების სია დავალების ჩასაწოდებლად"
+
+msgid "List all preupgrade report entries"
+msgstr ""
+
+msgid "List entries for a specific preupgrade report"
+msgstr ""
 
 msgid "Low"
 msgstr "დაბალი"
@@ -100,11 +115,14 @@ msgstr "არა"
 msgid "No Preupgrade Report Available"
 msgstr "განახლებისწინა ანგარიში ხელმისაწვდომი არაა"
 
+msgid "No fixable entries found matching the selection."
+msgstr ""
+
+msgid "No results found for your search."
+msgstr ""
+
 msgid "Preupgrade check with Leapp"
 msgstr "განახლებისწინა შემოწმება Leapp-ით"
-
-msgid "Preupgrade job"
-msgstr ""
 
 msgid "Remediation plan"
 msgstr "გაუქმების გეგმა"
@@ -121,6 +139,12 @@ msgstr "გაუქმების გეგმის Leapp-ით გაშვ
 msgid "Run Upgrade"
 msgstr "განახლების გაშვება"
 
+msgid "Search autocomplete for preupgrade report entries"
+msgstr ""
+
+msgid "Search string"
+msgstr ""
+
 msgid "Show Preupgrade report"
 msgstr "განახლებისწინა ანგარიშის ჩვენება"
 
@@ -134,7 +158,7 @@ msgid "The preupgrade report could not be generated, check the job details for t
 msgstr "განახლებამდელი ანგარიშის შექმნის შეცდომა. მიზეზისთვის იხილეთ დავალების დეტალები"
 
 msgid "The preupgrade report shows no issues."
-msgstr ""
+msgstr "განახლებისწინა ანგარიშს პრობლემებს არ აჩვენებს."
 
 msgid "The preupgrade report will be available after the job finishes"
 msgstr "განახლებისწინა ანგარიში დავალების დასრულების შემდეგ იქნება ხელმისაწვდომი"
@@ -144,6 +168,15 @@ msgstr "ეს პრობლემა აჩერებს განახლ
 
 msgid "Title"
 msgstr "სათაური"
+
+msgid "Trigger a remediation job for selected preupgrade report entries"
+msgstr ""
+
+msgid "Unknown fix_type value '%s' for search_fix_type"
+msgstr ""
+
+msgid "Unknown search key '%s' for search_yes_no_fields"
+msgstr ""
 
 msgid "Upgrade with Leapp"
 msgstr "Leapp-ით განახლება"

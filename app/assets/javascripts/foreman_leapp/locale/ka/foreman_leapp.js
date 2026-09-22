@@ -3,10 +3,10 @@
   "locale_data": {
     "foreman_leapp": {
       "": {
-        "Project-Id-Version": "foreman_leapp 3.2.0",
+        "Project-Id-Version": "foreman_leapp 4.1.2",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2022-10-12 12:00+0000",
-        "Last-Translator": "Temuri Doghonadze <temuri.doghonadze@gmail.com>, 2023",
+        "Last-Translator": "Temuri Doghonadze <temuri.doghonadze@gmail.com>, 2026",
         "Language-Team": "Georgian (https://app.transifex.com/foreman/teams/114/ka/)",
         "MIME-Version": "1.0",
         "Content-Type": "text/plain; charset=UTF-8",
@@ -23,11 +23,17 @@
       "All": [
         "ყველა"
       ],
+      "An unexpected error occurred while creating the remediation job.": [
+        ""
+      ],
+      "Array of excluded entry IDs": [
+        ""
+      ],
       "Command": [
         "ბრძანება"
       ],
       "Could not retrieve data: %(status)s - %(msg)s": [
-        ""
+        "მონაცემების მიღების შეცდომა: %(status)s - %(msg)s"
       ],
       "Failed to fetch preupgrade reports from server.": [
         "სერვერიდან განახლებისწინა ანგარიშების გამოთხოვის შეცდომა."
@@ -56,6 +62,9 @@
       "Host": [
         "ჰოსტი"
       ],
+      "ID of the preupgrade report": [
+        ""
+      ],
       "Info": [
         "ინფორმაცია"
       ],
@@ -76,6 +85,12 @@
       ],
       "List Preupgrade reports for Job invocation": [
         "განახლებისწინა ანგარიშების სია დავალების ჩასაწოდებლად"
+      ],
+      "List all preupgrade report entries": [
+        ""
+      ],
+      "List entries for a specific preupgrade report": [
+        ""
       ],
       "Low": [
         "დაბალი"
@@ -98,11 +113,14 @@
       "No Preupgrade Report Available": [
         "განახლებისწინა ანგარიში ხელმისაწვდომი არაა"
       ],
+      "No fixable entries found matching the selection.": [
+        ""
+      ],
+      "No results found for your search.": [
+        ""
+      ],
       "Preupgrade check with Leapp": [
         "განახლებისწინა შემოწმება Leapp-ით"
-      ],
-      "Preupgrade job": [
-        ""
       ],
       "Remediation plan": [
         "გაუქმების გეგმა"
@@ -119,6 +137,12 @@
       "Run Upgrade": [
         "განახლების გაშვება"
       ],
+      "Search autocomplete for preupgrade report entries": [
+        ""
+      ],
+      "Search string": [
+        ""
+      ],
       "Show Preupgrade report": [
         "განახლებისწინა ანგარიშის ჩვენება"
       ],
@@ -132,7 +156,7 @@
         "განახლებამდელი ანგარიშის შექმნის შეცდომა. მიზეზისთვის იხილეთ დავალების დეტალები"
       ],
       "The preupgrade report shows no issues.": [
-        ""
+        "განახლებისწინა ანგარიშს პრობლემებს არ აჩვენებს."
       ],
       "The preupgrade report will be available after the job finishes": [
         "განახლებისწინა ანგარიში დავალების დასრულების შემდეგ იქნება ხელმისაწვდომი"
@@ -142,6 +166,15 @@
       ],
       "Title": [
         "სათაური"
+      ],
+      "Trigger a remediation job for selected preupgrade report entries": [
+        ""
+      ],
+      "Unknown fix_type value '%s' for search_fix_type": [
+        ""
+      ],
+      "Unknown search key '%s' for search_yes_no_fields": [
+        ""
       ],
       "Upgrade with Leapp": [
         "Leapp-ით განახლება"

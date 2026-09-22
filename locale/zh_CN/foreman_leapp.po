@@ -11,7 +11,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_leapp 3.2.0\n"
+"Project-Id-Version: foreman_leapp 4.1.2\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2022-10-12 12:00+0000\n"
 "Last-Translator: Ondřej Gajdušek, 2026\n"
@@ -28,6 +28,12 @@ msgstr "支持使用 Leapp 的 RHEL 原位升级的 Foreman 插件。"
 
 msgid "All"
 msgstr "全部"
+
+msgid "An unexpected error occurred while creating the remediation job."
+msgstr ""
+
+msgid "Array of excluded entry IDs"
+msgstr ""
 
 msgid "Command"
 msgstr "命令"
@@ -62,6 +68,9 @@ msgstr "提示"
 msgid "Host"
 msgstr "主机"
 
+msgid "ID of the preupgrade report"
+msgstr ""
+
 msgid "Info"
 msgstr "Info"
 
@@ -82,6 +91,12 @@ msgstr "列出预升级报告"
 
 msgid "List Preupgrade reports for Job invocation"
 msgstr "列出作业调用的预升级报告"
+
+msgid "List all preupgrade report entries"
+msgstr ""
+
+msgid "List entries for a specific preupgrade report"
+msgstr ""
 
 msgid "Low"
 msgstr "低"
@@ -104,11 +119,14 @@ msgstr "否"
 msgid "No Preupgrade Report Available"
 msgstr "没有可用的预升级报告"
 
+msgid "No fixable entries found matching the selection."
+msgstr ""
+
+msgid "No results found for your search."
+msgstr ""
+
 msgid "Preupgrade check with Leapp"
 msgstr "使用 Leapp 的预升级检查"
-
-msgid "Preupgrade job"
-msgstr ""
 
 msgid "Remediation plan"
 msgstr "补救计划"
@@ -124,6 +142,12 @@ msgstr "使用 Leapp 的运行补救计划"
 
 msgid "Run Upgrade"
 msgstr "运行升级"
+
+msgid "Search autocomplete for preupgrade report entries"
+msgstr ""
+
+msgid "Search string"
+msgstr ""
 
 msgid "Show Preupgrade report"
 msgstr "显示预升级报告"
@@ -148,6 +172,15 @@ msgstr "此问题会阻止升级。"
 
 msgid "Title"
 msgstr "提示"
+
+msgid "Trigger a remediation job for selected preupgrade report entries"
+msgstr ""
+
+msgid "Unknown fix_type value '%s' for search_fix_type"
+msgstr ""
+
+msgid "Unknown search key '%s' for search_yes_no_fields"
+msgstr ""
 
 msgid "Upgrade with Leapp"
 msgstr "使用 Leapp 升级"

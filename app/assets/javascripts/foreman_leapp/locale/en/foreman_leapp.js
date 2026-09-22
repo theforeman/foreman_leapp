@@ -5,7 +5,7 @@
       "": {
         "Project-Id-Version": "foreman_leapp 1.0.0",
         "Report-Msgid-Bugs-To": "",
-        "PO-Revision-Date": "2026-03-09 16:32+0100",
+        "PO-Revision-Date": "2026-09-22 17:30+0000",
         "Last-Translator": "FULL NAME <EMAIL@ADDRESS>",
         "Language-Team": "LANGUAGE <LL@li.org>",
         "Language": "",
@@ -21,6 +21,12 @@
         ""
       ],
       "All": [
+        ""
+      ],
+      "An unexpected error occurred while creating the remediation job.": [
+        ""
+      ],
+      "Array of excluded entry IDs": [
         ""
       ],
       "Command": [
@@ -56,6 +62,9 @@
       "Host": [
         ""
       ],
+      "ID of the preupgrade report": [
+        ""
+      ],
       "Info": [
         ""
       ],
@@ -75,6 +84,12 @@
         ""
       ],
       "List Preupgrade reports for Job invocation": [
+        ""
+      ],
+      "List all preupgrade report entries": [
+        ""
+      ],
+      "List entries for a specific preupgrade report": [
         ""
       ],
       "Low": [
@@ -98,10 +113,13 @@
       "No Preupgrade Report Available": [
         ""
       ],
-      "Preupgrade check with Leapp": [
+      "No fixable entries found matching the selection.": [
         ""
       ],
-      "Preupgrade job": [
+      "No results found for your search.": [
+        ""
+      ],
+      "Preupgrade check with Leapp": [
         ""
       ],
       "Remediation plan": [
@@ -117,6 +135,12 @@
         ""
       ],
       "Run Upgrade": [
+        ""
+      ],
+      "Search autocomplete for preupgrade report entries": [
+        ""
+      ],
+      "Search string": [
         ""
       ],
       "Show Preupgrade report": [
@@ -141,6 +165,15 @@
         ""
       ],
       "Title": [
+        ""
+      ],
+      "Trigger a remediation job for selected preupgrade report entries": [
+        ""
+      ],
+      "Unknown fix_type value '%s' for search_fix_type": [
+        ""
+      ],
+      "Unknown search key '%s' for search_yes_no_fields": [
         ""
       ],
       "Upgrade with Leapp": [

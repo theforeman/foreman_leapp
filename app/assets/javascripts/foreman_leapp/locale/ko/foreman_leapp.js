@@ -3,10 +3,10 @@
   "locale_data": {
     "foreman_leapp": {
       "": {
-        "Project-Id-Version": "foreman_leapp 3.2.0",
+        "Project-Id-Version": "foreman_leapp 4.1.2",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2022-10-12 12:00+0000",
-        "Last-Translator": "Ondřej Gajdušek, 2026",
+        "Last-Translator": "Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarden.nl>, 2026",
         "Language-Team": "Korean (https://app.transifex.com/foreman/teams/114/ko/)",
         "MIME-Version": "1.0",
         "Content-Type": "text/plain; charset=UTF-8",
@@ -22,6 +22,12 @@
       ],
       "All": [
         "모두"
+      ],
+      "An unexpected error occurred while creating the remediation job.": [
+        ""
+      ],
+      "Array of excluded entry IDs": [
+        ""
       ],
       "Command": [
         "명령어"
@@ -56,6 +62,9 @@
       "Host": [
         "호스트 "
       ],
+      "ID of the preupgrade report": [
+        ""
+      ],
       "Info": [
         "정보 "
       ],
@@ -76,6 +85,12 @@
       ],
       "List Preupgrade reports for Job invocation": [
         "작업 호출을 위한 사전 업그레이드 보고서 목록"
+      ],
+      "List all preupgrade report entries": [
+        ""
+      ],
+      "List entries for a specific preupgrade report": [
+        ""
       ],
       "Low": [
         "낮음"
@@ -98,11 +113,14 @@
       "No Preupgrade Report Available": [
         "사전 업그레이드 보고서가 없습니다"
       ],
+      "No fixable entries found matching the selection.": [
+        ""
+      ],
+      "No results found for your search.": [
+        ""
+      ],
       "Preupgrade check with Leapp": [
         "Leapp으로 업그레이드 전 확인"
-      ],
-      "Preupgrade job": [
-        ""
       ],
       "Remediation plan": [
         "수정 계획"
@@ -118,6 +136,12 @@
       ],
       "Run Upgrade": [
         "업그레이드 실행"
+      ],
+      "Search autocomplete for preupgrade report entries": [
+        ""
+      ],
+      "Search string": [
+        ""
       ],
       "Show Preupgrade report": [
         "사전 업그레이드 보고서 표시"
@@ -142,6 +166,15 @@
       ],
       "Title": [
         "제목"
+      ],
+      "Trigger a remediation job for selected preupgrade report entries": [
+        ""
+      ],
+      "Unknown fix_type value '%s' for search_fix_type": [
+        ""
+      ],
+      "Unknown search key '%s' for search_yes_no_fields": [
+        ""
       ],
       "Upgrade with Leapp": [
         "Leapp으로 업그레이드"

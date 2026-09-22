@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: foreman_leapp 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-09 16:32+0100\n"
-"PO-Revision-Date: 2026-03-09 16:32+0100\n"
+"POT-Creation-Date: 2026-09-22 17:30+0000\n"
+"PO-Revision-Date: 2026-09-22 17:30+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -17,6 +17,44 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+#: ../app/controllers/api/v2/preupgrade_report_entries_controller.rb:13
+msgid "List entries for a specific preupgrade report"
+msgstr ""
+
+#: ../app/controllers/api/v2/preupgrade_report_entries_controller.rb:14
+msgid "List all preupgrade report entries"
+msgstr ""
+
+#: ../app/controllers/api/v2/preupgrade_report_entries_controller.rb:16
+#: ../app/controllers/api/v2/preupgrade_report_entries_controller.rb:27
+msgid "ID of the preupgrade report"
+msgstr ""
+
+#: ../app/controllers/api/v2/preupgrade_report_entries_controller.rb:25
+msgid "Search autocomplete for preupgrade report entries"
+msgstr ""
+
+#: ../app/controllers/api/v2/preupgrade_report_entries_controller.rb:26
+#: ../app/controllers/api/v2/preupgrade_report_entries_controller.rb:31
+msgid "Search string"
+msgstr ""
+
+#: ../app/controllers/api/v2/preupgrade_report_entries_controller.rb:30
+msgid "Trigger a remediation job for selected preupgrade report entries"
+msgstr ""
+
+#: ../app/controllers/api/v2/preupgrade_report_entries_controller.rb:32
+msgid "Array of excluded entry IDs"
+msgstr ""
+
+#: ../app/controllers/api/v2/preupgrade_report_entries_controller.rb:38
+msgid "No fixable entries found matching the selection."
+msgstr ""
+
+#: ../app/controllers/api/v2/preupgrade_report_entries_controller.rb:53
+msgid "An unexpected error occurred while creating the remediation job."
+msgstr ""
 
 #: ../app/controllers/api/v2/preupgrade_reports_controller.rb:10
 msgid "List Preupgrade reports"
@@ -44,8 +82,16 @@ msgstr ""
 msgid "Upgrade with Leapp"
 msgstr ""
 
+#: ../app/models/preupgrade_report_entry.rb:62
+msgid "Unknown search key '%s' for search_yes_no_fields"
+msgstr ""
+
+#: ../app/models/preupgrade_report_entry.rb:75
+msgid "Unknown fix_type value '%s' for search_fix_type"
+msgstr ""
+
 #: ../lib/foreman_leapp/engine.rb:29
-#: ../webpack/components/PreupgradeReportsTable/index.js:159
+#: ../webpack/components/PreupgradeReportsTable/index.js:396
 msgid "Leapp preupgrade report"
 msgstr ""
 
@@ -65,7 +111,7 @@ msgstr ""
 msgid "Run Remediation plan with Leapp"
 msgstr ""
 
-#: ../webpack/components/PreupgradeReports/PreupgradeReports.js:122
+#: ../webpack/components/PreupgradeReports/PreupgradeReports.js:129
 msgid "Could not retrieve data: %(status)s - %(msg)s"
 msgstr ""
 
@@ -77,7 +123,7 @@ msgstr ""
 #: ../webpack/components/PreupgradeReportsList/components/PreupgradeReportsListHeader.js:38
 #: ../webpack/components/PreupgradeReportsList/components/helpers.js:81
 #: ../webpack/components/PreupgradeReportsTable/ReportDetails.js:33
-#: ../webpack/components/PreupgradeReportsTable/index.js:29
+#: ../webpack/components/PreupgradeReportsTable/index.js:135
 msgid "Title"
 msgstr ""
 
@@ -85,13 +131,13 @@ msgstr ""
 #: ../webpack/components/PreupgradeReportsList/components/PreupgradeReportsListHeader.js:13
 #: ../webpack/components/PreupgradeReportsList/components/helpers.js:95
 #: ../webpack/components/PreupgradeReportsTable/ReportDetails.js:40
-#: ../webpack/components/PreupgradeReportsTable/index.js:37
+#: ../webpack/components/PreupgradeReportsTable/index.js:146
 msgid "Risk Factor"
 msgstr ""
 
 #: ../webpack/components/PreupgradeReports/components/EntriesFilter.js:21
 #: ../webpack/components/PreupgradeReportsList/components/PreupgradeReportsListHeader.js:12
-#: ../webpack/components/PreupgradeReportsTable/index.js:32
+#: ../webpack/components/PreupgradeReportsTable/index.js:140
 msgid "Host"
 msgstr ""
 
@@ -144,18 +190,19 @@ msgid "Command"
 msgstr ""
 
 #: ../webpack/components/PreupgradeReports/components/EntriesFilter.js:42
-#: ../webpack/components/PreupgradeReportsTable/index.js:43
-#: ../webpack/components/PreupgradeReportsTable/index.js:50
+#: ../webpack/components/PreupgradeReportsTable/index.js:153
+#: ../webpack/components/PreupgradeReportsTable/index.js:162
 msgid "Yes"
 msgstr ""
 
 #: ../webpack/components/PreupgradeReports/components/EntriesFilter.js:43
-#: ../webpack/components/PreupgradeReportsTable/index.js:43
-#: ../webpack/components/PreupgradeReportsTable/index.js:53
+#: ../webpack/components/PreupgradeReportsTable/index.js:153
+#: ../webpack/components/PreupgradeReportsTable/index.js:165
 msgid "No"
 msgstr ""
 
 #: ../webpack/components/PreupgradeReports/components/FixSelectedButton.js:12
+#: ../webpack/components/PreupgradeReportsTable/index.js:443
 msgid "Fix Selected"
 msgstr ""
 
@@ -174,24 +221,25 @@ msgid "No Preupgrade Report Available"
 msgstr ""
 
 #: ../webpack/components/PreupgradeReports/components/UpgradeAllButton.js:8
+#: ../webpack/components/PreupgradeReportsTable/index.js:454
 msgid "Run Upgrade"
 msgstr ""
 
 #:
 #: ../webpack/components/PreupgradeReportsList/components/InhibitorInfoItem.js:17
-#: ../webpack/components/PreupgradeReportsTable/index.js:49
+#: ../webpack/components/PreupgradeReportsTable/index.js:161
 msgid "This issue inhibits the upgrade."
 msgstr ""
 
 #:
 #: ../webpack/components/PreupgradeReportsList/components/PreupgradeReportsListHeader.js:14
-#: ../webpack/components/PreupgradeReportsTable/index.js:41
+#: ../webpack/components/PreupgradeReportsTable/index.js:152
 msgid "Has Remediation?"
 msgstr ""
 
 #:
 #: ../webpack/components/PreupgradeReportsList/components/PreupgradeReportsListHeader.js:15
-#: ../webpack/components/PreupgradeReportsTable/index.js:46
+#: ../webpack/components/PreupgradeReportsTable/index.js:158
 msgid "Inhibitor?"
 msgstr ""
 
@@ -227,12 +275,12 @@ msgstr ""
 msgid "Links"
 msgstr ""
 
-#: ../webpack/components/PreupgradeReportsTable/index.js:180
-msgid "The preupgrade report shows no issues."
+#: ../webpack/components/PreupgradeReportsTable/index.js:483
+msgid "No results found for your search."
 msgstr ""
 
-#: action_names.rb:2
-msgid "Preupgrade job"
+#: ../webpack/components/PreupgradeReportsTable/index.js:484
+msgid "The preupgrade report shows no issues."
 msgstr ""
 
 #: gemspec.rb:4
