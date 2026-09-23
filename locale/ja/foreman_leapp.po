@@ -13,7 +13,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_leapp 3.2.0\n"
+"Project-Id-Version: foreman_leapp 4.1.2\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2022-10-12 12:00+0000\n"
 "Last-Translator: Ondřej Gajdušek, 2026\n"
@@ -29,6 +29,12 @@ msgstr "Leapp ユーティリティーで RHEL のインプレースアップグ
 
 msgid "All"
 msgstr "すべて"
+
+msgid "An unexpected error occurred while creating the remediation job."
+msgstr ""
+
+msgid "Array of excluded entry IDs"
+msgstr ""
 
 msgid "Command"
 msgstr "コマンド"
@@ -63,6 +69,9 @@ msgstr "ヒント"
 msgid "Host"
 msgstr "ホスト"
 
+msgid "ID of the preupgrade report"
+msgstr ""
+
 msgid "Info"
 msgstr "情報"
 
@@ -83,6 +92,12 @@ msgstr "アップグレード前のレポートの一覧表示"
 
 msgid "List Preupgrade reports for Job invocation"
 msgstr "ジョブ呼び出しの事前アップグレードレポートの一覧表示"
+
+msgid "List all preupgrade report entries"
+msgstr ""
+
+msgid "List entries for a specific preupgrade report"
+msgstr ""
 
 msgid "Low"
 msgstr "低"
@@ -105,11 +120,14 @@ msgstr "いいえ"
 msgid "No Preupgrade Report Available"
 msgstr "アップグレード前のレポートはありません"
 
+msgid "No fixable entries found matching the selection."
+msgstr ""
+
+msgid "No results found for your search."
+msgstr ""
+
 msgid "Preupgrade check with Leapp"
 msgstr "Leapp によるアップグレード前のチェック"
-
-msgid "Preupgrade job"
-msgstr ""
 
 msgid "Remediation plan"
 msgstr "修復プラン"
@@ -125,6 +143,12 @@ msgstr "Leapp を使用した修復計画の実行"
 
 msgid "Run Upgrade"
 msgstr "アップグレードの実行"
+
+msgid "Search autocomplete for preupgrade report entries"
+msgstr ""
+
+msgid "Search string"
+msgstr ""
 
 msgid "Show Preupgrade report"
 msgstr "アップグレード前のレポートの表示"
@@ -149,6 +173,15 @@ msgstr "この問題が原因でアップグレードが行われません。"
 
 msgid "Title"
 msgstr "タイトル"
+
+msgid "Trigger a remediation job for selected preupgrade report entries"
+msgstr ""
+
+msgid "Unknown fix_type value '%s' for search_fix_type"
+msgstr ""
+
+msgid "Unknown search key '%s' for search_yes_no_fields"
+msgstr ""
 
 msgid "Upgrade with Leapp"
 msgstr "Leapp によるアップグレード"

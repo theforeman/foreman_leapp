@@ -3,7 +3,7 @@
   "locale_data": {
     "foreman_leapp": {
       "": {
-        "Project-Id-Version": "foreman_leapp 3.2.0",
+        "Project-Id-Version": "foreman_leapp 4.1.2",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2022-10-12 12:00+0000",
         "Last-Translator": "Ondřej Gajdušek, 2026",
@@ -22,6 +22,12 @@
       ],
       "All": [
         "全部"
+      ],
+      "An unexpected error occurred while creating the remediation job.": [
+        ""
+      ],
+      "Array of excluded entry IDs": [
+        ""
       ],
       "Command": [
         "命令"
@@ -56,6 +62,9 @@
       "Host": [
         "主机"
       ],
+      "ID of the preupgrade report": [
+        ""
+      ],
       "Info": [
         "Info"
       ],
@@ -76,6 +85,12 @@
       ],
       "List Preupgrade reports for Job invocation": [
         "列出作业调用的预升级报告"
+      ],
+      "List all preupgrade report entries": [
+        ""
+      ],
+      "List entries for a specific preupgrade report": [
+        ""
       ],
       "Low": [
         "低"
@@ -98,11 +113,14 @@
       "No Preupgrade Report Available": [
         "没有可用的预升级报告"
       ],
+      "No fixable entries found matching the selection.": [
+        ""
+      ],
+      "No results found for your search.": [
+        ""
+      ],
       "Preupgrade check with Leapp": [
         "使用 Leapp 的预升级检查"
-      ],
-      "Preupgrade job": [
-        ""
       ],
       "Remediation plan": [
         "补救计划"
@@ -118,6 +136,12 @@
       ],
       "Run Upgrade": [
         "运行升级"
+      ],
+      "Search autocomplete for preupgrade report entries": [
+        ""
+      ],
+      "Search string": [
+        ""
       ],
       "Show Preupgrade report": [
         "显示预升级报告"
@@ -142,6 +166,15 @@
       ],
       "Title": [
         "提示"
+      ],
+      "Trigger a remediation job for selected preupgrade report entries": [
+        ""
+      ],
+      "Unknown fix_type value '%s' for search_fix_type": [
+        ""
+      ],
+      "Unknown search key '%s' for search_yes_no_fields": [
+        ""
       ],
       "Upgrade with Leapp": [
         "使用 Leapp 升级"

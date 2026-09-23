@@ -6,15 +6,16 @@
 # Translators:
 # 0868a4d1af5275b3f70b0a6dac4c99a4, 2022
 # Bryan Kearney <bryan.kearney@gmail.com>, 2022
-# Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarden.nl>, 2025
 # Ondřej Gajdušek, 2026
+# Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarden.nl>, 2026
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_leapp 3.2.0\n"
+"Project-Id-Version: foreman_leapp 4.1.2\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2022-10-12 12:00+0000\n"
-"Last-Translator: Ondřej Gajdušek, 2026\n"
+"Last-Translator: Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarde"
+"n.nl>, 2026\n"
 "Language-Team: Korean (https://app.transifex.com/foreman/teams/114/ko/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -27,6 +28,12 @@ msgstr "Leapp 유틸리티를 사용하여 기존 RHEL 업그레이드를 지원
 
 msgid "All"
 msgstr "모두"
+
+msgid "An unexpected error occurred while creating the remediation job."
+msgstr ""
+
+msgid "Array of excluded entry IDs"
+msgstr ""
 
 msgid "Command"
 msgstr "명령어"
@@ -61,6 +68,9 @@ msgstr "힌트"
 msgid "Host"
 msgstr "호스트 "
 
+msgid "ID of the preupgrade report"
+msgstr ""
+
 msgid "Info"
 msgstr "정보 "
 
@@ -81,6 +91,12 @@ msgstr "사전 업그레이드 보고서 목록"
 
 msgid "List Preupgrade reports for Job invocation"
 msgstr "작업 호출을 위한 사전 업그레이드 보고서 목록"
+
+msgid "List all preupgrade report entries"
+msgstr ""
+
+msgid "List entries for a specific preupgrade report"
+msgstr ""
 
 msgid "Low"
 msgstr "낮음"
@@ -103,11 +119,14 @@ msgstr "아니오  "
 msgid "No Preupgrade Report Available"
 msgstr "사전 업그레이드 보고서가 없습니다"
 
+msgid "No fixable entries found matching the selection."
+msgstr ""
+
+msgid "No results found for your search."
+msgstr ""
+
 msgid "Preupgrade check with Leapp"
 msgstr "Leapp으로 업그레이드 전 확인"
-
-msgid "Preupgrade job"
-msgstr ""
 
 msgid "Remediation plan"
 msgstr "수정 계획"
@@ -123,6 +142,12 @@ msgstr "Leapp으로 수정 계획 실행"
 
 msgid "Run Upgrade"
 msgstr "업그레이드 실행"
+
+msgid "Search autocomplete for preupgrade report entries"
+msgstr ""
+
+msgid "Search string"
+msgstr ""
 
 msgid "Show Preupgrade report"
 msgstr "사전 업그레이드 보고서 표시"
@@ -147,6 +172,15 @@ msgstr "이 문제로 인해 업그레이드가 불가능합니다."
 
 msgid "Title"
 msgstr "제목"
+
+msgid "Trigger a remediation job for selected preupgrade report entries"
+msgstr ""
+
+msgid "Unknown fix_type value '%s' for search_fix_type"
+msgstr ""
+
+msgid "Unknown search key '%s' for search_yes_no_fields"
+msgstr ""
 
 msgid "Upgrade with Leapp"
 msgstr "Leapp으로 업그레이드"

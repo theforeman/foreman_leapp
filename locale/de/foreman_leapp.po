@@ -12,7 +12,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_leapp 3.2.0\n"
+"Project-Id-Version: foreman_leapp 4.1.2\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2022-10-12 12:00+0000\n"
 "Last-Translator: Bryan Kearney <bryan.kearney@gmail.com>, 2023\n"
@@ -28,6 +28,12 @@ msgstr ""
 
 msgid "All"
 msgstr "Alle"
+
+msgid "An unexpected error occurred while creating the remediation job."
+msgstr ""
+
+msgid "Array of excluded entry IDs"
+msgstr ""
 
 msgid "Command"
 msgstr "Befehl"
@@ -62,6 +68,9 @@ msgstr "Hinweis"
 msgid "Host"
 msgstr "Host"
 
+msgid "ID of the preupgrade report"
+msgstr ""
+
 msgid "Info"
 msgstr "Info"
 
@@ -81,6 +90,12 @@ msgid "List Preupgrade reports"
 msgstr ""
 
 msgid "List Preupgrade reports for Job invocation"
+msgstr ""
+
+msgid "List all preupgrade report entries"
+msgstr ""
+
+msgid "List entries for a specific preupgrade report"
 msgstr ""
 
 msgid "Low"
@@ -104,10 +119,13 @@ msgstr "Nein"
 msgid "No Preupgrade Report Available"
 msgstr ""
 
-msgid "Preupgrade check with Leapp"
+msgid "No fixable entries found matching the selection."
 msgstr ""
 
-msgid "Preupgrade job"
+msgid "No results found for your search."
+msgstr ""
+
+msgid "Preupgrade check with Leapp"
 msgstr ""
 
 msgid "Remediation plan"
@@ -124,6 +142,12 @@ msgstr "Sanierungsplan mit Leapp ausführen"
 
 msgid "Run Upgrade"
 msgstr "Aktualisierung ausführen"
+
+msgid "Search autocomplete for preupgrade report entries"
+msgstr ""
+
+msgid "Search string"
+msgstr ""
 
 msgid "Show Preupgrade report"
 msgstr ""
@@ -148,6 +172,15 @@ msgstr ""
 
 msgid "Title"
 msgstr "Titel"
+
+msgid "Trigger a remediation job for selected preupgrade report entries"
+msgstr ""
+
+msgid "Unknown fix_type value '%s' for search_fix_type"
+msgstr ""
+
+msgid "Unknown search key '%s' for search_yes_no_fields"
+msgstr ""
 
 msgid "Upgrade with Leapp"
 msgstr "Aktualisiere mit Leapp"

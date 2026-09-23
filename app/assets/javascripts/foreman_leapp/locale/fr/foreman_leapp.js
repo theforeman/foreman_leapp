@@ -3,7 +3,7 @@
   "locale_data": {
     "foreman_leapp": {
       "": {
-        "Project-Id-Version": "foreman_leapp 3.2.0",
+        "Project-Id-Version": "foreman_leapp 4.1.2",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2022-10-12 12:00+0000",
         "Last-Translator": "Ondřej Gajdušek, 2026",
@@ -22,6 +22,12 @@
       ],
       "All": [
         "Tout"
+      ],
+      "An unexpected error occurred while creating the remediation job.": [
+        ""
+      ],
+      "Array of excluded entry IDs": [
+        ""
       ],
       "Command": [
         "Commande"
@@ -56,6 +62,9 @@
       "Host": [
         "Hôte"
       ],
+      "ID of the preupgrade report": [
+        ""
+      ],
       "Info": [
         "Info"
       ],
@@ -76,6 +85,12 @@
       ],
       "List Preupgrade reports for Job invocation": [
         "Liste des rapports de pré-mise à niveau pour l'invocation du job"
+      ],
+      "List all preupgrade report entries": [
+        ""
+      ],
+      "List entries for a specific preupgrade report": [
+        ""
       ],
       "Low": [
         "Faible"
@@ -98,11 +113,14 @@
       "No Preupgrade Report Available": [
         "Aucun rapport de pré-mise à niveau disponible"
       ],
+      "No fixable entries found matching the selection.": [
+        ""
+      ],
+      "No results found for your search.": [
+        ""
+      ],
       "Preupgrade check with Leapp": [
         "Contrôle pré-mise à niveau avec Leapp"
-      ],
-      "Preupgrade job": [
-        ""
       ],
       "Remediation plan": [
         "Plan de remédiation"
@@ -118,6 +136,12 @@
       ],
       "Run Upgrade": [
         "Mettre à niveau"
+      ],
+      "Search autocomplete for preupgrade report entries": [
+        ""
+      ],
+      "Search string": [
+        ""
       ],
       "Show Preupgrade report": [
         "Afficher le rapport de pré-mise à niveau"
@@ -142,6 +166,15 @@
       ],
       "Title": [
         "Titre"
+      ],
+      "Trigger a remediation job for selected preupgrade report entries": [
+        ""
+      ],
+      "Unknown fix_type value '%s' for search_fix_type": [
+        ""
+      ],
+      "Unknown search key '%s' for search_yes_no_fields": [
+        ""
       ],
       "Upgrade with Leapp": [
         "Mise à niveau avec Leapp"

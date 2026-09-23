@@ -3,7 +3,7 @@
   "locale_data": {
     "foreman_leapp": {
       "": {
-        "Project-Id-Version": "foreman_leapp 3.2.0",
+        "Project-Id-Version": "foreman_leapp 4.1.2",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2022-10-12 12:00+0000",
         "Last-Translator": "Bryan Kearney <bryan.kearney@gmail.com>, 2023",
@@ -22,6 +22,12 @@
       ],
       "All": [
         "Alle"
+      ],
+      "An unexpected error occurred while creating the remediation job.": [
+        ""
+      ],
+      "Array of excluded entry IDs": [
+        ""
       ],
       "Command": [
         "Befehl"
@@ -56,6 +62,9 @@
       "Host": [
         "Host"
       ],
+      "ID of the preupgrade report": [
+        ""
+      ],
       "Info": [
         "Info"
       ],
@@ -75,6 +84,12 @@
         ""
       ],
       "List Preupgrade reports for Job invocation": [
+        ""
+      ],
+      "List all preupgrade report entries": [
+        ""
+      ],
+      "List entries for a specific preupgrade report": [
         ""
       ],
       "Low": [
@@ -98,10 +113,13 @@
       "No Preupgrade Report Available": [
         ""
       ],
-      "Preupgrade check with Leapp": [
+      "No fixable entries found matching the selection.": [
         ""
       ],
-      "Preupgrade job": [
+      "No results found for your search.": [
+        ""
+      ],
+      "Preupgrade check with Leapp": [
         ""
       ],
       "Remediation plan": [
@@ -118,6 +136,12 @@
       ],
       "Run Upgrade": [
         "Aktualisierung ausführen"
+      ],
+      "Search autocomplete for preupgrade report entries": [
+        ""
+      ],
+      "Search string": [
+        ""
       ],
       "Show Preupgrade report": [
         ""
@@ -142,6 +166,15 @@
       ],
       "Title": [
         "Titel"
+      ],
+      "Trigger a remediation job for selected preupgrade report entries": [
+        ""
+      ],
+      "Unknown fix_type value '%s' for search_fix_type": [
+        ""
+      ],
+      "Unknown search key '%s' for search_yes_no_fields": [
+        ""
       ],
       "Upgrade with Leapp": [
         "Aktualisiere mit Leapp"
