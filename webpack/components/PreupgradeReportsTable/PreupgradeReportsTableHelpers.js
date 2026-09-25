@@ -12,7 +12,7 @@ export const usePreupgradeTableState = (data, isExpanded) => {
 
   const [status, setStatus] = useState(STATUS.RESOLVED);
   const [error, setError] = useState(null);
-  const [reportId, setReportId] = useState(null);
+  const [hasReports, setHasReports] = useState(false);
   const [rows, setRows] = useState([]);
   const [totalCount, setTotalCount] = useState(0);
   const [searchValue, setSearchValue] = useState('');
@@ -30,8 +30,9 @@ export const usePreupgradeTableState = (data, isExpanded) => {
 
   useEffect(() => {
     const fetchKey = `${data.id}:${jobStatusLabel}`;
-    if (!isLeappJob || !isExpanded || lastFetchedKeyRef.current === fetchKey)
+    if (!isLeappJob || !isExpanded || lastFetchedKeyRef.current === fetchKey) {
       return undefined;
+    }
 
     let ignore = false;
     setStatus(STATUS.PENDING);
@@ -41,22 +42,29 @@ export const usePreupgradeTableState = (data, isExpanded) => {
         key: `GET_LEAPP_REPORT_LIST_${data.id}`,
         url: `/api/v2/job_invocations/${data.id}/preupgrade_reports`,
         handleSuccess: res => {
-          if (ignore) return;
+          if (ignore) {
+            return;
+          }
+
           lastFetchedKeyRef.current = fetchKey;
           const payload = res.data || res;
           const rawResults = payload.results;
           const resultsArray = rawResults ? [].concat(rawResults) : [];
 
-          if (resultsArray[0]?.id) {
-            setReportId(resultsArray[0].id);
+          if (resultsArray.length > 0) {
+            setHasReports(true);
           } else {
+            setHasReports(false);
             setRows([]);
             setTotalCount(0);
             setStatus(STATUS.RESOLVED);
           }
         },
         handleError: err => {
-          if (ignore) return;
+          if (ignore) {
+            return;
+          }
+
           setError(err);
           setStatus(STATUS.ERROR);
         },
@@ -69,10 +77,15 @@ export const usePreupgradeTableState = (data, isExpanded) => {
   }, [isExpanded, data.id, isLeappJob, dispatch, jobStatusLabel]);
 
   useEffect(() => {
-    if (!isLeappJob || !isExpanded || !reportId) return undefined;
+    if (!isLeappJob || !isExpanded || !hasReports || !data.id) {
+      return undefined;
+    }
 
-    const entriesFetchKey = `${reportId}_P${pagination.page}_PP${pagination.perPage}_S${searchValue}_O${sortBy.index}${sortBy.direction}_J${jobStatusLabel}`;
-    if (lastEntriesFetchKeyRef.current === entriesFetchKey) return undefined;
+    const entriesFetchKey = `${data.id}_P${pagination.page}_PP${pagination.perPage}_S${searchValue}_O${sortBy.index}${sortBy.direction}_J${jobStatusLabel}`;
+
+    if (lastEntriesFetchKeyRef.current === entriesFetchKey) {
+      return undefined;
+    }
 
     let ignore = false;
     setStatus(STATUS.PENDING);
@@ -84,15 +97,19 @@ export const usePreupgradeTableState = (data, isExpanded) => {
     dispatch(
       APIActions.get({
         key: `GET_LEAPP_REPORT_ENTRIES_${entriesFetchKey}`,
-        url: `/api/v2/preupgrade_reports/${reportId}/preupgrade_report_entries`,
+        url: '/api/v2/preupgrade_report_entries',
         params: {
           page: pagination.page,
           per_page: pagination.perPage,
+          job_invocation_id: data.id,
           ...(searchValue && { search: searchValue }),
           ...(orderParam && { order: orderParam }),
         },
         handleSuccess: res => {
-          if (ignore) return;
+          if (ignore) {
+            return;
+          }
+
           lastEntriesFetchKeyRef.current = entriesFetchKey;
           const payload = res.data || res;
           const fetchedResults = payload.results;
@@ -102,7 +119,10 @@ export const usePreupgradeTableState = (data, isExpanded) => {
           setExpandedRowIds(new Set());
         },
         handleError: err => {
-          if (ignore) return;
+          if (ignore) {
+            return;
+          }
+
           setError(err);
           setStatus(STATUS.ERROR);
         },
@@ -115,7 +135,8 @@ export const usePreupgradeTableState = (data, isExpanded) => {
   }, [
     isExpanded,
     isLeappJob,
-    reportId,
+    hasReports,
+    data.id,
     searchValue,
     pagination.page,
     pagination.perPage,
@@ -137,8 +158,13 @@ export const usePreupgradeTableState = (data, isExpanded) => {
   const toggleRowExpansion = (id, isOpen) => {
     setExpandedRowIds(prev => {
       const next = new Set(prev);
-      if (isOpen) next.add(id);
-      else next.delete(id);
+
+      if (isOpen) {
+        next.add(id);
+      } else {
+        next.delete(id);
+      }
+
       return next;
     });
   };
@@ -147,7 +173,8 @@ export const usePreupgradeTableState = (data, isExpanded) => {
     isLeappJob,
     status,
     error,
-    reportId,
+    hasReports,
+    jobInvocationId: data.id,
     rows,
     totalCount,
     pagination,
