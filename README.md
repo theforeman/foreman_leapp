@@ -22,6 +22,21 @@ But if you are upgrading and want to target a different channel, i.e. from a RHE
 The channel have to be specified in both the preupgrade and upgrade jobs.
 Default value of "channel" is "ga" - General availability: regular repositories are used by default.
 
+### Custom workflow snippets
+
+The preupgrade and upgrade job templates render optional snippets before and
+after the Leapp command. Create a job template snippet using one of these names
+to extend the default workflow without cloning it:
+
+- `Run preupgrade via Leapp custom pre`
+- `Run preupgrade via Leapp custom post`
+- `Run upgrade via Leapp custom pre`
+- `Run upgrade via Leapp custom post`
+
+Missing snippets are ignored. Preupgrade snippets contain shell commands.
+Upgrade snippets contain Ansible tasks and are indented under the playbook's
+`tasks` section. The upgrade post snippet runs before the optional reboot task.
+
 ## Api
 - `GET /api/preupgrade_reports` List Preupgrade reports
 - `GET /api/preupgrade_reports/:id` Show Preupgrade report
