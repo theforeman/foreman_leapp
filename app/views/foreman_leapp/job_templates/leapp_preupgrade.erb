@@ -27,8 +27,12 @@ template_inputs:
 
 <%= render_template 'Check Leapp' %>
 
+<%= snippet_if_exists(template_name + " custom pre") %>
+
 rm -f /var/log/leapp/leapp-report.json
 leapp preupgrade <%= options_string %>
+
+<%= snippet_if_exists(template_name + " custom post") %>
 
 echo "===leap_upgrade_report_start==="
 cat /var/log/leapp/leapp-report.json
