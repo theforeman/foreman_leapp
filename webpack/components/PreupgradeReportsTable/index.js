@@ -375,8 +375,8 @@ const PreupgradeReportsTable = ({ data = {} }) => {
     status === STATUS.PENDING ||
     isSubmitting ||
     !hasAnySelection ||
-    // When using select-all, check if any fixable entries exist on current page
-    (areAllRowsSelected() && pagedFixableEntries.length === 0);
+    // Global select-all with zero fixable entries in the report (not per-page)
+    (areAllRowsSelected() && fixableCount === 0);
 
   const isRunUpgradeDisabled =
     status === STATUS.PENDING ||

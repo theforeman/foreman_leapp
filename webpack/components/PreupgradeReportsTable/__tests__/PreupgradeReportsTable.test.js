@@ -577,6 +577,82 @@ describe('PreupgradeReportsTable', () => {
     );
   });
 
+  it('keeps Fix Selected enabled on page 1 when select-all is active but fixable rows are only on later pages', async () => {
+    const entriesFixableOnLaterPages = mockEntries.map((entry, index) => {
+      if (index < 5) {
+        return {
+          ...entry,
+          detail: {
+            ...entry.detail,
+            remediations:
+              index === 1
+                ? [{ type: 'hint', context: 'Manual fix only' }]
+                : null,
+          },
+        };
+      }
+
+      if (index === 5) {
+        return {
+          ...entry,
+          detail: {
+            remediations: [{ type: 'command', context: ['echo', 'fix'] }],
+          },
+        };
+      }
+
+      return {
+        ...entry,
+        detail: { ...entry.detail, remediations: null },
+      };
+    });
+
+    const fixableEntryCount = entriesFixableOnLaterPages.filter(entry =>
+      entry.detail?.remediations?.some(r => r.type === 'command')
+    ).length;
+
+    APIActions.get.mockImplementation(({ key, handleSuccess, params }) => {
+      return () => {
+        if (key.includes('GET_LEAPP_REPORT_LIST')) {
+          handleSuccess({ results: [{ id: mockReportId }] });
+        }
+        if (key.includes('GET_LEAPP_REPORT_ENTRIES')) {
+          const page = Number(params?.page ?? 1);
+          const perPage = Number(params?.per_page ?? 5);
+          const start = (page - 1) * perPage;
+          const results = entriesFixableOnLaterPages.slice(start, start + perPage);
+          handleSuccess({
+            id: mockReportId,
+            results,
+            total: entriesFixableOnLaterPages.length,
+            subtotal: entriesFixableOnLaterPages.length,
+          });
+        }
+        if (key.includes('GET_FIXABLE_COUNT')) {
+          handleSuccess({
+            total: fixableEntryCount,
+            subtotal: fixableEntryCount,
+          });
+        }
+        return { type: 'MOCK_API_SUCCESS' };
+      };
+    });
+
+    renderComponent();
+    expandSection();
+    await waitFor(() =>
+      screen.getByText('Report Entry 1', { selector: 'td' })
+    );
+
+    fireEvent.click(screen.getByLabelText('Select all'));
+
+    await waitFor(() =>
+      expect(
+        screen.getByRole('button', { name: 'Fix Selected' })
+      ).not.toBeDisabled()
+    );
+  });
+
   it('fetches fixable count on demand when Select All is clicked', async () => {
     let fixableCountFetched = false;
 
