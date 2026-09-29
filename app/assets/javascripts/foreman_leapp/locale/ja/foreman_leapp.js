@@ -24,10 +24,10 @@
         "すべて"
       ],
       "An unexpected error occurred while creating the remediation job.": [
-        ""
+        "修復ジョブの作成中に予期せぬエラーが発生しました。"
       ],
       "Array of excluded entry IDs": [
-        ""
+        "除外されたエントリー ID の配列"
       ],
       "Command": [
         "コマンド"
@@ -63,7 +63,7 @@
         "ホスト"
       ],
       "ID of the preupgrade report": [
-        ""
+        "アップグレード前レポートの ID"
       ],
       "Info": [
         "情報"
@@ -87,10 +87,10 @@
         "ジョブ呼び出しの事前アップグレードレポートの一覧表示"
       ],
       "List all preupgrade report entries": [
-        ""
+        "アップグレード前のレポートエントリーをすべてリスト表示する"
       ],
       "List entries for a specific preupgrade report": [
-        ""
+        "特定のアップグレード前レポートのエントリーをリスト表示する"
       ],
       "Low": [
         "低"
@@ -114,10 +114,10 @@
         "アップグレード前のレポートはありません"
       ],
       "No fixable entries found matching the selection.": [
-        ""
+        "選択に一致する修正可能なエントリーが見つかりませんでした。"
       ],
       "No results found for your search.": [
-        ""
+        "検索結果が見つかりませんでした。"
       ],
       "Preupgrade check with Leapp": [
         "Leapp によるアップグレード前のチェック"
@@ -138,10 +138,10 @@
         "アップグレードの実行"
       ],
       "Search autocomplete for preupgrade report entries": [
-        ""
+        "アップグレード前レポートのエントリーを自動補完検索する"
       ],
       "Search string": [
-        ""
+        "検索文字列"
       ],
       "Show Preupgrade report": [
         "アップグレード前のレポートの表示"
@@ -168,13 +168,13 @@
         "タイトル"
       ],
       "Trigger a remediation job for selected preupgrade report entries": [
-        ""
+        "選択したアップグレード前レポートのエントリーに対して修復ジョブをトリガーする"
       ],
       "Unknown fix_type value '%s' for search_fix_type": [
-        ""
+        "search_fix_type の不明な fix_type 値 '%s'"
       ],
       "Unknown search key '%s' for search_yes_no_fields": [
-        ""
+        "search_yes_no_fields の不明な検索キー '%s'"
       ],
       "Upgrade with Leapp": [
         "Leapp によるアップグレード"

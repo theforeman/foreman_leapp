@@ -6,7 +6,7 @@
         "Project-Id-Version": "foreman_leapp 4.1.2",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2022-10-12 12:00+0000",
-        "Last-Translator": "Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarden.nl>, 2026",
+        "Last-Translator": "Ondřej Gajdušek, 2026",
         "Language-Team": "Korean (https://app.transifex.com/foreman/teams/114/ko/)",
         "MIME-Version": "1.0",
         "Content-Type": "text/plain; charset=UTF-8",
@@ -24,10 +24,10 @@
         "모두"
       ],
       "An unexpected error occurred while creating the remediation job.": [
-        ""
+        "복구 작업을 생성하는 동안 예기치 않은 오류가 발생했습니다."
       ],
       "Array of excluded entry IDs": [
-        ""
+        "제외된 항목 ID 배열"
       ],
       "Command": [
         "명령어"
@@ -63,7 +63,7 @@
         "호스트 "
       ],
       "ID of the preupgrade report": [
-        ""
+        "업그레이드 전 보고서의 ID"
       ],
       "Info": [
         "정보 "
@@ -87,10 +87,10 @@
         "작업 호출을 위한 사전 업그레이드 보고서 목록"
       ],
       "List all preupgrade report entries": [
-        ""
+        "모든 업그레이드 전 보고서 항목 나열"
       ],
       "List entries for a specific preupgrade report": [
-        ""
+        "특정 업그레이드 전 보고서의 항목 나열"
       ],
       "Low": [
         "낮음"
@@ -114,10 +114,10 @@
         "사전 업그레이드 보고서가 없습니다"
       ],
       "No fixable entries found matching the selection.": [
-        ""
+        "선택한 조건과 일치하는 수정 가능한 항목이 없습니다."
       ],
       "No results found for your search.": [
-        ""
+        "검색 결과를 찾을 수 없습니다."
       ],
       "Preupgrade check with Leapp": [
         "Leapp으로 업그레이드 전 확인"
@@ -138,10 +138,10 @@
         "업그레이드 실행"
       ],
       "Search autocomplete for preupgrade report entries": [
-        ""
+        "업그레이드 전 보고서 항목 검색 자동 완성"
       ],
       "Search string": [
-        ""
+        "검색 문자열"
       ],
       "Show Preupgrade report": [
         "사전 업그레이드 보고서 표시"
@@ -168,13 +168,13 @@
         "제목"
       ],
       "Trigger a remediation job for selected preupgrade report entries": [
-        ""
+        "선택한 업그레이드 전 보고서 항목에 대한 복구 작업 시작"
       ],
       "Unknown fix_type value '%s' for search_fix_type": [
-        ""
+        "search_fix_type에 대한 알 수 없는 fix_type 값 '%s'"
       ],
       "Unknown search key '%s' for search_yes_no_fields": [
-        ""
+        "search_yes_no_fields에 대한 알 수 없는 검색 키 '%s'"
       ],
       "Upgrade with Leapp": [
         "Leapp으로 업그레이드"

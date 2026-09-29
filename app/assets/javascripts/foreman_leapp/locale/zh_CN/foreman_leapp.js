@@ -24,10 +24,10 @@
         "全部"
       ],
       "An unexpected error occurred while creating the remediation job.": [
-        ""
+        "创建补救作业时会出现意外错误。"
       ],
       "Array of excluded entry IDs": [
-        ""
+        "排除的条目 ID 数组"
       ],
       "Command": [
         "命令"
@@ -63,7 +63,7 @@
         "主机"
       ],
       "ID of the preupgrade report": [
-        ""
+        "预升级报告的 ID"
       ],
       "Info": [
         "Info"
@@ -87,10 +87,10 @@
         "列出作业调用的预升级报告"
       ],
       "List all preupgrade report entries": [
-        ""
+        "列出所有预升级报告条目"
       ],
       "List entries for a specific preupgrade report": [
-        ""
+        "列出特定预升级报告的条目"
       ],
       "Low": [
         "低"
@@ -114,10 +114,10 @@
         "没有可用的预升级报告"
       ],
       "No fixable entries found matching the selection.": [
-        ""
+        "未找到与选择匹配的可修复条目。"
       ],
       "No results found for your search.": [
-        ""
+        "没有找到您的搜索结果。"
       ],
       "Preupgrade check with Leapp": [
         "使用 Leapp 的预升级检查"
@@ -138,10 +138,10 @@
         "运行升级"
       ],
       "Search autocomplete for preupgrade report entries": [
-        ""
+        "搜索自动补全预升级报告条目"
       ],
       "Search string": [
-        ""
+        "搜索字符串"
       ],
       "Show Preupgrade report": [
         "显示预升级报告"
@@ -168,13 +168,13 @@
         "提示"
       ],
       "Trigger a remediation job for selected preupgrade report entries": [
-        ""
+        "为所选预升级报告条目触发补救任务"
       ],
       "Unknown fix_type value '%s' for search_fix_type": [
-        ""
+        "search_fix_type 的未知的 fix_type 值 '%s'"
       ],
       "Unknown search key '%s' for search_yes_no_fields": [
-        ""
+        "search_yes_no_fields 的未知搜索键 '%s'"
       ],
       "Upgrade with Leapp": [
         "使用 Leapp 升级"
