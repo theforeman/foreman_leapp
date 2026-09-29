@@ -6,7 +6,7 @@
         "Project-Id-Version": "foreman_leapp 4.1.2",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2022-10-12 12:00+0000",
-        "Last-Translator": "Bryan Kearney <bryan.kearney@gmail.com>, 2023",
+        "Last-Translator": "Bryan Kearney <bryan.kearney@gmail.com>, 2026",
         "Language-Team": "German (https://app.transifex.com/foreman/teams/114/de/)",
         "MIME-Version": "1.0",
         "Content-Type": "text/plain; charset=UTF-8",
@@ -141,7 +141,7 @@
         ""
       ],
       "Search string": [
-        ""
+        "Suchbegriff"
       ],
       "Show Preupgrade report": [
         ""

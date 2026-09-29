@@ -8,7 +8,7 @@
 # mhulan <mhulan@redhat.com>, 2022
 # Amit Upadhye <aupadhye@redhat.com>, 2022
 # Bryan Kearney <bryan.kearney@gmail.com>, 2023
-# Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarden.nl>, 2023
+# Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarden.nl>, 2026
 # Ondřej Gajdušek, 2026
 #
 msgid ""
@@ -31,10 +31,10 @@ msgid "All"
 msgstr "すべて"
 
 msgid "An unexpected error occurred while creating the remediation job."
-msgstr ""
+msgstr "修復ジョブの作成中に予期せぬエラーが発生しました。"
 
 msgid "Array of excluded entry IDs"
-msgstr ""
+msgstr "除外されたエントリー ID の配列"
 
 msgid "Command"
 msgstr "コマンド"
@@ -70,7 +70,7 @@ msgid "Host"
 msgstr "ホスト"
 
 msgid "ID of the preupgrade report"
-msgstr ""
+msgstr "アップグレード前レポートの ID"
 
 msgid "Info"
 msgstr "情報"
@@ -94,10 +94,10 @@ msgid "List Preupgrade reports for Job invocation"
 msgstr "ジョブ呼び出しの事前アップグレードレポートの一覧表示"
 
 msgid "List all preupgrade report entries"
-msgstr ""
+msgstr "アップグレード前のレポートエントリーをすべてリスト表示する"
 
 msgid "List entries for a specific preupgrade report"
-msgstr ""
+msgstr "特定のアップグレード前レポートのエントリーをリスト表示する"
 
 msgid "Low"
 msgstr "低"
@@ -121,10 +121,10 @@ msgid "No Preupgrade Report Available"
 msgstr "アップグレード前のレポートはありません"
 
 msgid "No fixable entries found matching the selection."
-msgstr ""
+msgstr "選択に一致する修正可能なエントリーが見つかりませんでした。"
 
 msgid "No results found for your search."
-msgstr ""
+msgstr "検索結果が見つかりませんでした。"
 
 msgid "Preupgrade check with Leapp"
 msgstr "Leapp によるアップグレード前のチェック"
@@ -145,10 +145,10 @@ msgid "Run Upgrade"
 msgstr "アップグレードの実行"
 
 msgid "Search autocomplete for preupgrade report entries"
-msgstr ""
+msgstr "アップグレード前レポートのエントリーを自動補完検索する"
 
 msgid "Search string"
-msgstr ""
+msgstr "検索文字列"
 
 msgid "Show Preupgrade report"
 msgstr "アップグレード前のレポートの表示"
@@ -175,13 +175,13 @@ msgid "Title"
 msgstr "タイトル"
 
 msgid "Trigger a remediation job for selected preupgrade report entries"
-msgstr ""
+msgstr "選択したアップグレード前レポートのエントリーに対して修復ジョブをトリガーする"
 
 msgid "Unknown fix_type value '%s' for search_fix_type"
-msgstr ""
+msgstr "search_fix_type の不明な fix_type 値 '%s'"
 
 msgid "Unknown search key '%s' for search_yes_no_fields"
-msgstr ""
+msgstr "search_yes_no_fields の不明な検索キー '%s'"
 
 msgid "Upgrade with Leapp"
 msgstr "Leapp によるアップグレード"

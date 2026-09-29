@@ -24,10 +24,10 @@
         "Tout"
       ],
       "An unexpected error occurred while creating the remediation job.": [
-        ""
+        "Une erreur inattendue s'est produite lors de la création de la tâche de correction."
       ],
       "Array of excluded entry IDs": [
-        ""
+        "Tableau des identifiants des entrées exclues"
       ],
       "Command": [
         "Commande"
@@ -63,7 +63,7 @@
         "Hôte"
       ],
       "ID of the preupgrade report": [
-        ""
+        "ID du rapport de pré-mise à niveau"
       ],
       "Info": [
         "Info"
@@ -87,10 +87,10 @@
         "Liste des rapports de pré-mise à niveau pour l'invocation du job"
       ],
       "List all preupgrade report entries": [
-        ""
+        "Liste de toutes les entrées du rapport de pré-mise à niveau"
       ],
       "List entries for a specific preupgrade report": [
-        ""
+        "Liste des entrées pour un rapport de pré-mise à niveau spécifique"
       ],
       "Low": [
         "Faible"
@@ -114,10 +114,10 @@
         "Aucun rapport de pré-mise à niveau disponible"
       ],
       "No fixable entries found matching the selection.": [
-        ""
+        "Aucune entrée corrigible ne correspond à la sélection."
       ],
       "No results found for your search.": [
-        ""
+        "Aucun résultat trouvé pour votre recherche."
       ],
       "Preupgrade check with Leapp": [
         "Contrôle pré-mise à niveau avec Leapp"
@@ -138,10 +138,10 @@
         "Mettre à niveau"
       ],
       "Search autocomplete for preupgrade report entries": [
-        ""
+        "Saisie semi-automatique de la recherche pour les entrées du rapport de pré-mise à niveau"
       ],
       "Search string": [
-        ""
+        "Rechercher une chaîne"
       ],
       "Show Preupgrade report": [
         "Afficher le rapport de pré-mise à niveau"
@@ -168,13 +168,13 @@
         "Titre"
       ],
       "Trigger a remediation job for selected preupgrade report entries": [
-        ""
+        "Déclencher une tâche de correction pour les entrées de rapport de pré-mise à niveau sélectionnées"
       ],
       "Unknown fix_type value '%s' for search_fix_type": [
-        ""
+        "Valeur fix_type inconnue '%s' pour le type de correction de recherche"
       ],
       "Unknown search key '%s' for search_yes_no_fields": [
-        ""
+        "Clé de recherche inconnue '%s' pour les champs de recherche oui/non"
       ],
       "Upgrade with Leapp": [
         "Mise à niveau avec Leapp"

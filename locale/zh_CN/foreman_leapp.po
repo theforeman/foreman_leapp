@@ -5,8 +5,8 @@
 #
 # Translators:
 # Bryan Kearney <bryan.kearney@gmail.com>, 2022
-# Amit Upadhye <aupadhye@redhat.com>, 2023
 # Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarden.nl>, 2023
+# Amit Upadhye <aupadhye@redhat.com>, 2026
 # Ondřej Gajdušek, 2026
 #
 msgid ""
@@ -30,10 +30,10 @@ msgid "All"
 msgstr "全部"
 
 msgid "An unexpected error occurred while creating the remediation job."
-msgstr ""
+msgstr "创建补救作业时会出现意外错误。"
 
 msgid "Array of excluded entry IDs"
-msgstr ""
+msgstr "排除的条目 ID 数组"
 
 msgid "Command"
 msgstr "命令"
@@ -69,7 +69,7 @@ msgid "Host"
 msgstr "主机"
 
 msgid "ID of the preupgrade report"
-msgstr ""
+msgstr "预升级报告的 ID"
 
 msgid "Info"
 msgstr "Info"
@@ -93,10 +93,10 @@ msgid "List Preupgrade reports for Job invocation"
 msgstr "列出作业调用的预升级报告"
 
 msgid "List all preupgrade report entries"
-msgstr ""
+msgstr "列出所有预升级报告条目"
 
 msgid "List entries for a specific preupgrade report"
-msgstr ""
+msgstr "列出特定预升级报告的条目"
 
 msgid "Low"
 msgstr "低"
@@ -120,10 +120,10 @@ msgid "No Preupgrade Report Available"
 msgstr "没有可用的预升级报告"
 
 msgid "No fixable entries found matching the selection."
-msgstr ""
+msgstr "未找到与选择匹配的可修复条目。"
 
 msgid "No results found for your search."
-msgstr ""
+msgstr "没有找到您的搜索结果。"
 
 msgid "Preupgrade check with Leapp"
 msgstr "使用 Leapp 的预升级检查"
@@ -144,10 +144,10 @@ msgid "Run Upgrade"
 msgstr "运行升级"
 
 msgid "Search autocomplete for preupgrade report entries"
-msgstr ""
+msgstr "搜索自动补全预升级报告条目"
 
 msgid "Search string"
-msgstr ""
+msgstr "搜索字符串"
 
 msgid "Show Preupgrade report"
 msgstr "显示预升级报告"
@@ -174,13 +174,13 @@ msgid "Title"
 msgstr "提示"
 
 msgid "Trigger a remediation job for selected preupgrade report entries"
-msgstr ""
+msgstr "为所选预升级报告条目触发补救任务"
 
 msgid "Unknown fix_type value '%s' for search_fix_type"
-msgstr ""
+msgstr "search_fix_type 的未知的 fix_type 值 '%s'"
 
 msgid "Unknown search key '%s' for search_yes_no_fields"
-msgstr ""
+msgstr "search_yes_no_fields 的未知搜索键 '%s'"
 
 msgid "Upgrade with Leapp"
 msgstr "使用 Leapp 升级"
