@@ -49,7 +49,7 @@ const mockJobId = 42;
 const mockReportId = 999;
 const mockJobData = {
   id: mockJobId,
-  template_name: 'Run preupgrade via Leapp',
+  has_leapp_report: true,
 };
 
 const mockEntries = Array.from({ length: 12 }, (_, i) => ({
@@ -132,10 +132,22 @@ describe('PreupgradeReportsTable', () => {
   });
 
   it('does not render anything for non-Leapp jobs', () => {
-    renderComponent({ id: 55, template_name: 'Standard RHEL Update' });
+    renderComponent({ id: 55, has_leapp_report: false });
     expect(
       screen.queryByText('Leapp preupgrade report')
     ).not.toBeInTheDocument();
+  });
+
+  it('renders when has_leapp_report is true (e.g. remediation jobs)', async () => {
+    renderComponent({
+      id: mockJobId,
+      has_leapp_report: true,
+    });
+    expandSection();
+    await waitForTable();
+    expect(
+      screen.getByText('Report Entry 1', { selector: 'td' })
+    ).toBeInTheDocument();
   });
 
   it('refetches when status_label transitions (e.g. Running → Succeeded)', async () => {

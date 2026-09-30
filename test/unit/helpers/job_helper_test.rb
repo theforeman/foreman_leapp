@@ -17,6 +17,26 @@ module Helpers
       FactoryBot.create(:template_invocation, template: job_template, job_invocation: job_invocation)
     end
 
+    describe 'with_leapp_report' do
+      test 'returns true for leapp preupgrade feature on template' do
+        RemoteExecutionFeature.find_by(label: feature_label).update(job_template: job_template)
+        job_invocation.task.stubs(:input).returns({})
+        assert helper.with_leapp_report(job_invocation)
+      end
+
+      test 'returns true for leapp remediation feature on template' do
+        remediation_label = 'leapp_remediation_plan'
+        RemoteExecutionFeature.find_by(label: remediation_label).update(job_template: job_template)
+        job_invocation.task.stubs(:input).returns({})
+        assert helper.with_leapp_report(job_invocation)
+      end
+
+      test 'returns false when no leapp features apply' do
+        job_invocation.task.stubs(:input).returns({ 'job_features' => ['some_other_feature'] })
+        assert_not helper.with_leapp_report(job_invocation)
+      end
+    end
+
     describe 'correct_feature?' do
       test 'returns true when feature is listed in job_features' do
         job_invocation.task.stubs(:input).returns({ 'job_features' => [feature_label] })

@@ -547,7 +547,7 @@ PreupgradeReportsTable.propTypes = {
   data: PropTypes.shape({
     id: PropTypes.number,
     // eslint-disable-next-line camelcase
-    template_name: PropTypes.string,
+    has_leapp_report: PropTypes.bool,
     // eslint-disable-next-line camelcase
     status_label: PropTypes.string,
     targeting: PropTypes.shape({
