@@ -8,14 +8,14 @@
 # Ettore Atalan <atalanttore@googlemail.com>, 2022
 # Wiederoder <stefanwiederoder@googlemail.com>, 2022
 # Lukas Kallies <github.com@luke-web.de>, 2022
-# Bryan Kearney <bryan.kearney@gmail.com>, 2023
+# Bryan Kearney <bryan.kearney@gmail.com>, 2026
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: foreman_leapp 4.1.2\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2022-10-12 12:00+0000\n"
-"Last-Translator: Bryan Kearney <bryan.kearney@gmail.com>, 2023\n"
+"Last-Translator: Bryan Kearney <bryan.kearney@gmail.com>, 2026\n"
 "Language-Team: German (https://app.transifex.com/foreman/teams/114/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -147,7 +147,7 @@ msgid "Search autocomplete for preupgrade report entries"
 msgstr ""
 
 msgid "Search string"
-msgstr ""
+msgstr "Suchbegriff"
 
 msgid "Show Preupgrade report"
 msgstr ""

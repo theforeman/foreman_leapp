@@ -143,7 +143,7 @@ msgid "Search autocomplete for preupgrade report entries"
 msgstr ""
 
 msgid "Search string"
-msgstr ""
+msgstr "საძებნი სტრიქონი"
 
 msgid "Show Preupgrade report"
 msgstr "განახლებისწინა ანგარიშის ჩვენება"

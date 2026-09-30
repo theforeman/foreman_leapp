@@ -4,12 +4,12 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# Bryan Kearney <bryan.kearney@gmail.com>, 2022
 # Claer <transiblu@claer.hammock.fr>, 2022
 # Pierre-Emmanuel Dutang <dutangp@gmail.com>, 2022
 # 21966816214bc546c1fc8a185e75ca1c, 2022
 # Amit Upadhye <aupadhye@redhat.com>, 2023
 # Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarden.nl>, 2023
+# Bryan Kearney <bryan.kearney@gmail.com>, 2026
 # Ondřej Gajdušek, 2026
 #
 msgid ""
@@ -33,10 +33,10 @@ msgid "All"
 msgstr "Tout"
 
 msgid "An unexpected error occurred while creating the remediation job."
-msgstr ""
+msgstr "Une erreur inattendue s'est produite lors de la création de la tâche de correction."
 
 msgid "Array of excluded entry IDs"
-msgstr ""
+msgstr "Tableau des identifiants des entrées exclues"
 
 msgid "Command"
 msgstr "Commande"
@@ -72,7 +72,7 @@ msgid "Host"
 msgstr "Hôte"
 
 msgid "ID of the preupgrade report"
-msgstr ""
+msgstr "ID du rapport de pré-mise à niveau"
 
 msgid "Info"
 msgstr "Info"
@@ -96,10 +96,10 @@ msgid "List Preupgrade reports for Job invocation"
 msgstr "Liste des rapports de pré-mise à niveau pour l'invocation du job"
 
 msgid "List all preupgrade report entries"
-msgstr ""
+msgstr "Liste de toutes les entrées du rapport de pré-mise à niveau"
 
 msgid "List entries for a specific preupgrade report"
-msgstr ""
+msgstr "Liste des entrées pour un rapport de pré-mise à niveau spécifique"
 
 msgid "Low"
 msgstr "Faible"
@@ -123,10 +123,10 @@ msgid "No Preupgrade Report Available"
 msgstr "Aucun rapport de pré-mise à niveau disponible"
 
 msgid "No fixable entries found matching the selection."
-msgstr ""
+msgstr "Aucune entrée corrigible ne correspond à la sélection."
 
 msgid "No results found for your search."
-msgstr ""
+msgstr "Aucun résultat trouvé pour votre recherche."
 
 msgid "Preupgrade check with Leapp"
 msgstr "Contrôle pré-mise à niveau avec Leapp"
@@ -147,10 +147,10 @@ msgid "Run Upgrade"
 msgstr "Mettre à niveau"
 
 msgid "Search autocomplete for preupgrade report entries"
-msgstr ""
+msgstr "Saisie semi-automatique de la recherche pour les entrées du rapport de pré-mise à niveau"
 
 msgid "Search string"
-msgstr ""
+msgstr "Rechercher une chaîne"
 
 msgid "Show Preupgrade report"
 msgstr "Afficher le rapport de pré-mise à niveau"
@@ -177,13 +177,13 @@ msgid "Title"
 msgstr "Titre"
 
 msgid "Trigger a remediation job for selected preupgrade report entries"
-msgstr ""
+msgstr "Déclencher une tâche de correction pour les entrées de rapport de pré-mise à niveau sélectionnées"
 
 msgid "Unknown fix_type value '%s' for search_fix_type"
-msgstr ""
+msgstr "Valeur fix_type inconnue '%s' pour le type de correction de recherche"
 
 msgid "Unknown search key '%s' for search_yes_no_fields"
-msgstr ""
+msgstr "Clé de recherche inconnue '%s' pour les champs de recherche oui/non"
 
 msgid "Upgrade with Leapp"
 msgstr "Mise à niveau avec Leapp"
