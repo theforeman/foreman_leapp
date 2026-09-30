@@ -33,9 +33,11 @@ template_inputs:
 %>
 - hosts: all
   tasks:
+<%= indent(4) { snippet_if_exists(template_name + " custom pre") } %>
     - name: Run Leapp Upgrade
       command: leapp upgrade <%= options_string %>
 
+<%= indent(4) { snippet_if_exists(template_name + " custom post") } %>
 <%- if input('Reboot') == "true" -%>
     - name: Reboot the machine
       reboot:
