@@ -5,6 +5,7 @@ module Api
     class PreupgradeReportEntriesController < ::Api::V2::BaseController
       include ApiAuthorizer
       include Foreman::Controller::AutoCompleteSearch
+      include ForemanLeapp::PreupgradeReportEntryBulkRemediate
 
       skip_before_action :store_redirect_to_url, :reset_redirect_to_url, raise: false
       before_action :find_preupgrade_report, if: -> { params[:preupgrade_report_id].present? }
@@ -25,29 +26,23 @@ module Api
         N_('Search autocomplete for preupgrade report entries')
       param :search, String, required: false, desc: N_('Search string')
       param :preupgrade_report_id, :identifier, required: false, desc: N_('ID of the preupgrade report')
+      param :job_invocation_id, :identifier, required: false, desc: N_('ID of the job invocation')
 
+      api :POST, '/preupgrade_report_entries/bulk_remediate',
+        N_('Trigger a remediation job for selected preupgrade report entries')
       api :POST, '/preupgrade_reports/:preupgrade_report_id/preupgrade_report_entries/bulk_remediate',
         N_('Trigger a remediation job for selected preupgrade report entries')
+      param :ids, Array, of: :number, required: false,
+        desc: N_('IDs of fixable preupgrade report entries to remediate')
       param :search, String, required: false, desc: N_('Search string')
       param :excluded_ids, Array, required: false, desc: N_('Array of excluded entry IDs')
       def bulk_remediate
-        entries = filtered_remediation_entries
-        remediation_ids = entries.pluck(:id)
+        job_id = perform_bulk_remediate
+        return if performed?
 
-        if remediation_ids.empty?
-          return render json: { error: _('No fixable entries found matching the selection.') },
-            status: :unprocessable_entity
-        end
-
-        composer = JobInvocationComposer.for_feature(
-          'leapp_remediation_plan',
-          target_host_ids(entries),
-          { 'remediation_ids' => remediation_ids.join(',') }
-        )
-        composer.trigger!
-        job_invocation = composer.job_invocation
-
-        render json: { id: job_invocation.id }
+        render json: { id: job_id }
+      rescue Foreman::Exception => e
+        render_exception(e, status: :unprocessable_entity)
       rescue StandardError => e
         Foreman::Logging.exception('Failed to trigger bulk remediation job', e)
         render json: { error: _('An unexpected error occurred while creating the remediation job.') },
@@ -63,6 +58,12 @@ module Api
       def resource_scope(_options = {})
         scope = if @preupgrade_report
                   @preupgrade_report.preupgrade_report_entries
+                elsif params[:job_invocation_id].present?
+                  PreupgradeReportEntry.where(
+                    preupgrade_report_id: PreupgradeReport.where(
+                      job_invocation_id: params[:job_invocation_id]
+                    ).select(:id)
+                  )
                 else
                   PreupgradeReportEntry
                 end
@@ -81,19 +82,6 @@ module Api
       end
 
       private
-
-      def filtered_remediation_entries
-        combined_search = [params[:search].presence, 'fix_type = command'].compact.join(' AND ')
-        entries = resource_scope.search_for(combined_search)
-        entries = entries.where.not(id: params[:excluded_ids]) if params[:excluded_ids].present?
-        entries
-      end
-
-      def target_host_ids(entries)
-        host_ids = entries.pluck(:host_id).uniq.compact
-        host_ids = [@preupgrade_report.host_id].compact if host_ids.empty? && @preupgrade_report
-        host_ids
-      end
 
       def find_preupgrade_report
         @preupgrade_report = PreupgradeReport
