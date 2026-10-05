@@ -89,7 +89,8 @@ const PreupgradeReportsTable = ({ data = {} }) => {
     isLeappJob,
     status,
     error,
-    reportId,
+    hasReports,
+    jobInvocationId,
     rows,
     totalCount,
     pagination,
@@ -113,21 +114,25 @@ const PreupgradeReportsTable = ({ data = {} }) => {
 
   useEffect(() => {
     setFixableCount(null);
-  }, [searchValue, reportId]);
+  }, [searchValue, jobInvocationId]);
 
   const searchProps = useMemo(() => {
-    if (!reportId) return null;
+    if (!hasReports || !jobInvocationId) {
+      return null;
+    }
+
     const baseProps = getControllerSearchProps('preupgrade_report_entries');
+
     return {
       ...baseProps,
       autocomplete: {
         ...baseProps.autocomplete,
         url: foremanUrl(
-          `/api/v2/preupgrade_reports/${reportId}/preupgrade_report_entries/auto_complete_search`
+          `/api/v2/preupgrade_report_entries/auto_complete_search?job_invocation_id=${jobInvocationId}`
         ),
       },
     };
-  }, [reportId]);
+  }, [hasReports, jobInvocationId]);
 
   const columns = useMemo(
     () => ({
@@ -203,9 +208,10 @@ const PreupgradeReportsTable = ({ data = {} }) => {
       if (fixableCount === null) {
         dispatch(
           APIActions.get({
-            key: `GET_FIXABLE_COUNT_${reportId}`,
-            url: `/api/v2/preupgrade_reports/${reportId}/preupgrade_report_entries`,
+            key: `GET_FIXABLE_COUNT_${jobInvocationId}`,
+            url: '/api/v2/preupgrade_report_entries',
             params: {
+              job_invocation_id: jobInvocationId,
               search: [searchValue, 'fix_type = command']
                 .filter(Boolean)
                 .join(' AND '),
@@ -226,7 +232,7 @@ const PreupgradeReportsTable = ({ data = {} }) => {
         originalSelectAll(...args);
       }
     },
-    [dispatch, reportId, searchValue, fixableCount, originalSelectAll]
+    [dispatch, jobInvocationId, searchValue, fixableCount, originalSelectAll]
   );
 
   const selectedIds = Array.from(inclusionSet);
@@ -244,19 +250,6 @@ const PreupgradeReportsTable = ({ data = {} }) => {
     [globalHostId]
   );
 
-  const hostIdsForSelected = useMemo(
-    () =>
-      Array.from(
-        new Set(
-          rows
-            .filter(e => selectedIds.includes(e.id))
-            .map(getHostId)
-            .filter(Boolean)
-        )
-      ),
-    [rows, selectedIds, getHostId]
-  );
-
   const allHostIds = useMemo(
     () => Array.from(new Set(rows.map(getHostId).filter(Boolean))),
     [rows, getHostId]
@@ -271,11 +264,14 @@ const PreupgradeReportsTable = ({ data = {} }) => {
         const newDirection = (parts[1] || 'ASC').toLowerCase();
         sortChanged =
           newIndex !== sortBy.index || newDirection !== sortBy.direction;
-        if (sortChanged)
+
+        if (sortChanged) {
           setSortBy({ index: newIndex, direction: newDirection });
+        }
       }
 
       let newPage = pagination.page;
+
       if (sortChanged) {
         newPage = 1;
       } else if (newParams.page !== undefined) {
@@ -300,53 +296,42 @@ const PreupgradeReportsTable = ({ data = {} }) => {
   };
 
   const handleFixSelected = () => {
-    if (areAllRowsSelected() || exclusionSet.size > 0) {
-      setSubmitError(null);
-      setIsSubmitting(true);
+    const isBulkSelection = areAllRowsSelected() || exclusionSet.size > 0;
 
-      dispatch(
-        APIActions.post({
-          key: `BULK_REMEDIATE_${reportId}`,
-          url: foremanUrl(
-            `/api/v2/preupgrade_reports/${reportId}/preupgrade_report_entries/bulk_remediate`
-          ),
-          params: {
-            search: searchValue,
-            excluded_ids: Array.from(exclusionSet),
-          },
-          handleSuccess: response => {
-            const result = response.data || response;
-            if (result?.id) {
-              window.location.assign(
-                foremanUrl(`/job_invocations/${result.id}`)
-              );
-            } else {
-              setIsSubmitting(false);
-            }
-          },
-          handleError: err => {
-            setSubmitError(err);
-            setIsSubmitting(false);
-          },
-        })
-      );
-    } else {
-      if (selectedIds.length === 0) return;
-
-      const hostIds =
-        hostIdsForSelected.length > 0
-          ? hostIdsForSelected
-          : [globalHostId].filter(Boolean);
-
-      submitJobInvocation(
-        dispatch,
-        setSubmitError,
-        'leapp_remediation_plan',
-        hostIds,
-        selectedIds.join(','),
-        setIsSubmitting
-      );
+    if (!isBulkSelection && selectedIds.length === 0) {
+      return;
     }
+
+    setSubmitError(null);
+    setIsSubmitting(true);
+
+    dispatch(
+      APIActions.post({
+        key: `BULK_REMEDIATE_${jobInvocationId}`,
+        url: foremanUrl('/api/v2/preupgrade_report_entries/bulk_remediate'),
+        params: {
+          job_invocation_id: jobInvocationId,
+          ...(isBulkSelection
+            ? {
+                ...(searchValue && { search: searchValue }),
+                excluded_ids: Array.from(exclusionSet),
+              }
+            : { ids: selectedIds }),
+        },
+        handleSuccess: response => {
+          const result = response.data || response;
+          if (result?.id) {
+            window.location.assign(foremanUrl(`/job_invocations/${result.id}`));
+          } else {
+            setIsSubmitting(false);
+          }
+        },
+        handleError: err => {
+          setSubmitError(err);
+          setIsSubmitting(false);
+        },
+      })
+    );
   };
 
   const handleRunUpgrade = () => {
@@ -366,7 +351,9 @@ const PreupgradeReportsTable = ({ data = {} }) => {
     [columns]
   );
 
-  if (!isLeappJob) return null;
+  if (!isLeappJob) {
+    return null;
+  }
 
   const hasAnySelection =
     areAllRowsSelected() || exclusionSet.size > 0 || selectedIds.length > 0;
@@ -416,7 +403,7 @@ const PreupgradeReportsTable = ({ data = {} }) => {
               </ToolbarItem>
             )}
 
-            {reportId && searchProps && (
+            {hasReports && searchProps && (
               <ToolbarItem className="leapp-searchbar-item">
                 <SearchBar
                   data={searchProps}

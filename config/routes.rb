@@ -9,6 +9,7 @@ Rails.application.routes.draw do
       resources :preupgrade_report_entries, only: %i[index] do
         collection do
           get :auto_complete_search
+          post :bulk_remediate
         end
       end
 

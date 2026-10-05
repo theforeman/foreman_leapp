@@ -51,6 +51,11 @@ Layout/TrailingEmptyLines:
     - 'locale/action_names.rb'
 
 # Offense count: 1
+Rails/BulkChangeTable:
+  Exclude:
+    - 'db/migrate/20200327091009_add_host_to_report.rb'
+
+# Offense count: 1
 # Configuration parameters: EnforcedStyle.
 # SupportedStyles: strict, flexible
 Rails/Date:
