@@ -39,6 +39,24 @@ module Api
         assert_response :not_found
       end
 
+      test ':index scopes entries to job_invocation_id across multiple reports' do
+        host2 = FactoryBot.create(:host)
+        report2 = FactoryBot.create(:preupgrade_report, host: host2, job_invocation: @job_invocation)
+        entry2 = FactoryBot.create(:preupgrade_report_entry, host: host2, preupgrade_report: report2)
+
+        other_job = FactoryBot.create(:job_invocation)
+        other_report = FactoryBot.create(:preupgrade_report, host: @host, job_invocation: other_job)
+        FactoryBot.create(:preupgrade_report_entry, host: @host, preupgrade_report: other_report)
+
+        get :index, params: { job_invocation_id: @job_invocation.id }
+        assert_response :success
+
+        ids = JSON.parse(@response.body)['results'].map { |e| e['id'] }
+        assert_includes ids, @entry.id
+        assert_includes ids, entry2.id
+        assert_equal 2, ids.size
+      end
+
       test ':index does not return entries belonging to a different report' do
         other_report = FactoryBot.create(:preupgrade_report, host: @host,
           job_invocation: @job_invocation)
@@ -226,6 +244,19 @@ module Api
           assert_equal @dummy_job.id, json['id']
         end
 
+        test 'remediates only fixable entries when ids are given' do
+          JobInvocationComposer.expects(:for_feature)
+                               .with('leapp_remediation_plan', [@host.id],
+                                 { 'remediation_ids' => @entry2.id.to_s })
+                               .returns(@composer)
+
+          post :bulk_remediate, params: {
+            preupgrade_report_id: @report.id,
+            ids: [@entry2.id, @unfixable.id],
+          }
+          assert_response :success
+        end
+
         test 'respects the excluded_ids parameter' do
           expected_ids = [@entry1.id, @entry3.id].join(',')
 
@@ -240,6 +271,15 @@ module Api
           assert_response :success
         end
 
+        test 'requires report or job scope when not remediating by entry ids' do
+          JobInvocationComposer.expects(:for_feature).never
+
+          post :bulk_remediate
+          assert_response :unprocessable_entity
+          json = ActiveSupport::JSON.decode(response.body)
+          assert_match(/Either ids, preupgrade_report_id or job_invocation_id must be provided/, json['message'])
+        end
+
         test 'returns error if no fixable entries match' do
           JobInvocationComposer.expects(:for_feature).never
 
@@ -250,6 +290,30 @@ module Api
           assert_response :unprocessable_entity
           json = ActiveSupport::JSON.decode(response.body)
           assert_equal 'No fixable entries found matching the selection.', json['error']
+        end
+
+        test 'triggers job for fixable entries across all reports for a job invocation' do
+          job_invocation = FactoryBot.create(:job_invocation)
+          host2 = FactoryBot.create(:host)
+          report2 = FactoryBot.create(:preupgrade_report, host: host2, job_invocation: job_invocation)
+          @report.update!(job_invocation: job_invocation)
+
+          fixable_detail = { 'remediations' => [{ 'type' => 'command', 'context' => ['yum', 'update'] }] }
+          entry_host2 = FactoryBot.create(:preupgrade_report_entry,
+            preupgrade_report: report2, host: host2, detail: fixable_detail)
+
+          expected_entry_ids = [@entry1.id, @entry2.id, @entry3.id, entry_host2.id].sort
+
+          JobInvocationComposer.expects(:for_feature)
+                               .with do |feature, host_ids, inputs|
+                                 feature == 'leapp_remediation_plan' &&
+                                   host_ids.sort == [@host.id, host2.id].sort &&
+                                   inputs['remediation_ids'].split(',').map(&:to_i).sort == expected_entry_ids
+                               end
+                               .returns(@composer)
+
+          post :bulk_remediate, params: { job_invocation_id: job_invocation.id }
+          assert_response :success
         end
       end
     end
