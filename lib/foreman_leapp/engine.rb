@@ -26,19 +26,8 @@ module ForemanLeapp
           extend_rabl_template 'api/v2/job_invocations/main',
                                'api/v2/job_invocations/leapp_preupgrade_report'
 
-          extend_page 'job_invocations/show' do |cx|
-            cx.add_pagelet :main_tabs,
-                          partial: 'job_invocations/leapp_preupgrade_report',
-                          name: _('Leapp preupgrade report'),
-                          id: 'leapp_preupgrade_report',
-                          onlyif: proc { |subject|
-                            ::Helpers::JobHelper.with_leapp_report(subject)
-                          }
-          end
-
           security_block :foreman_leapp do
-            permission :view_job_invocations, { :preupgrade_reports => %i[index show job_invocation],
-                                                'api/v2/preupgrade_reports' => %i[index show job_invocation] },
+            permission :view_job_invocations, { 'api/v2/preupgrade_reports' => %i[index show job_invocation] },
                                               :resource_type => 'JobInvocation'
           end
 
