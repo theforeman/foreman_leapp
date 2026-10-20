@@ -4,12 +4,7 @@
   "description": "Plugin for RHEL upgrades using Foreman.",
   "main": "index.js",
   "scripts": {
-    "lint": "tfm-lint --plugin -d /webpack",
-    "link-leapp-js": "./script/link_leapp_js.sh",
-    "test": "tfm-test --plugin --config jest.config.js",
-    "test:watch": "tfm-test --plugin --watchAll",
-    "test:current": "tfm-test --plugin --watch",
-    "publish-coverage": "tfm-publish-coverage"
+    "link-leapp-js": "./script/link_leapp_js.sh"
   },
   "repository": {
     "type": "git",
@@ -21,16 +16,8 @@
     "url": "http://projects.theforeman.org/projects/foreman_leapp/issues"
   },
   "homepage": "https://github.com/oamg/foreman_leapp",
-  "peerDependencies": {
-    "@theforeman/vendor": ">= 12.0.1"
-  },
   "devDependencies": {
     "@babel/core": "^7.7.0",
-    "@theforeman/builder": ">= 12.0.1",
-    "@theforeman/eslint-plugin-foreman": ">= 12.0.1",
-    "@theforeman/eslint-plugin-rules": ">= 12.0.1",
-    "@theforeman/test": ">= 12.0.1",
-    "@theforeman/vendor-dev": ">= 12.0.1",
     "babel-eslint": "^10.0.0",
     "eslint": "^6.8.0",
     "prettier": "^1.19.1"
