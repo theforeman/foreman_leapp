@@ -89,20 +89,6 @@ module Api
                              .merge(Host.authorized(:view_hosts, Host))
                              .find(params[:preupgrade_report_id])
       end
-
-      def path_to_authenticate
-        auth_action = case action_name
-                      when 'auto_complete_search'
-                        'index'
-                      when 'bulk_remediate'
-                        'create'
-                      else
-                        action_name
-                      end
-        path_params = params.slice(:id, :user_id)
-                            .merge(action: auth_action, controller: 'api/v2/job_invocations')
-        Foreman::AccessControl.normalize_path_hash(path_params)
-      end
     end
   end
 end
