@@ -231,6 +231,49 @@ module Api
           @composer.stubs(:job_invocation).returns(@dummy_job)
         end
 
+        context 'as a non-admin user' do
+          setup do
+            @user = FactoryBot.create(:user, admin: false)
+          end
+
+          test 'triggers remediation with create_job_invocations and view_hosts permissions' do
+            setup_user('create', 'job_invocations', nil, @user)
+            setup_user('view', 'hosts', nil, @user)
+            JobInvocationComposer.expects(:for_feature)
+                                 .with('leapp_remediation_plan', [@host.id],
+                                   { 'remediation_ids' => @entry1.id.to_s })
+                                 .returns(@composer)
+            @composer.expects(:trigger!)
+
+            post :bulk_remediate, params: { ids: [@entry1.id] }, session: set_session_user(@user)
+
+            assert_response :success
+            assert_equal @dummy_job.id, JSON.parse(response.body)['id']
+          end
+
+          test 'denies remediation without create_job_invocations permission' do
+            setup_user('view', 'job_invocations', nil, @user)
+            setup_user('view', 'hosts', nil, @user)
+            JobInvocationComposer.expects(:for_feature).never
+
+            post :bulk_remediate, params: { ids: [@entry1.id] }, session: set_session_user(@user)
+
+            assert_response :forbidden
+            assert_includes JSON.parse(response.body)['error']['missing_permissions'],
+              'create_job_invocations'
+          end
+
+          test 'denies remediation without view_hosts permission' do
+            setup_user('create', 'job_invocations', nil, @user)
+            JobInvocationComposer.expects(:for_feature).never
+
+            post :bulk_remediate, params: { ids: [@entry1.id] }, session: set_session_user(@user)
+
+            assert_response :forbidden
+            assert_includes JSON.parse(response.body)['error']['missing_permissions'], 'view_hosts'
+          end
+        end
+
         test 'triggers job invocation for all fixable entries' do
           expected_ids = [@entry1.id, @entry2.id, @entry3.id].join(',')
 
