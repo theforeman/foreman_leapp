@@ -395,7 +395,7 @@ const PreupgradeReportsTable = ({ data = {} }) => {
             className="leapp-toolbar-filter-group"
           >
             {hasData && (
-              <ToolbarItem spacer={{ default: 'spacerNone' }}>
+              <ToolbarItem gap={{ default: 'gapNone' }}>
                 <SelectAllCheckbox
                   selectAll={selectAll}
                   selectPage={selectPage}
@@ -421,10 +421,7 @@ const PreupgradeReportsTable = ({ data = {} }) => {
             )}
           </ToolbarGroup>
 
-          <ToolbarGroup
-            align={{ default: 'alignRight' }}
-            variant="button-group"
-          >
+          <ToolbarGroup align={{ default: 'alignEnd' }} variant="action-group">
             <ToolbarItem>
               <Button
                 variant="secondary"

@@ -45,6 +45,32 @@ jest.mock('foremanReact/components/SearchBar', () => {
   return MockSearchBar;
 });
 
+// Avoid coupling plugin tests to Foreman EmptyState PF6 API (Table loading/empty rows).
+jest.mock('foremanReact/routes/common/EmptyPage', () => {
+  const MockEmptyPage = ({ message }) => (
+    <div data-testid="empty-page">{message?.text}</div>
+  );
+
+  return MockEmptyPage;
+});
+
+jest.mock(
+  'foremanReact/components/PF4/TableIndexPage/Table/SelectAllCheckbox',
+  () => {
+    const MockSelectAllCheckbox = ({ selectAll, selectNone }) => (
+      <input
+        type="checkbox"
+        aria-label="Select all"
+        onChange={event =>
+          event.target.checked ? selectAll(true) : selectNone()
+        }
+      />
+    );
+
+    return MockSelectAllCheckbox;
+  }
+);
+
 const mockJobId = 42;
 const mockReportId = 999;
 const mockJobData = {
@@ -74,6 +100,30 @@ const mockEntries = Array.from({ length: 12 }, (_, i) => ({
 }));
 
 describe('PreupgradeReportsTable', () => {
+  let foremanConsoleError;
+
+  beforeAll(() => {
+    // TableIndexPage still uses defaultProps until Foreman core PF6 lands.
+    foremanConsoleError = console.error;
+    console.error = (message, ...args) => {
+      const mentionsDefaultProps =
+        (typeof message === 'string' && message.includes('defaultProps')) ||
+        args.some(
+          arg => typeof arg === 'string' && arg.includes('defaultProps')
+        );
+
+      if (mentionsDefaultProps) {
+        return;
+      }
+
+      foremanConsoleError(message, ...args);
+    };
+  });
+
+  afterAll(() => {
+    console.error = foremanConsoleError;
+  });
+
   beforeEach(() => {
     jest.clearAllMocks();
 
